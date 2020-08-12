@@ -1,0 +1,17 @@
+line_length:
+ - 300 # warning
+ - 400 # error
+
+disabled_rules:
+ - opening_brace
+ - comma
+ - colon
+ - void_return
+ - identifier_name
+ - statement_position
+
+excluded:
+- Pods
+- IsItRealTests
+- IsItRealUITests
+ - statement_position
