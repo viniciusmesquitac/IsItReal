@@ -15,8 +15,8 @@ class SwifterService {
     private init() {}
     
     private var swifter = Swifter(
-        consumerKey: "RKuZYLvNVVAfkBTaHRBuzbDWT",
-        consumerSecret: "q0f69jU2apSVfJJ3sH4X7Uh3gsgQB4malsV8Bwzydh4g7viMG5")
+        consumerKey: KEY,
+        consumerSecret: SECRET)
     
     public var failureHandler: (Error) -> Void = { _ in }
     
