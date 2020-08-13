@@ -88,7 +88,6 @@ struct FileHelper {
         }
     }
     
-    
     func retrieveFile(at path: String) -> Data? {
         let contentPath = constructPath(named: path)
         let data = try? Data(contentsOf: contentPath)
@@ -97,6 +96,8 @@ struct FileHelper {
     
     func constructPath(named: String, from path: String? = nil) -> URL {
         let contentPath = mainPath
+        
+        print("MainPath: \(contentPath.absoluteString) \n CompletePath = + \(path ?? "nil")")
         if let path = path {
             return contentPath.appendingPathComponent(path).appendingPathComponent(named)
         } else {

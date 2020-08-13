@@ -26,7 +26,7 @@ class TweetRepository: Repository {
         
         self.tweets = fileNames.compactMap { fileName in
             if let data = helper.retrieveFile(at: fileName) {
-                // Decode from Data type to Item type
+                // decode from Data type to Item type
                 let item = try? JSONDecoder().decode(Tweet.self, from: data)
                 return item
             }

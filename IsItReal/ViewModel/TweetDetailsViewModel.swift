@@ -9,7 +9,8 @@
 import Foundation
 
 struct TweetDetailsViewModel {
-    private var tweet: Tweet
+    var tweet: Tweet
+    
     init(tweet: Tweet) {
         self.tweet = tweet
     }

@@ -10,18 +10,18 @@ import Foundation
 
 protocol ConfigurableViewModel {
     associatedtype Repository
-    var handleUpdate: () -> Void { get set }
+    var handleUpdate: (() -> Void)? { get set }
 }
 
-struct ListTweetViewModel: ConfigurableViewModel {
+class ListTweetViewModel: ConfigurableViewModel {
     
-    typealias Repository = TweetRepository
+    typealias Repository = MockRepository
     
-    public var handleUpdate: () -> Void = {}
+    public var handleUpdate: (() -> Void)?
     
-    fileprivate var repository = Repository()
+    var repository = Repository()
     
-    fileprivate var tweetsDetailsViewModel: [TweetDetailsViewModel]
+    var tweetsDetailsViewModel: [TweetDetailsViewModel] = []
     
     public var numberOfRows: Int {
         if tweetsDetailsViewModel.count == 0 {
@@ -30,10 +30,16 @@ struct ListTweetViewModel: ConfigurableViewModel {
         return tweetsDetailsViewModel.count
     }
     
+    public func cellViewModel(at index: Int) -> TweetDetailsViewModel? {
+        let tweet = getTweet(for: index)
+        return tweet
+    }
+    
     private func getTweets() -> [TweetDetailsViewModel] {
         // TODO: Recieve all tweets from repository and add to `tweetsDetailsViewModel`
-        
-        return []
+        let tweets = repository.getAll()
+        self.tweetsDetailsViewModel = tweets.map({TweetDetailsViewModel(tweet: $0)})
+        return tweetsDetailsViewModel
     }
     
     public func getTweet(for index: Int) -> TweetDetailsViewModel? {
@@ -42,5 +48,4 @@ struct ListTweetViewModel: ConfigurableViewModel {
         }
         return nil
     }
-    
 }
