@@ -12,11 +12,28 @@ class TweetRepository: Repository {
     
     typealias Object = Tweet
     
-    let fileManagerHelper = FileManagerHelper()
+    let helper = FileHelper()
+    
+    var tweets: [Tweet] = []
     
     func getAll() -> [Tweet] {
-        // TODO:
-        return []
+        // TODO: Get all files decoded to tweet
+        let fileNames: [String] = helper.contentsForDirectory(atPath: "")
+        
+        guard tweets.isEmpty else {
+            return tweets
+        }
+        
+        self.tweets = fileNames.compactMap { fileName in
+            if let data = helper.retrieveFile(at: fileName) {
+                // Decode from Data type to Item type
+                let item = try? JSONDecoder().decode(Tweet.self, from: data)
+                return item
+            }
+            return nil
+        }
+        
+        return tweets
     }
     
     func get(id: Int) -> Tweet? {
@@ -24,16 +41,23 @@ class TweetRepository: Repository {
         return nil
     }
     
-    func add(object: Tweet) {
+    func add(object: Tweet) -> Bool {
         // TODO:
+        if let data = try? JSONEncoder().encode(object) {
+            helper.createFile(with: data, name: object.idStr)
+            return true
+        }
+        return false
     }
     
-    func update(object: Tweet) {
+    func update(object: Tweet) -> Bool {
         // TODO:
+        return false
     }
     
-    func delete(object: Tweet) {
+    func delete(object: Tweet) -> Bool {
         // TODO:
+        return false
     }
     
     

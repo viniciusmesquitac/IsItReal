@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Tweet: Decodable {
+struct Tweet: Decodable & Encodable {
     let text: String
     let idStr: String
     let createdDate: String

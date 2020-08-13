@@ -17,6 +17,7 @@
 		81B1DC3324E56A2300D755C0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3224E56A2300D755C0 /* Repository.swift */; };
 		81B1DC3524E56A3600D755C0 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3424E56A3600D755C0 /* FileHelper.swift */; };
 		81B1DC3724E56D7500D755C0 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3624E56D7500D755C0 /* APIConstants.swift */; };
+		81B1DC3A24E58CC300D755C0 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3924E58CC300D755C0 /* HistoryTableViewCell.swift */; };
 		81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5224E4758E0080F089 /* AppDelegate.swift */; };
 		81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5424E4758E0080F089 /* SceneDelegate.swift */; };
 		81F63C5A24E4758E0080F089 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C5824E4758E0080F089 /* TabBar.storyboard */; };
@@ -61,6 +62,7 @@
 		81B1DC3224E56A2300D755C0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		81B1DC3424E56A3600D755C0 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		81B1DC3624E56D7500D755C0 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		81B1DC3924E58CC300D755C0 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		81F63C4F24E4758E0080F089 /* IsItReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsItReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F63C5224E4758E0080F089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F63C5424E4758E0080F089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 				81B1DC3624E56D7500D755C0 /* APIConstants.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		81B1DC3824E58C9B00D755C0 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				81B1DC3924E58CC300D755C0 /* HistoryTableViewCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		81F63C4624E4758E0080F089 = {
@@ -234,6 +244,7 @@
 		81F63C8524E477410080F089 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				81B1DC3824E58C9B00D755C0 /* CustomCell */,
 				81F63C5824E4758E0080F089 /* TabBar.storyboard */,
 				81F63C8924E477C70080F089 /* Analyse.storyboard */,
 				81F63C8B24E477D90080F089 /* History.storyboard */,
@@ -522,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B1DC3A24E58CC300D755C0 /* HistoryTableViewCell.swift in Sources */,
 				81B1DC2B24E4EAFD00D755C0 /* ListTweetViewModel.swift in Sources */,
 				81F63C9024E479CC0080F089 /* AnallyseTweetViewController.swift in Sources */,
 				81B1DC2624E4E6D200D755C0 /* TweetDetailsViewModel.swift in Sources */,

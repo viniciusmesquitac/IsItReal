@@ -12,7 +12,7 @@ protocol Repository {
     associatedtype Object
     func getAll() -> [Object]
     func get(id: Int) -> Object?
-    func add(object: Object)
-    func update(object: Object)
-    func delete(object: Object)
+    func add(object: Object) -> Bool
+    func update(object: Object) -> Bool
+    func delete(object: Object) -> Bool
 }
