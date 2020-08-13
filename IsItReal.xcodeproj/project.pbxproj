@@ -16,8 +16,8 @@
 		81B1DC3124E55EF600D755C0 /* SwifterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3024E55EF600D755C0 /* SwifterService.swift */; };
 		81B1DC3324E56A2300D755C0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3224E56A2300D755C0 /* Repository.swift */; };
 		81B1DC3524E56A3600D755C0 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3424E56A3600D755C0 /* FileHelper.swift */; };
-		81B1DC3724E56D7500D755C0 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3624E56D7500D755C0 /* APIConstants.swift */; };
 		81B1DC3A24E58CC300D755C0 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3924E58CC300D755C0 /* HistoryTableViewCell.swift */; };
+		81B1DC3C24E58FE500D755C0 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC3B24E58FE500D755C0 /* APIConstants.swift */; };
 		81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5224E4758E0080F089 /* AppDelegate.swift */; };
 		81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5424E4758E0080F089 /* SceneDelegate.swift */; };
 		81F63C5A24E4758E0080F089 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C5824E4758E0080F089 /* TabBar.storyboard */; };
@@ -61,8 +61,8 @@
 		81B1DC3024E55EF600D755C0 /* SwifterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifterService.swift; sourceTree = "<group>"; };
 		81B1DC3224E56A2300D755C0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		81B1DC3424E56A3600D755C0 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
-		81B1DC3624E56D7500D755C0 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		81B1DC3924E58CC300D755C0 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		81B1DC3B24E58FE500D755C0 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		81F63C4F24E4758E0080F089 /* IsItReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsItReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F63C5224E4758E0080F089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F63C5424E4758E0080F089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				81B1DC3024E55EF600D755C0 /* SwifterService.swift */,
-				81B1DC3624E56D7500D755C0 /* APIConstants.swift */,
+				81B1DC3B24E58FE500D755C0 /* APIConstants.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -542,9 +542,9 @@
 				81F63C8824E4778D0080F089 /* TabBarController.swift in Sources */,
 				81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */,
 				81F63C9824E47F6E0080F089 /* Tweet.swift in Sources */,
-				81B1DC3724E56D7500D755C0 /* APIConstants.swift in Sources */,
 				81F63C9A24E47F780080F089 /* User.swift in Sources */,
 				81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */,
+				81B1DC3C24E58FE500D755C0 /* APIConstants.swift in Sources */,
 				81B1DC3524E56A3600D755C0 /* FileHelper.swift in Sources */,
 				81F63C8E24E4795D0080F089 /* HistoryListViewController.swift in Sources */,
 				81B1DC3324E56A2300D755C0 /* Repository.swift in Sources */,
