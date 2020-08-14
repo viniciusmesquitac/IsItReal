@@ -9,27 +9,30 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-    fileprivate var tweetUserName: UILabel = {
-        let label = UILabel()
-        label.text = ""
-        return label
-    }()
     
-    fileprivate var tweetScreenName: UILabel = {
-        let label = UILabel()
-        label.text = ""
-        return label
-    }()
+    static let nibName = "HistoryTableViewCell"
+    static let cellId = "tweetHistoryCell"
     
-    fileprivate var tweetText: UILabel = {
-        let label = UILabel()
-        label.text = ""
-        return label
-    }()
+    @IBOutlet weak var tweetUserName: UILabel!
+    @IBOutlet weak var tweetScreenName: UILabel!
+    @IBOutlet weak var tweetText: UILabel!
+    @IBOutlet weak var tweetValidation: UILabel!
+    @IBOutlet weak var leadingFromCell: NSLayoutConstraint!
     
     func configure(viewModel: TweetDetailsViewModel) {
         // TODO: update all views
-        self.textLabel?.text = viewModel.tweet.user.name
-        self.detailTextLabel?.text = viewModel.tweet.text
+        tweetUserName.text = viewModel.tweet.user.name
+        tweetScreenName.text = viewModel.tweet.user.screenName
+        tweetText.text = viewModel.tweet.text
+//        tweetValidation.text = viewModel.isValid
+    }
+    
+    override func setNeedsUpdateConstraints() {
+        if isEditing {
+            self.leadingFromCell.constant = leadingFromCell.constant + 32.0
+        } else {
+            self.leadingFromCell.constant = 16
+        }
+        
     }
 }

@@ -3,6 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,20 +24,22 @@
             </objects>
             <point key="canvasLocation" x="-693" y="62"/>
         </scene>
-        <!--History List View Controller-->
+        <!--History-->
         <scene sceneID="IU8-DA-lAg">
             <objects>
                 <tableViewController id="Ok1-IS-pen" customClass="HistoryListViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RkA-4o-GKV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RkA-4o-GKV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="WhiteBackground"/>
+                        <color key="tintColor" name="TwitterBlue"/>
+                        <color key="sectionIndexBackgroundColor" name="WhiteBackground"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CgR-HJ-HO2">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="CgR-HJ-HO2" customClass="HistoryTableViewCell" customModule="IsItReal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CgR-HJ-HO2" id="TSb-NI-NGK">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -45,13 +49,53 @@
                             <outlet property="delegate" destination="Ok1-IS-pen" id="QTX-Z4-nqJ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="gz9-aS-lzK"/>
-                    <navigationItem key="navigationItem" id="UDd-BU-c86"/>
+                    <tabBarItem key="tabBarItem" title="History" image="doc.plaintext" catalog="system" selectedImage="doc.plaintext" id="gz9-aS-lzK"/>
+                    <navigationItem key="navigationItem" title="History" id="UDd-BU-c86">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Edit" id="TDY-Q6-Khg">
+                                <connections>
+                                    <action selector="startEditing:" destination="Ok1-IS-pen" id="LNl-Zv-AU5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" id="bzP-5a-M7I">
+                                <connections>
+                                    <action selector="startDeleteTweets:" destination="Ok1-IS-pen" id="2su-bq-pNf"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="b6C-xV-fEc" kind="presentation" identifier="tweetDetails" id="xtl-SE-mgl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-4u-Cc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="67" y="62"/>
         </scene>
+        <!--Tweet Details View Controller-->
+        <scene sceneID="hQ6-d1-6HE">
+            <objects>
+                <viewController storyboardIdentifier="TweetDetails" id="b6C-xV-fEc" customClass="TweetDetailsViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sUw-VZ-t3r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jq1-2n-vgU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LgW-6l-slA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="62"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <namedColor name="TwitterBlue">
+            <color red="0.14029464129999999" green="0.62487441300000002" blue="0.94905644659999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="WhiteBackground">
+            <color red="0.91032600399999997" green="0.96027320620000001" blue="0.99216240639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

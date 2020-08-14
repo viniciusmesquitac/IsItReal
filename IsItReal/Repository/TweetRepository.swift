@@ -9,15 +9,11 @@
 import Foundation
 
 class TweetRepository: Repository {
-    
     typealias Object = Tweet
-    
     let helper = FileHelper()
-    
     var tweets: [Tweet] = []
     
     func getAll() -> [Tweet] {
-        // TODO: Get all files decoded to tweet
         let fileNames: [String] = helper.contentsForDirectory(atPath: "")
         
         guard tweets.isEmpty else {
@@ -32,7 +28,6 @@ class TweetRepository: Repository {
             }
             return nil
         }
-        
         return tweets
     }
     
@@ -59,7 +54,5 @@ class TweetRepository: Repository {
         // TODO:
         return false
     }
-    
-    
     
 }

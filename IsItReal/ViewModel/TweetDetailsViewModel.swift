@@ -24,3 +24,13 @@ extension TweetDetailsViewModel {
         return false
     }
 }
+
+
+extension TweetDetailsViewModel: Equatable {
+    
+    static func == (lhs: TweetDetailsViewModel, rhs: TweetDetailsViewModel) -> Bool {
+        return lhs.tweet.idStr == rhs.tweet.idStr
+    }
+    
+    
+}

@@ -1,28 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lsD-sk-Mx0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YYN-KV-gPz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Anallyse Tweet View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="wFv-fD-KTu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zqF-Kh-xnX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="YYN-KV-gPz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nrb-Qz-HEK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lsD-sk-Mx0" kind="relationship" relationship="rootViewController" id="Rha-Qb-Q8V"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-716" y="138"/>
+        </scene>
+        <!--Analyse-->
         <scene sceneID="hmZ-Cq-Oj1">
             <objects>
                 <viewController id="lsD-sk-Mx0" customClass="AnallyseTweetViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cDv-jw-Kiy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABd-IS-GXz">
+                                <rect key="frame" x="24" y="346" width="366" height="40"/>
+                                <color key="backgroundColor" name="TwitterBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kUQ-lx-Lgf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Select Photo"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="20.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightSampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-Lt-qev">
+                                <rect key="frame" x="16" y="120" width="382" height="194"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="194" id="WYf-CR-OZY"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBM-fr-9t6">
+                                <rect key="frame" x="24" y="402" width="366" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bF1-19-2pQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" name="TwistedBlue"/>
+                                <state key="normal" title="Analyse"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="TwistedBlue"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="20.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="WhiteBackground"/>
+                        <constraints>
+                            <constraint firstItem="ABd-IS-GXz" firstAttribute="leading" secondItem="qXV-cp-kYb" secondAttribute="leading" constant="24" id="4Hs-uQ-xnq"/>
+                            <constraint firstItem="qXV-cp-kYb" firstAttribute="trailing" secondItem="ABd-IS-GXz" secondAttribute="trailing" constant="24" id="6Qc-YH-HPH"/>
+                            <constraint firstItem="qXV-cp-kYb" firstAttribute="trailing" secondItem="mBM-fr-9t6" secondAttribute="trailing" constant="24" id="79j-BG-fap"/>
+                            <constraint firstItem="qXV-cp-kYb" firstAttribute="trailing" secondItem="HcH-Lt-qev" secondAttribute="trailing" constant="16" id="ABj-tM-zEE"/>
+                            <constraint firstItem="mBM-fr-9t6" firstAttribute="top" secondItem="ABd-IS-GXz" secondAttribute="bottom" constant="16" id="EGr-gx-CNh"/>
+                            <constraint firstItem="HcH-Lt-qev" firstAttribute="leading" secondItem="qXV-cp-kYb" secondAttribute="leading" constant="16" id="Mwj-d6-oZE"/>
+                            <constraint firstItem="mBM-fr-9t6" firstAttribute="leading" secondItem="qXV-cp-kYb" secondAttribute="leading" constant="24" id="R8G-Xs-Esw"/>
+                            <constraint firstItem="HcH-Lt-qev" firstAttribute="top" secondItem="qXV-cp-kYb" secondAttribute="top" constant="32" id="hbO-MI-Dhc"/>
+                            <constraint firstItem="ABd-IS-GXz" firstAttribute="centerX" secondItem="qXV-cp-kYb" secondAttribute="centerX" id="n2J-k2-8TG"/>
+                            <constraint firstItem="ABd-IS-GXz" firstAttribute="top" secondItem="HcH-Lt-qev" secondAttribute="bottom" constant="32" id="xoC-pE-I02"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qXV-cp-kYb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="aYY-rT-pSq"/>
+                    <tabBarItem key="tabBarItem" title="Analyse" image="doc.text.magnifyingglass" catalog="system" selectedImage="doc.text.magnifyingglass" id="aYY-rT-pSq"/>
+                    <navigationItem key="navigationItem" title="Analyse" id="Kdu-5s-Ege"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3j-05-ufN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LightSampleImage" width="351" height="193"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="116" height="128"/>
+        <namedColor name="TwistedBlue">
+            <color red="0.034823942929999997" green="0.51405161619999995" blue="0.70590645070000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TwitterBlue">
+            <color red="0.14029464129999999" green="0.62487441300000002" blue="0.94905644659999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="WhiteBackground">
+            <color red="0.91032600399999997" green="0.96027320620000001" blue="0.99216240639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

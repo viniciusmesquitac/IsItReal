@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vinicius Mesquita. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ConfigurableViewModel {
     associatedtype Repository
@@ -21,12 +21,13 @@ class ListTweetViewModel: ConfigurableViewModel {
     
     var repository = Repository()
     
-    var tweetsDetailsViewModel: [TweetDetailsViewModel] = []
+    var tweetsDetailsViewModel: [TweetDetailsViewModel] = [] {
+        didSet {
+            DispatchQueue.main.async { self.handleUpdate?() }
+        }
+    }
     
     public var numberOfRows: Int {
-        if tweetsDetailsViewModel.count == 0 {
-            return getTweets().count
-        }
         return tweetsDetailsViewModel.count
     }
     
@@ -35,7 +36,7 @@ class ListTweetViewModel: ConfigurableViewModel {
         return tweet
     }
     
-    private func getTweets() -> [TweetDetailsViewModel] {
+    public func getTweets() -> [TweetDetailsViewModel] {
         // TODO: Recieve all tweets from repository and add to `tweetsDetailsViewModel`
         let tweets = repository.getAll()
         self.tweetsDetailsViewModel = tweets.map({TweetDetailsViewModel(tweet: $0)})
@@ -47,5 +48,27 @@ class ListTweetViewModel: ConfigurableViewModel {
             return tweetsDetailsViewModel[index]
         }
         return nil
+    }
+    
+    public func selectRow(row: Int) {
+        
+    }
+    
+    public func handleSelectedTweets(at rows: [IndexPath]) {
+        var tweets = [TweetDetailsViewModel]()
+        
+        for indexPath in rows {
+            tweets.append(tweetsDetailsViewModel[indexPath.row])
+        }
+        
+        for tweet in tweets {
+            if let index = tweetsDetailsViewModel.firstIndex(of: tweet) {
+                tweetsDetailsViewModel.remove(at: index)
+            }
+        }
+        
+        self.handleUpdate?()
+        
+        
     }
 }
