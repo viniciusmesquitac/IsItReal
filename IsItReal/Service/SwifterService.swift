@@ -20,14 +20,18 @@ class SwifterService {
     
     public var failureHandler: (Error) -> Void = { _ in }
     
-    public func searchTweet(query: String, completion: @escaping ([Tweet]?) -> Void) {
+    public func searchTweet(query: String, presentFrom: UIViewController?, completion: @escaping ([Tweet]?) -> Void) {
         
-        swifter.searchTweet(using: query, success: { json, _ in
-            if let jsonString = json.array?.description {
-                let jsonData = Data(jsonString.utf8)
-                let tweets = self.decodeTweets(from: jsonData)
-                completion(tweets)
-            }
+        swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: presentFrom, success: { (token, response) in
+            
+            self.swifter.searchTweet(using: query, success: { json, _ in
+                if let jsonString = json.array?.description {
+                    let jsonData = Data(jsonString.utf8)
+                    let tweets = self.decodeTweets(from: jsonData)
+                    completion(tweets)
+                }
+            }, failure: self.failureHandler)
+            
         }, failure: failureHandler)
         
     }
@@ -42,5 +46,5 @@ class SwifterService {
 }
 
 enum AuthSwifter {
-    static let url: URL? = URL(string: "TwitterTestingAPI://success")
+    static let url: URL! = URL(string: "TwitterTestingAPI://success")
 }

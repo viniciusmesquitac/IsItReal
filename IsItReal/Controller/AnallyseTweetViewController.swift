@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnallyseTweetViewController: UIViewController {
+class AnalyseTweetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,4 @@ class AnallyseTweetViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
-
 }

@@ -63,7 +63,6 @@ class HistoryListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.cellId) as? HistoryTableViewCell
-        if indexPath.row % 2 != 0 { cell?.backgroundColor = .whiteBackground }
         if let cellVM = viewModel.cellViewModel(at: indexPath.row) {
             cell?.configure(viewModel: cellVM)
         }
@@ -71,7 +70,6 @@ class HistoryListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard !tableView.isEditing else { return }
         let storyboard = UIStoryboard(name: "History", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "TweetDetails") as? TweetDetailsViewController {

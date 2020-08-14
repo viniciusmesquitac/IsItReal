@@ -27,7 +27,7 @@
         <!--Analyse-->
         <scene sceneID="hmZ-Cq-Oj1">
             <objects>
-                <viewController id="lsD-sk-Mx0" customClass="AnallyseTweetViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lsD-sk-Mx0" customClass="AnalyseTweetViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cDv-jw-Kiy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,8 +46,11 @@
                                         <real key="value" value="20.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapSelectPhotoButton:" destination="lsD-sk-Mx0" eventType="touchUpInside" id="FyJ-OH-Ogq"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightSampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-Lt-qev">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightSampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-Lt-qev">
                                 <rect key="frame" x="16" y="120" width="382" height="194"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="194" id="WYf-CR-OZY"/>
@@ -72,6 +75,9 @@
                                         <real key="value" value="20.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapSelectAnalyseButton:" destination="lsD-sk-Mx0" eventType="touchUpInside" id="H0h-2h-as8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="WhiteBackground"/>
@@ -92,6 +98,9 @@
                     <tabBarItem key="tabBarItem" title="Analyse" image="doc.text.magnifyingglass" catalog="system" selectedImage="doc.text.magnifyingglass" id="aYY-rT-pSq"/>
                     <navigationItem key="navigationItem" title="Analyse" id="Kdu-5s-Ege"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageToAnalyse" destination="HcH-Lt-qev" id="d4N-PL-8Fc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3j-05-ufN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,6 +17,10 @@ struct TweetDetailsViewModel {
 }
 
 extension TweetDetailsViewModel {
+    var tweetScreenName: String {
+        return "@\(tweet.user.screenName)"
+    }
+    
     var link: String {
         return "https://twitter.com/\(tweet.user.screenName)/status/\(tweet.idStr)"
     }
