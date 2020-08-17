@@ -34,7 +34,6 @@ class HistoryListViewController: UITableViewController {
         for cell in tableView.visibleCells {
             cell.setNeedsUpdateConstraints()
         }
-        
     }
     
     @IBAction func startEditing(_ sender: Any) {
@@ -43,7 +42,6 @@ class HistoryListViewController: UITableViewController {
     }
     
     @IBAction func startDeleteTweets(_ sender: Any) {
-        
         if let selectedRows = tableView.indexPathsForSelectedRows {
             viewModel.handleSelectedTweets(at: selectedRows)
             tableView.beginUpdates()

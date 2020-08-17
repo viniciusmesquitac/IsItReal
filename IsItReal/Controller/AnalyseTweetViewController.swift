@@ -9,19 +9,23 @@
 import UIKit
 import Swifter
 
+protocol AnalyseTweetViewControllerDelegate: class {
+    func didSwichUserPhoto()
+}
+
 class AnalyseTweetViewController: UIViewController {
     
     @IBOutlet weak var imageToAnalyse: UIImageView!
     var imageUrl: URL?
     let imageReader = ImageReader()
     
+    var delegate: AnalyseTweetViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
     @IBAction func didTapSelectPhotoButton(_ sender: Any) {
-        self.switchUserPhoto()
+        delegate?.didSwichUserPhoto()
     }
     
     @IBAction func didTapSelectAnalyseButton(_ sender: Any) {
@@ -39,6 +43,8 @@ class AnalyseTweetViewController: UIViewController {
     }
 }
 
+/*
+ 
 extension AnalyseTweetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func switchUserPhoto() {
         let picker = UIImagePickerController()
@@ -54,3 +60,4 @@ extension AnalyseTweetViewController: UIImagePickerControllerDelegate, UINavigat
         dismiss(animated: true)
     }
 }
+*/

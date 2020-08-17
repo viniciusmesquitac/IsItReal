@@ -20,7 +20,7 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var leadingFromCell: NSLayoutConstraint!
     
     func configure(viewModel: TweetDetailsViewModel) {
-        // TODO: update all views
+        // Update all views
         tweetUserName.text = viewModel.tweet.user.name
         tweetScreenName.text = viewModel.tweetScreenName
         tweetText.text = viewModel.tweet.text

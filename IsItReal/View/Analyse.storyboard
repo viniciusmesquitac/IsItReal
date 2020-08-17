@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YYN-KV-gPz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -8,32 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="wFv-fD-KTu">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zqF-Kh-xnX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController id="YYN-KV-gPz" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nrb-Qz-HEK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="lsD-sk-Mx0" kind="relationship" relationship="rootViewController" id="Rha-Qb-Q8V"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-716" y="138"/>
-        </scene>
         <!--Analyse-->
         <scene sceneID="hmZ-Cq-Oj1">
             <objects>
-                <viewController id="lsD-sk-Mx0" customClass="AnalyseTweetViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="analyseViewController" id="lsD-sk-Mx0" customClass="AnalyseTweetViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cDv-jw-Kiy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABd-IS-GXz">
-                                <rect key="frame" x="24" y="346" width="366" height="40"/>
+                                <rect key="frame" x="24" y="302" width="366" height="40"/>
                                 <color key="backgroundColor" name="TwitterBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kUQ-lx-Lgf"/>
@@ -51,13 +35,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightSampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-Lt-qev">
-                                <rect key="frame" x="16" y="120" width="382" height="194"/>
+                                <rect key="frame" x="16" y="76" width="382" height="194"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="194" id="WYf-CR-OZY"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBM-fr-9t6">
-                                <rect key="frame" x="24" y="402" width="366" height="40"/>
+                                <rect key="frame" x="24" y="358" width="366" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bF1-19-2pQ"/>
                                 </constraints>
@@ -111,13 +95,13 @@
         <image name="LightSampleImage" width="351" height="193"/>
         <image name="doc.text.magnifyingglass" catalog="system" width="116" height="128"/>
         <namedColor name="TwistedBlue">
-            <color red="0.034823942929999997" green="0.51405161619999995" blue="0.70590645070000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.035000000149011612" green="0.51399999856948853" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="TwitterBlue">
-            <color red="0.14029464129999999" green="0.62487441300000002" blue="0.94905644659999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.14000000059604645" green="0.625" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="WhiteBackground">
-            <color red="0.91032600399999997" green="0.96027320620000001" blue="0.99216240639999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9100000262260437" green="0.95999997854232788" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

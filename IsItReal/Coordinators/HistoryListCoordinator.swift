@@ -6,18 +6,23 @@
 //  Copyright © 2020 Vinicius Mesquita. All rights reserved.
 //
 
-import Foundation
-protocol Coordinator {
-    var childCoordinator: [Coordinator] { get }
-    func start()
+import UIKit
+
+protocol HistoryListCoordinatorDelegate: AnyObject {
+    func alert()
 }
 
-final class AppCoordinator: Coordinator {
+final class HistoryListCordinator: Coordinator {
     
-    var childCoordinator: [Coordinator] = []
+    var navigationController: UINavigationController!
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     func start() {
-        
+        let vc = UIStoryboard.instantiateHistoryListViewController()
+        navigationController?.pushViewController(vc, animated: false)
     }
     
 }

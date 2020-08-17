@@ -8,8 +8,14 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+protocol TabBarViewControllerDelegate: class {
+    func alert()
+}
 
+class TabBarViewController: UITabBarController {
+
+    weak var delegate: TabBarViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

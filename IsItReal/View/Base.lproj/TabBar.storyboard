@@ -26,19 +26,15 @@
             </objects>
             <point key="canvasLocation" x="-142" y="469"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="ZeJ-ng-CFV">
             <objects>
-                <tabBarController id="NIa-cb-rIW" customClass="TabBarController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarController" id="NIa-cb-rIW" customClass="TabBarViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qCV-6u-39p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="qfI-ab-3ey" kind="relationship" relationship="viewControllers" id="iv7-kS-pvT"/>
-                        <segue destination="IcQ-9T-VQ4" kind="relationship" relationship="viewControllers" id="igG-Iz-LCT"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLm-aF-at9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

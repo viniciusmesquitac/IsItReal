@@ -28,6 +28,10 @@
 		81B7795524E6CB12007389BD /* HistoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795424E6CB12007389BD /* HistoryListCoordinator.swift */; };
 		81B7795724E6D442007389BD /* ImageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795624E6D442007389BD /* ImageReader.swift */; };
 		81B7795924EACA68007389BD /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795824EACA68007389BD /* QueryResult.swift */; };
+		81B7795B24EACFC0007389BD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795A24EACFC0007389BD /* Coordinator.swift */; };
+		81B7795D24EAD5C0007389BD /* AnalyseTweetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795C24EAD5C0007389BD /* AnalyseTweetCoordinator.swift */; };
+		81B7795F24EAD77C007389BD /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795E24EAD77C007389BD /* UIStoryboard.swift */; };
+		81B7796124EAE48D007389BD /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7796024EAE48D007389BD /* TabBarCoordinator.swift */; };
 		81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5224E4758E0080F089 /* AppDelegate.swift */; };
 		81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5424E4758E0080F089 /* SceneDelegate.swift */; };
 		81F63C5A24E4758E0080F089 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C5824E4758E0080F089 /* TabBar.storyboard */; };
@@ -35,7 +39,7 @@
 		81F63C5F24E475900080F089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C5D24E475900080F089 /* LaunchScreen.storyboard */; };
 		81F63C6A24E475900080F089 /* IsItRealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C6924E475900080F089 /* IsItRealTests.swift */; };
 		81F63C7524E475900080F089 /* IsItRealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C7424E475900080F089 /* IsItRealUITests.swift */; };
-		81F63C8824E4778D0080F089 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C8724E4778D0080F089 /* TabBarController.swift */; };
+		81F63C8824E4778D0080F089 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C8724E4778D0080F089 /* TabBarViewController.swift */; };
 		81F63C8A24E477C70080F089 /* Analyse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C8924E477C70080F089 /* Analyse.storyboard */; };
 		81F63C8C24E477D90080F089 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C8B24E477D90080F089 /* History.storyboard */; };
 		81F63C8E24E4795D0080F089 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C8D24E4795D0080F089 /* HistoryListViewController.swift */; };
@@ -83,6 +87,10 @@
 		81B7795424E6CB12007389BD /* HistoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListCoordinator.swift; sourceTree = "<group>"; };
 		81B7795624E6D442007389BD /* ImageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageReader.swift; sourceTree = "<group>"; };
 		81B7795824EACA68007389BD /* QueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
+		81B7795A24EACFC0007389BD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		81B7795C24EAD5C0007389BD /* AnalyseTweetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseTweetCoordinator.swift; sourceTree = "<group>"; };
+		81B7795E24EAD77C007389BD /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		81B7796024EAE48D007389BD /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		81F63C4F24E4758E0080F089 /* IsItReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsItReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F63C5224E4758E0080F089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F63C5424E4758E0080F089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +104,7 @@
 		81F63C7024E475900080F089 /* IsItRealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsItRealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F63C7424E475900080F089 /* IsItRealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsItRealUITests.swift; sourceTree = "<group>"; };
 		81F63C7624E475900080F089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81F63C8724E4778D0080F089 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		81F63C8724E4778D0080F089 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		81F63C8924E477C70080F089 /* Analyse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analyse.storyboard; sourceTree = "<group>"; };
 		81F63C8B24E477D90080F089 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		81F63C8D24E4795D0080F089 /* HistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 			children = (
 				81B7794724E5D9CB007389BD /* UIButton+Designable.swift */,
 				81B7794F24E6B7EB007389BD /* Color.swift */,
+				81B7795E24EAD77C007389BD /* UIStoryboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -202,6 +211,9 @@
 			children = (
 				81B7795224E6CAE2007389BD /* AppCoordinator.swift */,
 				81B7795424E6CB12007389BD /* HistoryListCoordinator.swift */,
+				81B7795A24EACFC0007389BD /* Coordinator.swift */,
+				81B7795C24EAD5C0007389BD /* AnalyseTweetCoordinator.swift */,
+				81B7796024EAE48D007389BD /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -277,7 +289,7 @@
 		81F63C8324E477310080F089 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				81F63C8724E4778D0080F089 /* TabBarController.swift */,
+				81F63C8724E4778D0080F089 /* TabBarViewController.swift */,
 				81F63C8D24E4795D0080F089 /* HistoryListViewController.swift */,
 				81F63C8F24E479CC0080F089 /* AnalyseTweetViewController.swift */,
 				81B7794B24E6022D007389BD /* TweetDetailsViewController.swift */,
@@ -594,16 +606,20 @@
 				81B7795524E6CB12007389BD /* HistoryListCoordinator.swift in Sources */,
 				81B1DC2624E4E6D200D755C0 /* TweetDetailsViewModel.swift in Sources */,
 				81B7795724E6D442007389BD /* ImageReader.swift in Sources */,
+				81B7796124EAE48D007389BD /* TabBarCoordinator.swift in Sources */,
 				81B7795924EACA68007389BD /* QueryResult.swift in Sources */,
 				81B1DC2E24E4F36500D755C0 /* TweetRepository.swift in Sources */,
 				81B7794C24E6022D007389BD /* TweetDetailsViewController.swift in Sources */,
+				81B7795B24EACFC0007389BD /* Coordinator.swift in Sources */,
 				81B1DC3124E55EF600D755C0 /* SwifterService.swift in Sources */,
-				81F63C8824E4778D0080F089 /* TabBarController.swift in Sources */,
+				81F63C8824E4778D0080F089 /* TabBarViewController.swift in Sources */,
 				81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */,
+				81B7795F24EAD77C007389BD /* UIStoryboard.swift in Sources */,
 				81F63C9824E47F6E0080F089 /* Tweet.swift in Sources */,
 				81B1DC4524E59B8700D755C0 /* MockRepository.swift in Sources */,
 				81F63C9A24E47F780080F089 /* User.swift in Sources */,
 				81B7795024E6B7EB007389BD /* Color.swift in Sources */,
+				81B7795D24EAD5C0007389BD /* AnalyseTweetCoordinator.swift in Sources */,
 				81B7795324E6CAE2007389BD /* AppCoordinator.swift in Sources */,
 				81B7794524E5CADD007389BD /* HistoryTableViewCell.swift in Sources */,
 				81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */,
