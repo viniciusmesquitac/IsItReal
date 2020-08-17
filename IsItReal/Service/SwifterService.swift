@@ -22,9 +22,9 @@ class SwifterService {
     
     public func searchTweet(query: String, presentFrom: UIViewController?, completion: @escaping ([Tweet]?) -> Void) {
         
-        swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: presentFrom, success: { (token, response) in
+        swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: presentFrom, success: { (_, _) in
             
-            self.swifter.searchTweet(using: query, success: { json, _ in
+            self.swifter.searchTweet(using: query,  resultType: "popular", count: 100, success: { json, _ in
                 if let jsonString = json.array?.description {
                     let jsonData = Data(jsonString.utf8)
                     let tweets = self.decodeTweets(from: jsonData)
@@ -35,6 +35,13 @@ class SwifterService {
         }, failure: failureHandler)
         
     }
+    
+//    public func searchUser(userName: String, completion: @escaping ([User]?) -> Void) {
+//        self.swifter.searchUsers(using: userName, success: { json in
+//
+//        })
+//
+//    }
     
     private func decodeTweets(from data: Data) -> [Tweet]? {
         let decoder = JSONDecoder()

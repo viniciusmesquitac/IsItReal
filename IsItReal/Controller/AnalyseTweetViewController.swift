@@ -13,6 +13,7 @@ class AnalyseTweetViewController: UIViewController {
     
     @IBOutlet weak var imageToAnalyse: UIImageView!
     var imageUrl: URL?
+    let imageReader = ImageReader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,29 +22,24 @@ class AnalyseTweetViewController: UIViewController {
     
     @IBAction func didTapSelectPhotoButton(_ sender: Any) {
         self.switchUserPhoto()
-
     }
     
     @IBAction func didTapSelectAnalyseButton(_ sender: Any) {
-        // TODO: Call Framework Vision or SwiftOCR to extract text [OK]
-        let imageReader = ImageReader()
+        // Call Framework Vision or SwiftOCR to extract text [OK]
         if let url = imageUrl {
             let results = imageReader.perform(on: url, recognitionLevel: .fast)
             // Identify results to text, username, screenName.
-            print(results)
-            
-            // TODO: Get Results from Vision and search with Twitter API.
-            SwifterService.shared.searchTweet(query: "Presidente Jair Bolsonaro. Desejo-lhe sucesso.", presentFrom: self) { (tweet) in
-                print(tweet?.count)
+            guard let query = imageReader.createQuery(text: results).query else { return }
+             // Get Results from Vision and search with Twitter API.
+            SwifterService.shared.searchTweet(query: query, presentFrom: self) { (tweets) in
+                // Handle tweet result.
+                print(tweets?.first?.text ?? "nil")
             }
         }
-        
     }
-    
 }
 
 extension AnalyseTweetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func switchUserPhoto() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true

@@ -27,6 +27,7 @@
 		81B7795324E6CAE2007389BD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795224E6CAE2007389BD /* AppCoordinator.swift */; };
 		81B7795524E6CB12007389BD /* HistoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795424E6CB12007389BD /* HistoryListCoordinator.swift */; };
 		81B7795724E6D442007389BD /* ImageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795624E6D442007389BD /* ImageReader.swift */; };
+		81B7795924EACA68007389BD /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795824EACA68007389BD /* QueryResult.swift */; };
 		81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5224E4758E0080F089 /* AppDelegate.swift */; };
 		81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5424E4758E0080F089 /* SceneDelegate.swift */; };
 		81F63C5A24E4758E0080F089 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C5824E4758E0080F089 /* TabBar.storyboard */; };
@@ -81,6 +82,7 @@
 		81B7795224E6CAE2007389BD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		81B7795424E6CB12007389BD /* HistoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListCoordinator.swift; sourceTree = "<group>"; };
 		81B7795624E6D442007389BD /* ImageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageReader.swift; sourceTree = "<group>"; };
+		81B7795824EACA68007389BD /* QueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
 		81F63C4F24E4758E0080F089 /* IsItReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsItReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F63C5224E4758E0080F089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F63C5424E4758E0080F089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			children = (
 				81F63C9724E47F6E0080F089 /* Tweet.swift */,
 				81F63C9924E47F780080F089 /* User.swift */,
+				81B7795824EACA68007389BD /* QueryResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				81B7795524E6CB12007389BD /* HistoryListCoordinator.swift in Sources */,
 				81B1DC2624E4E6D200D755C0 /* TweetDetailsViewModel.swift in Sources */,
 				81B7795724E6D442007389BD /* ImageReader.swift in Sources */,
+				81B7795924EACA68007389BD /* QueryResult.swift in Sources */,
 				81B1DC2E24E4F36500D755C0 /* TweetRepository.swift in Sources */,
 				81B7794C24E6022D007389BD /* TweetDetailsViewController.swift in Sources */,
 				81B1DC3124E55EF600D755C0 /* SwifterService.swift in Sources */,
