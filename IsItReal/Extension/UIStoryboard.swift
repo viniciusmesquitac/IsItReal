@@ -37,15 +37,14 @@ extension UIStoryboard {
         return HistoryListViewController()
     }
     
-    static func instantiateAnalyseTweetViewController(delegate: AnalyseTweetViewControllerDelegate) -> AnalyseTweetViewController {
+    static func instantiateAnalyseTweetViewController() -> AnalyseTweetViewController {
         if let vc = analyse.instantiateViewController(withIdentifier: "analyseViewController") as? AnalyseTweetViewController {
-            vc.delegate = delegate
             return vc
         }
         return  AnalyseTweetViewController()
     }
     
-    static func instantiateTweetDetailsViewController(delegate: AnalyseTweetViewControllerDelegate) -> TweetDetailsViewController {
+    static func instantiateTweetDetailsViewController() -> TweetDetailsViewController {
         if let vc = history.instantiateViewController(withIdentifier: "TweetDetails") as? TweetDetailsViewController {
             return vc
         }

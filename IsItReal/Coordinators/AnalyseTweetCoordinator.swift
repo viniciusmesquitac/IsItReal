@@ -12,7 +12,7 @@ protocol AnalyseTweetCoordinatorDelegate: class {
     func alert()
 }
 
-final class AnalyseTweetCoordinator: Coordinator {
+final class AnalyseTweetCoordinator: NSObject, Coordinator {
     
     var navigationController: UINavigationController!
     
@@ -21,14 +21,27 @@ final class AnalyseTweetCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = UIStoryboard.instantiateAnalyseTweetViewController(delegate: self)
-        vc.delegate = self
+        let vc = UIStoryboard.instantiateAnalyseTweetViewController()
         navigationController?.pushViewController(vc, animated: false)
     }
 }
 
-extension AnalyseTweetCoordinator: AnalyseTweetViewControllerDelegate {
-    func didSwichUserPhoto() {
-        print("works fine")
+
+/*
+ 
+extension AnalyseTweetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func switchUserPhoto() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.imageUrl = info[.imageURL] as? URL
+        guard let image = info[.editedImage] as? UIImage else { return }
+        imageToAnalyse.image = image
+        dismiss(animated: true)
     }
 }
+*/

@@ -11,11 +11,14 @@ import UIKit
 class HistoryListViewController: UITableViewController {
 
     let viewModel = ListTweetViewModel()
-
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _ = viewModel.getTweets()
+        
         updateViewModel()
-        viewModel.getTweets()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 132
         tableView.register(UINib(nibName: HistoryTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: HistoryTableViewCell.cellId)
@@ -30,14 +33,22 @@ class HistoryListViewController: UITableViewController {
     }
     
     override func loadViewIfNeeded() {
-        
         for cell in tableView.visibleCells {
             cell.setNeedsUpdateConstraints()
         }
     }
     
     @IBAction func startEditing(_ sender: Any) {
+        guard let button = sender as? UIBarButtonItem else {return }
         tableView.setEditing(!tableView.isEditing, animated: true)
+        deleteButton.isEnabled = !deleteButton.isEnabled
+        if tableView.isEditing {
+            button.title = "Done"
+            deleteButton.tintColor = nil
+        } else {
+            button.title = "Edit"
+            deleteButton.tintColor = .clear
+        }
         self.loadViewIfNeeded()
     }
     

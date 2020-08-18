@@ -29,7 +29,7 @@ class HistoryTableViewCell: UITableViewCell {
     
     override func setNeedsUpdateConstraints() {
         if isEditing {
-            self.leadingFromCell.constant = leadingFromCell.constant + 32.0
+            self.leadingFromCell.constant = leadingFromCell.constant * 3 + 16
         } else {
             self.leadingFromCell.constant = 16
         }

@@ -23,6 +23,9 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsC-XB-245">
                     <rect key="frame" x="16" y="59" width="305.5" height="52.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="305.5" id="dEx-1a-Dwp"/>
+                    </constraints>
                     <attributedString key="attributedText">
                         <fragment>
                             <string key="content">More Testing, which is a good thing (we have 

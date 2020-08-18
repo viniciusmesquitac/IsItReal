@@ -37,7 +37,6 @@ class TweetRepository: Repository {
     }
     
     func add(object: Tweet) -> Bool {
-        // TODO:
         if let data = try? JSONEncoder().encode(object) {
             helper.createFile(with: data, name: object.idStr)
             return true
@@ -46,13 +45,17 @@ class TweetRepository: Repository {
     }
     
     func update(object: Tweet) -> Bool {
-        // TODO:
         return false
     }
     
     func delete(object: Tweet) -> Bool {
-        // TODO:
-        return false
+        helper.removeFile(at: object.idStr)
+        
+        for (index, tweet) in tweets.enumerated() {
+            if tweet.idStr == object.idStr {
+                tweets.remove(at: index)
+            }
+        }
+        return true
     }
-    
 }

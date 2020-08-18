@@ -97,7 +97,6 @@ struct FileHelper {
     func constructPath(named: String, from path: String? = nil) -> URL {
         let contentPath = mainPath
         
-        print("MainPath: \(contentPath.absoluteString) \n CompletePath = + \(path ?? "nil")")
         if let path = path {
             return contentPath.appendingPathComponent(path).appendingPathComponent(named)
         } else {

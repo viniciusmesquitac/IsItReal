@@ -11,6 +11,7 @@ import Swifter
 class SwifterService {
     
     public static let shared = SwifterService()
+    public var currentPresent: UIViewController?
     
     private init() {}
     
@@ -18,10 +19,13 @@ class SwifterService {
         consumerKey: KEY,
         consumerSecret: SECRET)
     
-    public var failureHandler: (Error) -> Void = { _ in }
+    public var failureHandler: (Error) -> Void = { error in
+        shared.alert(title: "ERROR", message: "\(error.localizedDescription)")
+    }
     
     public func searchTweet(query: String, presentFrom: UIViewController?, completion: @escaping ([Tweet]?) -> Void) {
         
+        currentPresent = presentFrom
         swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: presentFrom, success: { (_, _) in
             
             self.swifter.searchTweet(using: query,  resultType: "popular", count: 100, success: { json, _ in
@@ -32,16 +36,9 @@ class SwifterService {
                 }
             }, failure: self.failureHandler)
             
-        }, failure: failureHandler)
+        }, failure: self.failureHandler)
         
     }
-    
-//    public func searchUser(userName: String, completion: @escaping ([User]?) -> Void) {
-//        self.swifter.searchUsers(using: userName, success: { json in
-//
-//        })
-//
-//    }
     
     private func decodeTweets(from data: Data) -> [Tweet]? {
         let decoder = JSONDecoder()
@@ -49,6 +46,12 @@ class SwifterService {
             return nil
         }
         return tweets
+    }
+    
+    func alert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        currentPresent?.present(alert, animated: true, completion: nil)
     }
 }
 

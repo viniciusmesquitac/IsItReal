@@ -32,6 +32,8 @@
 		81B7795D24EAD5C0007389BD /* AnalyseTweetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795C24EAD5C0007389BD /* AnalyseTweetCoordinator.swift */; };
 		81B7795F24EAD77C007389BD /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7795E24EAD77C007389BD /* UIStoryboard.swift */; };
 		81B7796124EAE48D007389BD /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7796024EAE48D007389BD /* TabBarCoordinator.swift */; };
+		81B7796E24EB5C36007389BD /* ImagePickerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7796D24EB5C36007389BD /* ImagePickerWorker.swift */; };
+		81B7797024EBFCAA007389BD /* AnalysesTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B7796F24EBFCAA007389BD /* AnalysesTweetViewModel.swift */; };
 		81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5224E4758E0080F089 /* AppDelegate.swift */; };
 		81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5424E4758E0080F089 /* SceneDelegate.swift */; };
 		81F63C5A24E4758E0080F089 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C5824E4758E0080F089 /* TabBar.storyboard */; };
@@ -91,6 +93,8 @@
 		81B7795C24EAD5C0007389BD /* AnalyseTweetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseTweetCoordinator.swift; sourceTree = "<group>"; };
 		81B7795E24EAD77C007389BD /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		81B7796024EAE48D007389BD /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		81B7796D24EB5C36007389BD /* ImagePickerWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerWorker.swift; sourceTree = "<group>"; };
+		81B7796F24EBFCAA007389BD /* AnalysesTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysesTweetViewModel.swift; sourceTree = "<group>"; };
 		81F63C4F24E4758E0080F089 /* IsItReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsItReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F63C5224E4758E0080F089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F63C5424E4758E0080F089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				81B1DC3024E55EF600D755C0 /* SwifterService.swift */,
 				81B1DC3D24E591A600D755C0 /* APIConstants.swift */,
 				81B7795624E6D442007389BD /* ImageReader.swift */,
+				81B7796D24EB5C36007389BD /* ImagePickerWorker.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 			children = (
 				81B1DC2524E4E6D200D755C0 /* TweetDetailsViewModel.swift */,
 				81B1DC2A24E4EAFD00D755C0 /* ListTweetViewModel.swift */,
+				81B7796F24EBFCAA007389BD /* AnalysesTweetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -615,6 +621,7 @@
 				81F63C8824E4778D0080F089 /* TabBarViewController.swift in Sources */,
 				81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */,
 				81B7795F24EAD77C007389BD /* UIStoryboard.swift in Sources */,
+				81B7797024EBFCAA007389BD /* AnalysesTweetViewModel.swift in Sources */,
 				81F63C9824E47F6E0080F089 /* Tweet.swift in Sources */,
 				81B1DC4524E59B8700D755C0 /* MockRepository.swift in Sources */,
 				81F63C9A24E47F780080F089 /* User.swift in Sources */,
@@ -622,6 +629,7 @@
 				81B7795D24EAD5C0007389BD /* AnalyseTweetCoordinator.swift in Sources */,
 				81B7795324E6CAE2007389BD /* AppCoordinator.swift in Sources */,
 				81B7794524E5CADD007389BD /* HistoryTableViewCell.swift in Sources */,
+				81B7796E24EB5C36007389BD /* ImagePickerWorker.swift in Sources */,
 				81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */,
 				81B1DC3E24E591A600D755C0 /* APIConstants.swift in Sources */,
 				81B1DC3524E56A3600D755C0 /* FileHelper.swift in Sources */,

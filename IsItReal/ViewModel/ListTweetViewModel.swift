@@ -15,7 +15,7 @@ protocol ConfigurableViewModel {
 
 class ListTweetViewModel: ConfigurableViewModel {
     
-    typealias Repository = MockRepository
+    typealias Repository = TweetRepository
     
     public var handleUpdate: (() -> Void)?
     
@@ -50,10 +50,6 @@ class ListTweetViewModel: ConfigurableViewModel {
         return nil
     }
     
-    public func selectRow(row: Int) {
-        
-    }
-    
     public func handleSelectedTweets(at rows: [IndexPath]) {
         var tweets = [TweetDetailsViewModel]()
         
@@ -64,11 +60,12 @@ class ListTweetViewModel: ConfigurableViewModel {
         for tweet in tweets {
             if let index = tweetsDetailsViewModel.firstIndex(of: tweet) {
                 tweetsDetailsViewModel.remove(at: index)
+                let result = repository.delete(object: tweet.tweet)
+                print(result)
             }
         }
         
         self.handleUpdate?()
-        
         
     }
 }

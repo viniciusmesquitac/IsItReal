@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -8,22 +8,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="2Bm-Tc-9tr">
+            <objects>
+                <navigationController id="lgW-H6-Sbv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hvj-Mj-JSa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ok1-IS-pen" kind="relationship" relationship="rootViewController" id="edf-ed-H7M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFB-86-TLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="62"/>
+        </scene>
         <!--History-->
         <scene sceneID="IU8-DA-lAg">
             <objects>
                 <tableViewController storyboardIdentifier="historyViewController" id="Ok1-IS-pen" customClass="HistoryListViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RkA-4o-GKV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RkA-4o-GKV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="WhiteBackground"/>
                         <color key="tintColor" name="TwitterBlue"/>
+                        <color key="separatorColor" name="TwistedBlue"/>
                         <color key="sectionIndexBackgroundColor" name="WhiteBackground"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="CgR-HJ-HO2" customClass="HistoryTableViewCell" customModule="IsItReal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CgR-HJ-HO2" id="TSb-NI-NGK">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -35,20 +52,22 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="History" image="doc.plaintext" catalog="system" selectedImage="doc.plaintext" id="gz9-aS-lzK"/>
                     <navigationItem key="navigationItem" title="History" id="UDd-BU-c86">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Edit" id="TDY-Q6-Khg">
-                                <connections>
-                                    <action selector="startEditing:" destination="Ok1-IS-pen" id="LNl-Zv-AU5"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Delete" id="bzP-5a-M7I">
-                                <connections>
-                                    <action selector="startDeleteTweets:" destination="Ok1-IS-pen" id="2su-bq-pNf"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="TDY-Q6-Khg">
+                            <connections>
+                                <action selector="startEditing:" destination="Ok1-IS-pen" id="LNl-Zv-AU5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Delete" id="bzP-5a-M7I">
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="startDeleteTweets:" destination="Ok1-IS-pen" id="2su-bq-pNf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="deleteButton" destination="bzP-5a-M7I" id="snt-eF-Wmp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-4u-Cc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,19 +78,81 @@
             <objects>
                 <viewController storyboardIdentifier="TweetDetails" id="b6C-xV-fEc" customClass="TweetDetailsViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sUw-VZ-t3r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ev8-Gb-6Je">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJ9-8Z-wfc">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tya-wv-Ahs">
+                                                <rect key="frame" x="186" y="490" width="42" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCw-vF-8wk">
+                                                <rect key="frame" x="193.33333333333334" y="910" width="27.666666666666657" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comeco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACu-UR-DI3">
+                                                <rect key="frame" x="175" y="38" width="64" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Tya-wv-Ahs" firstAttribute="top" secondItem="ACu-UR-DI3" secondAttribute="bottom" constant="431" id="6D9-hu-UCy"/>
+                                            <constraint firstAttribute="bottom" secondItem="vCw-vF-8wk" secondAttribute="bottom" constant="67" id="ATE-ek-plW"/>
+                                            <constraint firstItem="Tya-wv-Ahs" firstAttribute="centerY" secondItem="MJ9-8Z-wfc" secondAttribute="centerY" id="Aox-NQ-LdJ"/>
+                                            <constraint firstItem="ACu-UR-DI3" firstAttribute="top" secondItem="MJ9-8Z-wfc" secondAttribute="top" constant="38" id="QoW-XR-W0C"/>
+                                            <constraint firstItem="ACu-UR-DI3" firstAttribute="centerX" secondItem="MJ9-8Z-wfc" secondAttribute="centerX" id="g96-nY-SPs"/>
+                                            <constraint firstItem="vCw-vF-8wk" firstAttribute="centerX" secondItem="MJ9-8Z-wfc" secondAttribute="centerX" id="qIz-xo-zRT"/>
+                                            <constraint firstItem="Tya-wv-Ahs" firstAttribute="centerX" secondItem="MJ9-8Z-wfc" secondAttribute="centerX" id="riS-AH-N56"/>
+                                            <constraint firstItem="vCw-vF-8wk" firstAttribute="top" secondItem="Tya-wv-Ahs" secondAttribute="bottom" constant="400" id="wgE-dC-ueg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MJ9-8Z-wfc" firstAttribute="height" secondItem="Ev8-Gb-6Je" secondAttribute="height" priority="250" id="Oen-Ot-8p5"/>
+                                    <constraint firstAttribute="trailing" secondItem="MJ9-8Z-wfc" secondAttribute="trailing" id="SL7-Ht-1aX"/>
+                                    <constraint firstItem="MJ9-8Z-wfc" firstAttribute="leading" secondItem="Ev8-Gb-6Je" secondAttribute="leading" id="clP-Is-hv1"/>
+                                    <constraint firstItem="MJ9-8Z-wfc" firstAttribute="width" secondItem="Ev8-Gb-6Je" secondAttribute="width" id="ogk-4q-MIg"/>
+                                    <constraint firstItem="MJ9-8Z-wfc" firstAttribute="top" secondItem="Ev8-Gb-6Je" secondAttribute="top" id="vSi-xS-Bx2"/>
+                                    <constraint firstAttribute="bottom" secondItem="MJ9-8Z-wfc" secondAttribute="bottom" id="w6l-dn-JLK"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="gON-48-sxo"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="0eR-9w-4S3"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jq1-2n-vgU" firstAttribute="bottom" secondItem="Ev8-Gb-6Je" secondAttribute="bottom" id="AEy-nk-Nzv"/>
+                            <constraint firstItem="Ev8-Gb-6Je" firstAttribute="leading" secondItem="jq1-2n-vgU" secondAttribute="leading" id="KSg-vu-Jad"/>
+                            <constraint firstItem="Ev8-Gb-6Je" firstAttribute="top" secondItem="jq1-2n-vgU" secondAttribute="top" id="NBs-AF-NQl"/>
+                            <constraint firstItem="jq1-2n-vgU" firstAttribute="trailing" secondItem="Ev8-Gb-6Je" secondAttribute="trailing" id="R19-G8-iGM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jq1-2n-vgU"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgW-6l-slA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="813" y="62"/>
+            <point key="canvasLocation" x="811.59420289855075" y="61.141304347826093"/>
         </scene>
     </scenes>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <namedColor name="TwistedBlue">
+            <color red="0.035000000149011612" green="0.51399999856948853" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="TwitterBlue">
             <color red="0.14000000059604645" green="0.625" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
