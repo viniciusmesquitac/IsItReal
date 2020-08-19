@@ -34,8 +34,8 @@ class AnalyseTweetViewController: UIViewController {
     }
     
     fileprivate func updateViewModel() {
-        viewModel.handleUpdate = {
-            // show loadings
+        viewModel.handleUpdate = { 
+            // show loading
         }
     }
     
@@ -53,9 +53,8 @@ class AnalyseTweetViewController: UIViewController {
         let queryText = viewModel.handleQueryResults(query)
         // Search with queryText
         SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { (tweets) in
-            
-            print(tweets?.first?.text)
             self.viewModel.saveTweets(tweets: tweets)
+            self.viewModel.alert(self, title: "Success", message: "Tweet was saved in your history")
         }
     }
 }

@@ -11,44 +11,34 @@ import UIKit
 class AnalysesTweetViewModel: ConfigurableViewModel {
     
     typealias Repository = TweetRepository
-    
     public var handleUpdate: (() -> Void)?
     
-    var repository = Repository()
+    var repository = Repository.instance
     
     func handleQueryResults(_ query: QueryResult) -> String {
-        // Handle results and show errors
         guard let text = query.query else { return "" }
         return text
     }
     
     func saveTweets(tweets: [Tweet]?) {
-        // Sanving
         if let tweet = tweets?.first {
             _ = self.repository.add(object: tweet)
             handleUpdate?()
         }
     }
-    
+
     func failureHandler(_ presentFrom: UIViewController, error: AnalyseError) {
-        
         switch error {
         case .notImage:
-            self.alert(title: "ERROR", message: "Select an image to analyse", presentFrom: presentFrom)
-        default:
-            print("NotFound")
+            self.alert(presentFrom, title: "ERROR", message: "Select an image to analyse")
         }
-        
     }
-    
-    func alert(title: String, message: String, presentFrom: UIViewController) {
+
+    func alert(_ presentFrom: UIViewController, title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
         presentFrom.present(alert, animated: true, completion: nil)
     }
-    
 }
 enum AnalyseError: Error {
     case notImage

@@ -13,12 +13,16 @@ class TweetRepository: Repository {
     let helper = FileHelper()
     var tweets: [Tweet] = []
     
+    private init() {}
+    
+    static let instance = TweetRepository()
+    
     func getAll() -> [Tweet] {
         let fileNames: [String] = helper.contentsForDirectory(atPath: "")
-        
-        guard tweets.isEmpty else {
-            return tweets
-        }
+//        
+//        guard tweets.isEmpty else {
+//            return tweets
+//        }
         
         self.tweets = fileNames.compactMap { fileName in
             if let data = helper.retrieveFile(at: fileName) {
@@ -32,7 +36,6 @@ class TweetRepository: Repository {
     }
     
     func get(id: Int) -> Tweet? {
-        // TODO:
         return nil
     }
     

@@ -257,7 +257,6 @@
 				81F63C8424E4773D0080F089 /* Model */,
 				81F63C8324E477310080F089 /* Controller */,
 				81F63C8224E475D50080F089 /* Settings */,
-				81F63C5B24E475900080F089 /* Assets.xcassets */,
 				81F63C5D24E475900080F089 /* LaunchScreen.storyboard */,
 				81F63C6024E475900080F089 /* Info.plist */,
 			);
@@ -315,6 +314,7 @@
 		81F63C8524E477410080F089 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				81F63C5B24E475900080F089 /* Assets.xcassets */,
 				81B1DC3824E58C9B00D755C0 /* CustomCell */,
 				81F63C5824E4758E0080F089 /* TabBar.storyboard */,
 				81F63C8924E477C70080F089 /* Analyse.storyboard */,

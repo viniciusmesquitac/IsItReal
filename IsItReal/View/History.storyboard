@@ -35,6 +35,33 @@
                         <color key="tintColor" name="TwitterBlue"/>
                         <color key="separatorColor" name="TwistedBlue"/>
                         <color key="sectionIndexBackgroundColor" name="WhiteBackground"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="igN-8J-PeF">
+                            <rect key="frame" x="0.0" y="117" width="414" height="243"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyState" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-JW-DQq">
+                                    <rect key="frame" x="140" y="36" width="134" height="134"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Yo1-JW-DQq" secondAttribute="height" multiplier="1:1" id="owY-p7-NpV"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your analyse history will apper here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-qR-PVZ">
+                                    <rect key="frame" x="73" y="196" width="268" height="20"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" name="TwistedBlue"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Yo1-JW-DQq" secondAttribute="trailing" constant="140" id="ADG-5A-RnU"/>
+                                <constraint firstItem="Yo1-JW-DQq" firstAttribute="top" secondItem="igN-8J-PeF" secondAttribute="top" constant="36" id="JbG-tO-8me"/>
+                                <constraint firstItem="Hcb-qR-PVZ" firstAttribute="centerX" secondItem="Yo1-JW-DQq" secondAttribute="centerX" id="QdR-is-eGW"/>
+                                <constraint firstAttribute="bottom" secondItem="Hcb-qR-PVZ" secondAttribute="bottom" constant="27" id="keW-m4-xPd"/>
+                                <constraint firstItem="Hcb-qR-PVZ" firstAttribute="top" secondItem="Yo1-JW-DQq" secondAttribute="bottom" constant="26" id="rFz-ua-GkH"/>
+                                <constraint firstItem="Yo1-JW-DQq" firstAttribute="leading" secondItem="igN-8J-PeF" secondAttribute="leading" constant="140" id="vyk-Rx-v2c"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="CgR-HJ-HO2" customClass="HistoryTableViewCell" customModule="IsItReal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="43.666667938232422"/>
@@ -67,11 +94,12 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="deleteButton" destination="bzP-5a-M7I" id="snt-eF-Wmp"/>
+                        <outlet property="editButton" destination="TDY-Q6-Khg" id="wom-U6-lFO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-4u-Cc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="62"/>
+            <point key="canvasLocation" x="66.666666666666671" y="61.956521739130437"/>
         </scene>
         <!--Tweet Details View Controller-->
         <scene sceneID="hQ6-d1-6HE">
@@ -149,6 +177,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EmptyState" width="120" height="90"/>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
         <namedColor name="TwistedBlue">
             <color red="0.035000000149011612" green="0.51399999856948853" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

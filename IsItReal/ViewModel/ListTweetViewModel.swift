@@ -19,7 +19,7 @@ class ListTweetViewModel: ConfigurableViewModel {
     
     public var handleUpdate: (() -> Void)?
     
-    var repository = Repository()
+    var repository = Repository.instance
     
     var tweetsDetailsViewModel: [TweetDetailsViewModel] = [] {
         didSet {
@@ -39,6 +39,7 @@ class ListTweetViewModel: ConfigurableViewModel {
     public func getTweets() -> [TweetDetailsViewModel] {
         // TODO: Recieve all tweets from repository and add to `tweetsDetailsViewModel`
         let tweets = repository.getAll()
+        
         self.tweetsDetailsViewModel = tweets.map({TweetDetailsViewModel(tweet: $0)})
         return tweetsDetailsViewModel
     }

@@ -12,13 +12,17 @@ class HistoryListViewController: UITableViewController {
 
     let viewModel = ListTweetViewModel()
     @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.setEditing(false, animated: false)
+        handleBarButtonState()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        _ = viewModel.getTweets()
-        
         updateViewModel()
+         _ = viewModel.getTweets()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 132
         tableView.register(UINib(nibName: HistoryTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: HistoryTableViewCell.cellId)
@@ -39,17 +43,22 @@ class HistoryListViewController: UITableViewController {
     }
     
     @IBAction func startEditing(_ sender: Any) {
-        guard let button = sender as? UIBarButtonItem else {return }
         tableView.setEditing(!tableView.isEditing, animated: true)
         deleteButton.isEnabled = !deleteButton.isEnabled
+        handleBarButtonState()
+        self.loadViewIfNeeded()
+    }
+    
+    fileprivate func handleBarButtonState() {
         if tableView.isEditing {
-            button.title = "Done"
+            editButton.title = "Done"
+            deleteButton.isEnabled = true
             deleteButton.tintColor = nil
         } else {
-            button.title = "Edit"
+            editButton.title = "Edit"
+            deleteButton.isEnabled = false
             deleteButton.tintColor = .clear
         }
-        self.loadViewIfNeeded()
     }
     
     @IBAction func startDeleteTweets(_ sender: Any) {
