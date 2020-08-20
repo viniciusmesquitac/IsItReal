@@ -26,6 +26,7 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
             _ = self.repository.add(object: tweet)
             handleSavedTweet?(tweet)
         }
+        
     }
 
     func failureHandler(_ presentFrom: UIViewController, error: Error) {

@@ -20,7 +20,6 @@ class AnalyseTweetViewController: UIViewController {
     let imageReader = ImageReader()
     let imagePickerWorker = ImagePickerWorker()
     let viewModel = AnalysesTweetViewModel()
-    
     var coordinator: AnalyseTweetCoordinator?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,11 +76,10 @@ class AnalyseTweetViewController: UIViewController {
             // Handle query in view Model
             let queryText = viewModel.handleQueryResults(query)
             // Search with queryText
-            SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { (tweets) in
+            SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { tweets in
                 if let tweets = tweets {
+                    if tweets.count == 0 { self.viewModel.failureHandler(self, error: AnalyseError.notFound) }
                     self.viewModel.saveTweets(tweets: tweets)
-                } else {
-                    self.viewModel.alert(self, title: "ERROR", message: "Tweet not found")
                 }
             }
         } catch {

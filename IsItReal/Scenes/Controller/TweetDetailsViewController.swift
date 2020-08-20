@@ -11,14 +11,19 @@ import UIKit
 class TweetDetailsViewController: UIViewController {
     
     var tweet: TweetDetailsViewModel?
+    @IBOutlet weak var rootView: TweetDetailsView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let tweet = tweet {
-            print(tweet.tweet.text)
+            rootView.configure(viewModel: tweet)
         }
-        // Do any additional setup after loading the view.
     }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }

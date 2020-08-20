@@ -23,6 +23,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "History", bundle: nil)
     }
     
+    private static var details: UIStoryboard {
+        return UIStoryboard(name: "Details", bundle: nil)
+    }
+    
     static func instantiateTabBarController() -> TabBarViewController {
         if let vc = tabBar.instantiateViewController(withIdentifier: "tabbarController") as? TabBarViewController {
             return vc
@@ -45,10 +49,9 @@ extension UIStoryboard {
     }
     
     static func instantiateTweetDetailsViewController() -> TweetDetailsViewController {
-        if let vc = history.instantiateViewController(withIdentifier: "TweetDetails") as? TweetDetailsViewController {
+        if let vc = details.instantiateViewController(withIdentifier: "TweetDetails") as? TweetDetailsViewController {
             return vc
         }
         return  TweetDetailsViewController()
     }
-    
 }

@@ -61,13 +61,10 @@ class ImageReader {
                 let complete = "\(keySearch[0]) \(keySearch[1]) \(keySearch[2]) \(user)"
                 result = QueryResult(textTweet: tweetText, query: complete, user: user, keySearch: keySearch)
                 return result
-            } else {
-                throw ImageReaderError.impossibleToRead
             }
-        } else {
-             throw ImageReaderError.impossibleToRead
+            throw ImageReaderError.impossibleToRead
         }
-        return result
+         throw ImageReaderError.impossibleToRead
     }
     
     func getUrlFromImage(forImageNamed name: String) -> URL? {
