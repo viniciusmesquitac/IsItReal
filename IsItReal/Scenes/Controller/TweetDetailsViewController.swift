@@ -10,9 +10,14 @@ import UIKit
 
 class TweetDetailsViewController: UIViewController {
     
+    var tweet: TweetDetailsViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let tweet = tweet {
+            print(tweet.tweet.text)
+        }
         // Do any additional setup after loading the view.
     }
 

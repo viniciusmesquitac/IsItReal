@@ -37,7 +37,6 @@ class SwifterService {
             }, failure: self.failureHandler)
             
         }, failure: self.failureHandler)
-        
     }
     
     private func decodeTweets(from data: Data) -> [Tweet]? {

@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="8cc-dn-XEg">
+            <objects>
+                <navigationController id="KH9-4J-pZs" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gMl-92-6fM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lsD-sk-Mx0" kind="relationship" relationship="rootViewController" id="oGU-xa-dqO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v08-Gd-YN9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-726" y="138"/>
+        </scene>
         <!--Analyse-->
         <scene sceneID="hmZ-Cq-Oj1">
             <objects>
@@ -17,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABd-IS-GXz">
-                                <rect key="frame" x="24" y="302" width="366" height="40"/>
+                                <rect key="frame" x="24" y="434.5" width="366" height="40"/>
                                 <color key="backgroundColor" name="TwitterBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kUQ-lx-Lgf"/>
@@ -35,13 +51,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightSampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-Lt-qev">
-                                <rect key="frame" x="16" y="76" width="382" height="194"/>
+                                <rect key="frame" x="8" y="120" width="398" height="298.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="194" id="WYf-CR-OZY"/>
+                                    <constraint firstAttribute="width" secondItem="HcH-Lt-qev" secondAttribute="height" multiplier="4:3" id="EXd-sk-TST"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBM-fr-9t6">
-                                <rect key="frame" x="24" y="358" width="366" height="40"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBM-fr-9t6">
+                                <rect key="frame" x="24" y="490.5" width="366" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bF1-19-2pQ"/>
                                 </constraints>
@@ -63,27 +79,58 @@
                                     <action selector="didTapSelectAnalyseButton:" destination="lsD-sk-Mx0" eventType="touchUpInside" id="H0h-2h-as8"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKj-RN-ELX">
+                                <rect key="frame" x="24" y="550.5" width="366" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IQX-62-yDx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" name="TwistedBlue"/>
+                                <state key="normal" title="Analyse Pro"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="TwistedBlue"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="20.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapSelectAnalyseButton:" destination="lsD-sk-Mx0" eventType="touchUpInside" id="zti-ei-PH6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="WhiteBackground"/>
                         <constraints>
                             <constraint firstItem="ABd-IS-GXz" firstAttribute="leading" secondItem="qXV-cp-kYb" secondAttribute="leading" constant="24" id="4Hs-uQ-xnq"/>
                             <constraint firstItem="qXV-cp-kYb" firstAttribute="trailing" secondItem="ABd-IS-GXz" secondAttribute="trailing" constant="24" id="6Qc-YH-HPH"/>
                             <constraint firstItem="qXV-cp-kYb" firstAttribute="trailing" secondItem="mBM-fr-9t6" secondAttribute="trailing" constant="24" id="79j-BG-fap"/>
-                            <constraint firstItem="qXV-cp-kYb" firstAttribute="trailing" secondItem="HcH-Lt-qev" secondAttribute="trailing" constant="16" id="ABj-tM-zEE"/>
+                            <constraint firstItem="qXV-cp-kYb" firstAttribute="trailing" secondItem="HcH-Lt-qev" secondAttribute="trailing" constant="8" id="ABj-tM-zEE"/>
+                            <constraint firstItem="OKj-RN-ELX" firstAttribute="width" secondItem="mBM-fr-9t6" secondAttribute="width" id="BM3-9Z-PsB"/>
                             <constraint firstItem="mBM-fr-9t6" firstAttribute="top" secondItem="ABd-IS-GXz" secondAttribute="bottom" constant="16" id="EGr-gx-CNh"/>
-                            <constraint firstItem="HcH-Lt-qev" firstAttribute="leading" secondItem="qXV-cp-kYb" secondAttribute="leading" constant="16" id="Mwj-d6-oZE"/>
+                            <constraint firstItem="HcH-Lt-qev" firstAttribute="leading" secondItem="qXV-cp-kYb" secondAttribute="leading" constant="8" id="Mwj-d6-oZE"/>
                             <constraint firstItem="mBM-fr-9t6" firstAttribute="leading" secondItem="qXV-cp-kYb" secondAttribute="leading" constant="24" id="R8G-Xs-Esw"/>
+                            <constraint firstItem="OKj-RN-ELX" firstAttribute="top" secondItem="mBM-fr-9t6" secondAttribute="bottom" constant="20" id="Z6t-To-uhJ"/>
                             <constraint firstItem="HcH-Lt-qev" firstAttribute="top" secondItem="qXV-cp-kYb" secondAttribute="top" constant="32" id="hbO-MI-Dhc"/>
                             <constraint firstItem="ABd-IS-GXz" firstAttribute="centerX" secondItem="qXV-cp-kYb" secondAttribute="centerX" id="n2J-k2-8TG"/>
-                            <constraint firstItem="ABd-IS-GXz" firstAttribute="top" secondItem="HcH-Lt-qev" secondAttribute="bottom" constant="32" id="xoC-pE-I02"/>
+                            <constraint firstItem="OKj-RN-ELX" firstAttribute="centerX" secondItem="mBM-fr-9t6" secondAttribute="centerX" id="wWK-Gq-P8D"/>
+                            <constraint firstItem="ABd-IS-GXz" firstAttribute="top" secondItem="HcH-Lt-qev" secondAttribute="bottom" constant="16" id="xoC-pE-I02"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qXV-cp-kYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Analyse" image="doc.text.magnifyingglass" catalog="system" selectedImage="doc.text.magnifyingglass" id="aYY-rT-pSq"/>
-                    <navigationItem key="navigationItem" title="Analyse" id="Kdu-5s-Ege"/>
+                    <navigationItem key="navigationItem" title="Analyse" id="Kdu-5s-Ege">
+                        <barButtonItem key="rightBarButtonItem" image="􀅴" id="JYt-zD-7OO"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="analyseButton" destination="mBM-fr-9t6" id="uo1-FU-TuN"/>
+                        <outlet property="analyseProButton" destination="OKj-RN-ELX" id="Kjb-zU-s3g"/>
                         <outlet property="imageToAnalyse" destination="HcH-Lt-qev" id="d4N-PL-8Fc"/>
+                        <outlet property="selectPhotoButton" destination="ABd-IS-GXz" id="Cou-0T-oy4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3j-05-ufN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -94,6 +141,7 @@
     <resources>
         <image name="LightSampleImage" width="351" height="193"/>
         <image name="doc.text.magnifyingglass" catalog="system" width="116" height="128"/>
+        <image name="􀅴" width="24" height="24"/>
         <namedColor name="TwistedBlue">
             <color red="0.035000000149011612" green="0.51399999856948853" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

@@ -20,21 +20,24 @@ extension TweetDetailsViewModel {
     var tweetScreenName: String {
         return "@\(tweet.user.screenName)"
     }
-    
     var link: String {
         return "https://twitter.com/\(tweet.user.screenName)/status/\(tweet.idStr)"
     }
     var isValid: Bool? {
-        return false
+        return true
+    }
+    var dateTweetAnalyse: String {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .long
+        return formatter.string(from: currentDate)
     }
 }
-
 
 extension TweetDetailsViewModel: Equatable {
     
     static func == (lhs: TweetDetailsViewModel, rhs: TweetDetailsViewModel) -> Bool {
         return lhs.tweet.idStr == rhs.tweet.idStr
     }
-    
-    
 }

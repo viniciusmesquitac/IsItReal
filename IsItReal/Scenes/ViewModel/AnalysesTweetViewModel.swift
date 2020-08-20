@@ -10,10 +10,11 @@ import UIKit
 
 class AnalysesTweetViewModel: ConfigurableViewModel {
     
-    typealias Repository = TweetRepository
-    public var handleUpdate: (() -> Void)?
+    var handleUpdate: (() -> Void)?
     
-    var repository = Repository.instance
+    typealias Repository = TweetRepository
+    public var handleSavedTweet: ((Tweet) -> Void)?
+    var repository = Repository()
     
     func handleQueryResults(_ query: QueryResult) -> String {
         guard let text = query.query else { return "" }
@@ -23,15 +24,12 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
     func saveTweets(tweets: [Tweet]?) {
         if let tweet = tweets?.first {
             _ = self.repository.add(object: tweet)
-            handleUpdate?()
+            handleSavedTweet?(tweet)
         }
     }
 
-    func failureHandler(_ presentFrom: UIViewController, error: AnalyseError) {
-        switch error {
-        case .notImage:
-            self.alert(presentFrom, title: "ERROR", message: "Select an image to analyse")
-        }
+    func failureHandler(_ presentFrom: UIViewController, error: Error) {
+        self.alert(presentFrom, title: "ERROR", message: "\(error.localizedDescription)")
     }
 
     func alert(_ presentFrom: UIViewController, title: String, message: String) {
@@ -39,7 +37,4 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         presentFrom.present(alert, animated: true, completion: nil)
     }
-}
-enum AnalyseError: Error {
-    case notImage
 }

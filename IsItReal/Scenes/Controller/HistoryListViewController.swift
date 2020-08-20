@@ -11,25 +11,34 @@ import UIKit
 class HistoryListViewController: UITableViewController {
 
     let viewModel = ListTweetViewModel()
+    var coordinator: HistoryListCordinator?
+    
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var emptyState: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.setEditing(false, animated: false)
+        _ = viewModel.getTweets()
         handleBarButtonState()
+        loadViewIfNeeded()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViewModel()
-         _ = viewModel.getTweets()
+        coordinator = HistoryListCordinator(navigationController: navigationController!)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 132
-        tableView.register(UINib(nibName: HistoryTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: HistoryTableViewCell.cellId)
+        tableView.estimatedRowHeight = 152
+        tableView.register(UINib(nibName: CustomCell.nibName, bundle: nil), forCellReuseIdentifier: CustomCell.cellId)
     }
     
     fileprivate func updateViewModel() {
         viewModel.handleUpdate = {
+            self.emptyState.isHidden = false
+            if self.viewModel.numberOfRows != 0 {
+                self.emptyState.isHidden = true
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -65,11 +74,10 @@ class HistoryListViewController: UITableViewController {
         if let selectedRows = tableView.indexPathsForSelectedRows {
             viewModel.handleSelectedTweets(at: selectedRows)
             tableView.beginUpdates()
-            tableView.deleteRows(at: selectedRows, with: .automatic)
+            tableView.deleteRows(at: selectedRows, with: .right)
             tableView.endUpdates()
         }
     }
-    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -80,7 +88,7 @@ class HistoryListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.cellId) as? HistoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.cellId) as? CustomCell
         if let cellVM = viewModel.cellViewModel(at: indexPath.row) {
             cell?.configure(viewModel: cellVM)
         }
@@ -89,10 +97,7 @@ class HistoryListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard !tableView.isEditing else { return }
-        let storyboard = UIStoryboard(name: "History", bundle: nil)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "TweetDetails") as? TweetDetailsViewController {
-            self.navigationController?.present(viewController, animated: true, completion: nil)
-        }
+        coordinator?.showDetails(tweet: viewModel.getTweet(for: indexPath.item)!)
     }
 
 }

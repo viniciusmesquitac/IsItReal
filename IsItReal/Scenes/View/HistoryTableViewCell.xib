@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCell" customModule="IsItReal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@realDonaldTrump" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82P-Cm-QFt">
+                    <rect key="frame" x="16" y="31" width="127" height="18"/>
+                    <color key="tintColor" name="TwitterBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="yt3-gi-2AO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsC-XB-245">
+                    <rect key="frame" x="16" y="57" width="343" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="343" id="t6x-OQ-2h8"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">More Testing, which is a good thing (we have 
+the most inthe world), equals more Cases,
+which is Fake News Gold..</string>
+                            <attributes>
+                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donald J. Trump" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAz-8F-Dxc">
+                    <rect key="frame" x="16" y="12" width="125" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Validated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyw-UN-9s7">
+                    <rect key="frame" x="16" y="117.5" width="90" height="14.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14.5" id="gUv-Rc-IBx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at October 8, 2016 at 10:48:53 PM " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta6-mV-XKg">
+                    <rect key="frame" x="109" y="117" width="214" height="15.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="82P-Cm-QFt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="31" id="1Ch-zz-s71"/>
+                <constraint firstItem="82P-Cm-QFt" firstAttribute="top" secondItem="bAz-8F-Dxc" secondAttribute="bottom" constant="-1" id="4S3-HU-AZL"/>
+                <constraint firstItem="Uyw-UN-9s7" firstAttribute="leading" secondItem="PsC-XB-245" secondAttribute="leading" id="5TO-su-waD"/>
+                <constraint firstItem="PsC-XB-245" firstAttribute="top" secondItem="82P-Cm-QFt" secondAttribute="bottom" constant="8" id="SFL-39-8Rg"/>
+                <constraint firstItem="ta6-mV-XKg" firstAttribute="leading" secondItem="Uyw-UN-9s7" secondAttribute="trailing" constant="3" id="Tgm-hx-0FX"/>
+                <constraint firstItem="bAz-8F-Dxc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="Zz3-6c-YJT"/>
+                <constraint firstItem="ta6-mV-XKg" firstAttribute="top" secondItem="PsC-XB-245" secondAttribute="bottom" constant="7" id="acm-F0-3bb"/>
+                <constraint firstItem="ta6-mV-XKg" firstAttribute="centerY" secondItem="Uyw-UN-9s7" secondAttribute="centerY" id="ffW-n8-zeS"/>
+                <constraint firstItem="82P-Cm-QFt" firstAttribute="leading" secondItem="bAz-8F-Dxc" secondAttribute="leading" id="gKe-dU-ce5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Uyw-UN-9s7" secondAttribute="bottom" constant="20" id="lWC-1a-uIz"/>
+                <constraint firstItem="PsC-XB-245" firstAttribute="leading" secondItem="bAz-8F-Dxc" secondAttribute="leading" id="lhP-JP-803"/>
+                <constraint firstItem="bAz-8F-Dxc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="vPE-hs-314"/>
+                <constraint firstItem="Uyw-UN-9s7" firstAttribute="top" secondItem="PsC-XB-245" secondAttribute="bottom" constant="7.5" id="zlg-8r-dQ0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="leadingFromCell" destination="vPE-hs-314" id="fjf-Cg-2h6"/>
+                <outlet property="tweetScreenName" destination="82P-Cm-QFt" id="xgL-L5-Jqa"/>
+                <outlet property="tweetText" destination="PsC-XB-245" id="Npb-6U-cr5"/>
+                <outlet property="tweetUserName" destination="bAz-8F-Dxc" id="elX-CA-6Wa"/>
+                <outlet property="tweetValidation" destination="Uyw-UN-9s7" id="s0d-GI-IUm"/>
+                <outlet property="tweetValidationDate" destination="ta6-mV-XKg" id="AWY-Ev-vGr"/>
+            </connections>
+            <point key="canvasLocation" x="6.5625" y="207.5"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="TwitterBlue">
+            <color red="0.14000000059604645" green="0.625" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

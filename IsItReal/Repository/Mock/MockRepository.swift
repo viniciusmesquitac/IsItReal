@@ -20,6 +20,10 @@ class MockRepository: TweetRepository {
         return tweets
     }
     
+    override func delete(object: Tweet) -> Bool {
+        return false
+    }
+    
     private func retrivedDataFromBundle(filename: String) -> Data? {
         if let url = Bundle.main.url(forResource: filename, withExtension: "json") {
             do {
@@ -29,5 +33,4 @@ class MockRepository: TweetRepository {
         }
         return nil
     }
-    
 }

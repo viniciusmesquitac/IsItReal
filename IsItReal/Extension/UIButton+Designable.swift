@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable extension UIButton {
+@IBDesignable extension UIView {
     
     @IBInspectable var borderWidth: CGFloat {
         set {
