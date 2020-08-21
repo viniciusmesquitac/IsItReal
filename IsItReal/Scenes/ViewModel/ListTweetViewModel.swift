@@ -57,7 +57,6 @@ class ListTweetViewModel: ConfigurableViewModel {
         for indexPath in rows {
             tweets.append(tweetsDetailsViewModel[indexPath.row])
         }
-        
         for tweet in tweets {
             if let index = tweetsDetailsViewModel.firstIndex(of: tweet) {
                 tweetsDetailsViewModel.remove(at: index)
@@ -65,8 +64,6 @@ class ListTweetViewModel: ConfigurableViewModel {
                 print(result)
             }
         }
-        
         self.handleUpdate?()
-        
     }
 }

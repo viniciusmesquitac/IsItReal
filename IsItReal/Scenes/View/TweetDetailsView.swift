@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class TweetDetailsView: UIView {
     
@@ -19,6 +20,8 @@ class TweetDetailsView: UIView {
         self.tweetContainerView.userScreenName.text = viewModel.tweet.user.screenName
         self.tweetContainerView.tweetText.text = viewModel.tweet.text
         self.linkTweetContainerView.link.text = viewModel.link
+        Nuke.loadImage(with: viewModel.userImagePhoto, into: self.tweetContainerView.userPhoto)
+        
     }
     
     func teste() {

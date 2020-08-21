@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kzX-cQ-a7R">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="b3P-wn-HYT">
+            <objects>
+                <viewController id="kzX-cQ-a7R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1SA-UU-Oh0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IsItRealPro" translatesAutoresizingMaskIntoConstraints="NO" id="kkg-Rx-WtM">
+                                <rect key="frame" x="49.5" y="138" width="315" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="315" id="0ip-ek-c5y"/>
+                                    <constraint firstAttribute="height" constant="168" id="HfN-6M-kek"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-OQ-Yxq">
+                                <rect key="frame" x="28" y="507" width="358" height="40"/>
+                                <color key="backgroundColor" name="TwitterBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rgz-Vp-Aqt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Unlock Pro" image="􀎥">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="20.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why IsItReal Pro?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzi-jA-ynz">
+                                <rect key="frame" x="123" y="90" width="168.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jys-vO-aCx">
+                                <rect key="frame" x="49" y="355" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment directly from the app in your analysed tweet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-ad-i1f">
+                                <rect key="frame" x="36" y="402" width="341" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post and share directly from the app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l70-Bx-XdU">
+                                <rect key="frame" x="36" y="456" width="240.5" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search all tweets since 2006" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8a-C5-R8I">
+                                <rect key="frame" x="36" y="367" width="341" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dyC-OQ-Yxq" firstAttribute="top" secondItem="l70-Bx-XdU" secondAttribute="bottom" constant="32" id="1N7-q3-55y"/>
+                            <constraint firstItem="kkg-Rx-WtM" firstAttribute="top" secondItem="hzi-jA-ynz" secondAttribute="bottom" constant="24" id="DVv-5T-0h0"/>
+                            <constraint firstItem="dyC-OQ-Yxq" firstAttribute="leading" secondItem="VyX-Lh-JDo" secondAttribute="leading" constant="28" id="Fee-TR-wH2"/>
+                            <constraint firstItem="hzi-jA-ynz" firstAttribute="centerX" secondItem="VyX-Lh-JDo" secondAttribute="centerX" id="HKO-oj-tpG"/>
+                            <constraint firstItem="VyX-Lh-JDo" firstAttribute="trailing" secondItem="hrc-ad-i1f" secondAttribute="trailing" constant="37" id="LbI-KZ-lpY"/>
+                            <constraint firstItem="U8a-C5-R8I" firstAttribute="top" secondItem="kkg-Rx-WtM" secondAttribute="bottom" constant="61" id="PgP-Ef-0AS"/>
+                            <constraint firstItem="VyX-Lh-JDo" firstAttribute="trailing" secondItem="U8a-C5-R8I" secondAttribute="trailing" constant="37" id="T1X-Hk-5Cj"/>
+                            <constraint firstItem="hrc-ad-i1f" firstAttribute="top" secondItem="U8a-C5-R8I" secondAttribute="bottom" constant="16" id="mib-zY-bja"/>
+                            <constraint firstItem="U8a-C5-R8I" firstAttribute="leading" secondItem="VyX-Lh-JDo" secondAttribute="leading" constant="36" id="oFL-EU-LSb"/>
+                            <constraint firstItem="l70-Bx-XdU" firstAttribute="top" secondItem="hrc-ad-i1f" secondAttribute="bottom" constant="16" id="puI-HF-gfT"/>
+                            <constraint firstItem="hzi-jA-ynz" firstAttribute="top" secondItem="VyX-Lh-JDo" secondAttribute="top" constant="46" id="rR7-Iw-hU0"/>
+                            <constraint firstItem="l70-Bx-XdU" firstAttribute="leading" secondItem="hrc-ad-i1f" secondAttribute="leading" id="sUL-pi-Qln"/>
+                            <constraint firstItem="kkg-Rx-WtM" firstAttribute="centerX" secondItem="VyX-Lh-JDo" secondAttribute="centerX" id="tmx-ua-hc8"/>
+                            <constraint firstItem="VyX-Lh-JDo" firstAttribute="trailing" secondItem="dyC-OQ-Yxq" secondAttribute="trailing" constant="28" id="w7A-Zm-63N"/>
+                            <constraint firstItem="hrc-ad-i1f" firstAttribute="leading" secondItem="U8a-C5-R8I" secondAttribute="leading" id="yQE-DD-WOZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VyX-Lh-JDo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xia-xQ-hYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231.8840579710145" y="35.491071428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IsItRealPro" width="110" height="138"/>
+        <image name="􀎥" width="24" height="23"/>
+        <namedColor name="TwitterBlue">
+            <color red="0.14000000059604645" green="0.625" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

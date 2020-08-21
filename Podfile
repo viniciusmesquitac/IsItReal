@@ -7,6 +7,7 @@ target 'IsItReal' do
 
   # Pods for IsItReal
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git', :tag => '2.4.0'
+pod 'Nuke', '~> 9.0'
 
   target 'IsItRealTests' do
     inherit! :search_paths

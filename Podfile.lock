@@ -1,8 +1,14 @@
 PODS:
+  - Nuke (9.1.1)
   - Swifter (2.4.0)
 
 DEPENDENCIES:
+  - Nuke (~> 9.0)
   - Swifter (from `https://github.com/mattdonnelly/Swifter.git`, tag `2.4.0`)
+
+SPEC REPOS:
+  trunk:
+    - Nuke
 
 EXTERNAL SOURCES:
   Swifter:
@@ -15,8 +21,9 @@ CHECKOUT OPTIONS:
     :tag: 2.4.0
 
 SPEC CHECKSUMS:
+  Nuke: af4301b154d3afd8a3b045a5194a9a773a00b7a8
   Swifter: 0955a05325dc182fabfb1468305aef887180e0f1
 
-PODFILE CHECKSUM: ff20bab0a2aaf0f71edb7b488bbc9637386de243
+PODFILE CHECKSUM: 41c76f327fa4b84797c9fbee23046893db31a04a
 
 COCOAPODS: 1.9.3

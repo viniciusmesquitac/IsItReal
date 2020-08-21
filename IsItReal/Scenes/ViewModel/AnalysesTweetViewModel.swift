@@ -22,11 +22,20 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
     }
     
     func saveTweets(tweets: [Tweet]?) {
-        if let tweet = tweets?.first {
+        if var tweet = tweets?.first {
+            tweet.dateAnalyses = createAnalyseDate()
             _ = self.repository.add(object: tweet)
             handleSavedTweet?(tweet)
         }
         
+    }
+    
+    func createAnalyseDate() -> String {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .long
+        return formatter.string(from: currentDate)
     }
 
     func failureHandler(_ presentFrom: UIViewController, error: Error) {

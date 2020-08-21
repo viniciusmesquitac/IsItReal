@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d5J-YD-7nS">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="dyE-zl-Jyn">
+            <objects>
+                <viewController id="d5J-YD-7nS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ri7-al-GTm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2k-Sa-eia">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwu-Uz-FLK">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1003.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardStep1" translatesAutoresizingMaskIntoConstraints="NO" id="OE1-7B-l8W">
+                                                <rect key="frame" x="87" y="89" width="240" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="790-Gs-03g"/>
+                                                    <constraint firstAttribute="height" constant="128" id="DIL-Sb-Z4A"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYv-XH-OxI">
+                                                <rect key="frame" x="64.5" y="225" width="285" height="38"/>
+                                                <string key="text">Select a photo that you want analyse and
+know if the person really post that.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztn-gD-1WR">
+                                                <rect key="frame" x="96.5" y="451.5" width="221" height="38"/>
+                                                <string key="text">We are going to extract the text
+and verify if the user posted that</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardStep2" translatesAutoresizingMaskIntoConstraints="NO" id="03H-D4-wvs">
+                                                <rect key="frame" x="97.5" y="283" width="219" height="117"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="117" id="F5b-BK-Vxc"/>
+                                                    <constraint firstAttribute="width" constant="219" id="n4z-U1-un0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardStep3" translatesAutoresizingMaskIntoConstraints="NO" id="Tr2-wc-sEv">
+                                                <rect key="frame" x="139.5" y="539" width="135" height="72"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="135" id="Fp3-wC-0ft"/>
+                                                    <constraint firstAttribute="height" constant="72" id="wZa-1D-PaU"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How This App Works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiI-uA-I31">
+                                                <rect key="frame" x="107.5" y="36" width="199" height="24"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbT-ZG-Ud2">
+                                                <rect key="frame" x="66" y="636" width="282.5" height="38"/>
+                                                <string key="text">Save and share securely with a direct link
+to the real post</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMc-Pv-YrX">
+                                                <rect key="frame" x="25" y="760.5" width="127" height="24"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwn-Pk-rpm">
+                                                <rect key="frame" x="25" y="799.5" width="277" height="46.5"/>
+                                                <string key="text">*The app uses an authentication system with twitter
+so to search a tweet you should authorize
+IsItReal in your twitter account.</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ic-f4q">
+                                                <rect key="frame" x="25" y="854" width="298" height="46.5"/>
+                                                <string key="text">*The free license of this app is able to search 
+tweets in early 7 days, if you need an advanced search
+you should try isItReal Pro</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*The app will not post in your twitter account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtL-ep-aq0">
+                                                <rect key="frame" x="25" y="908.5" width="239" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="WhiteBackground"/>
+                                        <constraints>
+                                            <constraint firstItem="nbT-ZG-Ud2" firstAttribute="top" secondItem="Tr2-wc-sEv" secondAttribute="bottom" constant="25" id="1qN-3G-W2h"/>
+                                            <constraint firstItem="hMc-Pv-YrX" firstAttribute="leading" secondItem="Iwu-Uz-FLK" secondAttribute="leading" constant="25" id="Cil-lx-t4c"/>
+                                            <constraint firstItem="Tr2-wc-sEv" firstAttribute="centerX" secondItem="ztn-gD-1WR" secondAttribute="centerX" id="DoG-Ba-rU3"/>
+                                            <constraint firstItem="KiI-uA-I31" firstAttribute="centerX" secondItem="Iwu-Uz-FLK" secondAttribute="centerX" id="Jw1-w4-jHh"/>
+                                            <constraint firstItem="QfP-ic-f4q" firstAttribute="leading" secondItem="Bwn-Pk-rpm" secondAttribute="leading" id="Kot-2e-R5T"/>
+                                            <constraint firstItem="WYv-XH-OxI" firstAttribute="centerX" secondItem="OE1-7B-l8W" secondAttribute="centerX" id="Kp7-It-3Mc"/>
+                                            <constraint firstItem="JtL-ep-aq0" firstAttribute="top" secondItem="QfP-ic-f4q" secondAttribute="bottom" constant="8" id="Nj5-lf-4I4"/>
+                                            <constraint firstItem="hMc-Pv-YrX" firstAttribute="top" secondItem="nbT-ZG-Ud2" secondAttribute="bottom" constant="86.5" id="Okv-sp-pLt"/>
+                                            <constraint firstItem="Bwn-Pk-rpm" firstAttribute="leading" secondItem="hMc-Pv-YrX" secondAttribute="leading" id="QIx-ED-A4F"/>
+                                            <constraint firstItem="KiI-uA-I31" firstAttribute="top" secondItem="Iwu-Uz-FLK" secondAttribute="top" constant="36" id="UyT-hg-8I0"/>
+                                            <constraint firstAttribute="bottom" secondItem="JtL-ep-aq0" secondAttribute="bottom" constant="79.5" id="VQe-tl-vSa"/>
+                                            <constraint firstItem="QfP-ic-f4q" firstAttribute="top" secondItem="Bwn-Pk-rpm" secondAttribute="bottom" constant="8" id="WDI-X8-8Xr"/>
+                                            <constraint firstItem="OE1-7B-l8W" firstAttribute="centerX" secondItem="KiI-uA-I31" secondAttribute="centerX" id="XQg-31-82A"/>
+                                            <constraint firstItem="nbT-ZG-Ud2" firstAttribute="centerX" secondItem="Tr2-wc-sEv" secondAttribute="centerX" id="ZBE-lS-Vfy"/>
+                                            <constraint firstItem="03H-D4-wvs" firstAttribute="centerX" secondItem="WYv-XH-OxI" secondAttribute="centerX" id="aBf-1U-C5y"/>
+                                            <constraint firstItem="OE1-7B-l8W" firstAttribute="top" secondItem="KiI-uA-I31" secondAttribute="bottom" constant="29" id="bqD-SV-MAd"/>
+                                            <constraint firstItem="WYv-XH-OxI" firstAttribute="top" secondItem="OE1-7B-l8W" secondAttribute="bottom" constant="8" id="dK5-EU-6s7"/>
+                                            <constraint firstItem="JtL-ep-aq0" firstAttribute="leading" secondItem="QfP-ic-f4q" secondAttribute="leading" id="hVA-m1-TRO"/>
+                                            <constraint firstItem="Tr2-wc-sEv" firstAttribute="top" secondItem="ztn-gD-1WR" secondAttribute="bottom" constant="49.5" id="hha-kV-BFN"/>
+                                            <constraint firstItem="ztn-gD-1WR" firstAttribute="centerX" secondItem="03H-D4-wvs" secondAttribute="centerX" id="jZy-ud-eQ5"/>
+                                            <constraint firstItem="03H-D4-wvs" firstAttribute="top" secondItem="WYv-XH-OxI" secondAttribute="bottom" constant="20" id="mJS-Kq-FJm"/>
+                                            <constraint firstItem="ztn-gD-1WR" firstAttribute="top" secondItem="03H-D4-wvs" secondAttribute="bottom" constant="51.5" id="rc1-Xg-SBA"/>
+                                            <constraint firstItem="Bwn-Pk-rpm" firstAttribute="top" secondItem="hMc-Pv-YrX" secondAttribute="bottom" constant="15" id="t4D-Lb-Jky"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Iwu-Uz-FLK" firstAttribute="top" secondItem="y2k-Sa-eia" secondAttribute="top" id="Cbc-td-g5W"/>
+                                    <constraint firstItem="Iwu-Uz-FLK" firstAttribute="height" secondItem="y2k-Sa-eia" secondAttribute="height" priority="250" id="HRI-Eb-I54"/>
+                                    <constraint firstItem="Iwu-Uz-FLK" firstAttribute="leading" secondItem="y2k-Sa-eia" secondAttribute="leading" id="gwQ-ab-Nkm"/>
+                                    <constraint firstItem="Iwu-Uz-FLK" firstAttribute="width" secondItem="y2k-Sa-eia" secondAttribute="width" id="jK5-Ir-0mm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iwu-Uz-FLK" secondAttribute="trailing" id="xa4-Gt-sCW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Iwu-Uz-FLK" secondAttribute="bottom" id="zP9-Zr-wux"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="AyX-8R-kXP"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="x2Z-b1-eRw"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" name="WhiteBackground"/>
+                        <constraints>
+                            <constraint firstItem="y2k-Sa-eia" firstAttribute="bottom" secondItem="Qkl-6P-3w0" secondAttribute="bottom" id="0xS-Xc-9Kc"/>
+                            <constraint firstItem="y2k-Sa-eia" firstAttribute="trailing" secondItem="Qkl-6P-3w0" secondAttribute="trailing" id="P6o-qz-4Gm"/>
+                            <constraint firstItem="y2k-Sa-eia" firstAttribute="leading" secondItem="Qkl-6P-3w0" secondAttribute="leading" id="fyg-TX-G8N"/>
+                            <constraint firstItem="y2k-Sa-eia" firstAttribute="top" secondItem="Qkl-6P-3w0" secondAttribute="top" id="qaR-7J-HIv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qkl-6P-3w0"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="1000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uGe-JJ-Ueh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856" y="245.57721139430288"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="OnboardStep1" width="494" height="234"/>
+        <image name="OnboardStep2" width="147" height="106"/>
+        <image name="OnboardStep3" width="141" height="124"/>
+        <namedColor name="WhiteBackground">
+            <color red="0.9100000262260437" green="0.95999997854232788" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

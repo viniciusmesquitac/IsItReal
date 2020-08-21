@@ -25,7 +25,8 @@ class CustomCell: UITableViewCell {
         tweetUserName.text = viewModel.tweet.user.name
         tweetScreenName.text = viewModel.tweetScreenName
         tweetText.text = viewModel.tweet.text
-//        tweetValidation.text = viewModel.isValid
+        tweetValidation.text = "Tweet Validated"
+        tweetValidationDate.text = viewModel.tweet.dateAnalyses
     }
     
     override func setNeedsUpdateConstraints() {

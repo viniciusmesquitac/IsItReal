@@ -14,6 +14,11 @@ struct TweetDetailsViewModel {
     init(tweet: Tweet) {
         self.tweet = tweet
     }
+    
+    func createAnalyseDate() {
+        
+    }
+    
 }
 
 extension TweetDetailsViewModel {
@@ -26,17 +31,16 @@ extension TweetDetailsViewModel {
     var isValid: Bool? {
         return true
     }
-    var dateTweetAnalyse: String {
-        let currentDate = Date()
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .long
-        return formatter.string(from: currentDate)
+    
+    var userImagePhoto: URL {
+        guard let url = URL(string: tweet.user.profileImage) else {
+            return URL(fileURLWithPath: "")
+        }
+        return url
     }
 }
 
 extension TweetDetailsViewModel: Equatable {
-    
     static func == (lhs: TweetDetailsViewModel, rhs: TweetDetailsViewModel) -> Bool {
         return lhs.tweet.idStr == rhs.tweet.idStr
     }

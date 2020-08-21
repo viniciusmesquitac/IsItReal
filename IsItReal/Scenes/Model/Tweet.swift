@@ -13,11 +13,12 @@ struct Tweet: Decodable & Encodable {
     let idStr: String
     let createdDate: String
     let user: User
+    var dateAnalyses: String?
 }
 
 extension Tweet {
     enum CodingKeys: String, CodingKey {
-        case text, user
+        case text, user, dateAnalyses
         case idStr       = "id_str"
         case createdDate = "created_at"
     }

@@ -10,7 +10,7 @@ import Foundation
 struct FileHelper {
     
     let manager = FileManager.default
-    let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
     //Create a new directory on the documents by default, or on the choosen path
     func createDirectory(with name: String, at path: String? = nil) {

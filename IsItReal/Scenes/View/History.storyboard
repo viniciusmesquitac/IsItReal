@@ -43,6 +43,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Yo1-JW-DQq" secondAttribute="height" multiplier="1:1" id="owY-p7-NpV"/>
                                     </constraints>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="owY-p7-NpV"/>
+                                        </mask>
+                                    </variation>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your analyse history will apper here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-qR-PVZ">
                                     <rect key="frame" x="73" y="186" width="268" height="20"/>
@@ -53,12 +58,40 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="Yo1-JW-DQq" firstAttribute="centerX" secondItem="igN-8J-PeF" secondAttribute="centerX" id="7iT-2U-y3S"/>
                                 <constraint firstAttribute="trailing" secondItem="Yo1-JW-DQq" secondAttribute="trailing" constant="140" id="ADG-5A-RnU"/>
                                 <constraint firstItem="Yo1-JW-DQq" firstAttribute="top" secondItem="igN-8J-PeF" secondAttribute="top" constant="36" id="JbG-tO-8me"/>
+                                <constraint firstItem="Hcb-qR-PVZ" firstAttribute="leading" secondItem="igN-8J-PeF" secondAttribute="leading" constant="73" id="Ndo-Rn-QOJ"/>
                                 <constraint firstItem="Hcb-qR-PVZ" firstAttribute="centerX" secondItem="Yo1-JW-DQq" secondAttribute="centerX" id="QdR-is-eGW"/>
+                                <constraint firstAttribute="bottom" secondItem="Hcb-qR-PVZ" secondAttribute="bottom" constant="37" id="T6d-aT-x5j"/>
                                 <constraint firstItem="Hcb-qR-PVZ" firstAttribute="top" secondItem="Yo1-JW-DQq" secondAttribute="bottom" constant="16" id="rFz-ua-GkH"/>
                                 <constraint firstItem="Yo1-JW-DQq" firstAttribute="leading" secondItem="igN-8J-PeF" secondAttribute="leading" constant="140" id="vyk-Rx-v2c"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="7iT-2U-y3S"/>
+                                    <exclude reference="ADG-5A-RnU"/>
+                                    <exclude reference="vyk-Rx-v2c"/>
+                                    <exclude reference="Ndo-Rn-QOJ"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=compact-widthClass=regular">
+                                <mask key="constraints">
+                                    <include reference="7iT-2U-y3S"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="subviews">
+                                    <include reference="Yo1-JW-DQq"/>
+                                </mask>
+                                <mask key="constraints">
+                                    <include reference="ADG-5A-RnU"/>
+                                    <include reference="JbG-tO-8me"/>
+                                    <include reference="vyk-Rx-v2c"/>
+                                    <include reference="QdR-is-eGW"/>
+                                    <include reference="rFz-ua-GkH"/>
+                                </mask>
+                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="CgR-HJ-HO2" customClass="HistoryTableViewCell" customModule="IsItReal" customModuleProvider="target">
