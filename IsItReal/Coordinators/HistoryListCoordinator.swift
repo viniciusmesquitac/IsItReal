@@ -27,7 +27,7 @@ final class HistoryListCordinator: Coordinator {
     
     func showDetails(tweet: TweetDetailsViewModel) {
         let vc = UIStoryboard.instantiateTweetDetailsViewController()
-        vc.tweet = tweet
+        vc.viewModel = tweet
         navigationController?.present(vc, animated: true, completion: nil)
     }
 }

@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Modal Dismiss View Controller-->
         <scene sceneID="dyE-zl-Jyn">
             <objects>
-                <viewController id="d5J-YD-7nS" sceneMemberID="viewController">
+                <viewController id="d5J-YD-7nS" customClass="ModalDismissViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ri7-al-GTm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2k-Sa-eia">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwu-Uz-FLK">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1003.5"/>
@@ -143,13 +143,28 @@ you should try isItReal Pro</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="AyX-8R-kXP"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="x2Z-b1-eRw"/>
                             </scrollView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMB-Pl-u6n">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="Mmt-xb-fHT">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="kge-9E-zUV">
+                                            <connections>
+                                                <action selector="dismissModal:" destination="d5J-YD-7nS" id="vmN-1P-dGh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" name="WhiteBackground"/>
                         <constraints>
                             <constraint firstItem="y2k-Sa-eia" firstAttribute="bottom" secondItem="Qkl-6P-3w0" secondAttribute="bottom" id="0xS-Xc-9Kc"/>
+                            <constraint firstItem="AMB-Pl-u6n" firstAttribute="trailing" secondItem="Qkl-6P-3w0" secondAttribute="trailing" id="6pG-MK-RxN"/>
+                            <constraint firstItem="AMB-Pl-u6n" firstAttribute="leading" secondItem="Qkl-6P-3w0" secondAttribute="leading" id="6rx-Y8-TPn"/>
+                            <constraint firstItem="y2k-Sa-eia" firstAttribute="top" secondItem="AMB-Pl-u6n" secondAttribute="bottom" id="7bk-nS-CAF"/>
+                            <constraint firstItem="AMB-Pl-u6n" firstAttribute="top" secondItem="Qkl-6P-3w0" secondAttribute="top" id="GDg-SZ-DJQ"/>
                             <constraint firstItem="y2k-Sa-eia" firstAttribute="trailing" secondItem="Qkl-6P-3w0" secondAttribute="trailing" id="P6o-qz-4Gm"/>
                             <constraint firstItem="y2k-Sa-eia" firstAttribute="leading" secondItem="Qkl-6P-3w0" secondAttribute="leading" id="fyg-TX-G8N"/>
-                            <constraint firstItem="y2k-Sa-eia" firstAttribute="top" secondItem="Qkl-6P-3w0" secondAttribute="top" id="qaR-7J-HIv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qkl-6P-3w0"/>
                     </view>

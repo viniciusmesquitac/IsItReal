@@ -7,18 +7,31 @@
 //
 
 import UIKit
+import SafariServices
 
 class TweetDetailsViewController: UIViewController {
     
-    var tweet: TweetDetailsViewModel?
+    var viewModel: TweetDetailsViewModel?
     @IBOutlet weak var rootView: TweetDetailsView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let tweet = tweet {
-            rootView.configure(viewModel: tweet)
+        if let viewModel = viewModel {
+            rootView.configure(viewModel: viewModel)
         }
+    }
+    @IBAction func didSelecShareButton(_ sender: Any) {
+        if let sharetext = viewModel?.tweet.text {
+            let vc = UIActivityViewController(activityItems: [sharetext], applicationActivities: [])
+            present(vc, animated: true)
+        }
+    }
+    
+    @IBAction func didSelectCopyButton(_ sender: Any) {
+        guard let link = viewModel?.link, let url = URL(string: link) else { return }
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
     }
     
     @IBAction func cancelButton(_ sender: Any) {

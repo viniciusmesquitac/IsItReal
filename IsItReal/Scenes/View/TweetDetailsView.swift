@@ -17,8 +17,9 @@ class TweetDetailsView: UIView {
     
     func configure(viewModel: TweetDetailsViewModel) {
         self.tweetContainerView.userLabel.text = viewModel.tweet.user.name
-        self.tweetContainerView.userScreenName.text = viewModel.tweet.user.screenName
+        self.tweetContainerView.userScreenName.text = "@"+viewModel.tweet.user.screenName
         self.tweetContainerView.tweetText.text = viewModel.tweet.text
+        self.tweetContainerView.createDate.text = viewModel.createdDate
         self.linkTweetContainerView.link.text = viewModel.link
         Nuke.loadImage(with: viewModel.userImagePhoto, into: self.tweetContainerView.userPhoto)
         
@@ -34,6 +35,7 @@ class TweetContainerView: UIView {
     @IBOutlet weak var userScreenName: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var tweetText: UITextView!
+    @IBOutlet weak var createDate: UILabel!
 }
 
 class LinkTweetContainerView: UIView {

@@ -42,6 +42,9 @@
 		81BA9EFE24EFF03400844917 /* ProVersion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BA9EFD24EFF03400844917 /* ProVersion.storyboard */; };
 		81BA9F0024F00B3900844917 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9EFF24F00B3900844917 /* UIView+Loading.swift */; };
 		81BA9F0224F010AD00844917 /* UIButton+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9F0124F010AD00844917 /* UIButton+Loading.swift */; };
+		81BA9F0424F0275200844917 /* TweetRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9F0324F0275200844917 /* TweetRepositoryTests.swift */; };
+		81BA9F0624F0830400844917 /* ModalDismissViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9F0524F0830400844917 /* ModalDismissViewController.swift */; };
+		81BA9F0824F08C8100844917 /* MockExtendedTweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 81BA9F0724F08C8100844917 /* MockExtendedTweets.json */; };
 		81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5224E4758E0080F089 /* AppDelegate.swift */; };
 		81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5424E4758E0080F089 /* SceneDelegate.swift */; };
 		81F63C5A24E4758E0080F089 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F63C5824E4758E0080F089 /* TabBar.storyboard */; };
@@ -111,6 +114,9 @@
 		81BA9EFD24EFF03400844917 /* ProVersion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProVersion.storyboard; sourceTree = "<group>"; };
 		81BA9EFF24F00B3900844917 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		81BA9F0124F010AD00844917 /* UIButton+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Loading.swift"; sourceTree = "<group>"; };
+		81BA9F0324F0275200844917 /* TweetRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepositoryTests.swift; sourceTree = "<group>"; };
+		81BA9F0524F0830400844917 /* ModalDismissViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissViewController.swift; sourceTree = "<group>"; };
+		81BA9F0724F08C8100844917 /* MockExtendedTweets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockExtendedTweets.json; sourceTree = "<group>"; };
 		81F63C4F24E4758E0080F089 /* IsItReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsItReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F63C5224E4758E0080F089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F63C5424E4758E0080F089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				81B1DC4024E599D500D755C0 /* MockTweets.json */,
+				81BA9F0724F08C8100844917 /* MockExtendedTweets.json */,
 				81B1DC4424E59B8700D755C0 /* MockRepository.swift */,
 			);
 			path = Mock;
@@ -287,6 +294,7 @@
 				81F63C6924E475900080F089 /* IsItRealTests.swift */,
 				81F63C6B24E475900080F089 /* Info.plist */,
 				81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */,
+				81BA9F0324F0275200844917 /* TweetRepositoryTests.swift */,
 			);
 			path = IsItRealTests;
 			sourceTree = "<group>";
@@ -316,6 +324,7 @@
 				81F63C8D24E4795D0080F089 /* HistoryListViewController.swift */,
 				81F63C8F24E479CC0080F089 /* AnalyseTweetViewController.swift */,
 				81B7794B24E6022D007389BD /* TweetDetailsViewController.swift */,
+				81BA9F0524F0830400844917 /* ModalDismissViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -484,6 +493,7 @@
 				81F63C5C24E475900080F089 /* Assets.xcassets in Resources */,
 				81F63C8A24E477C70080F089 /* Analyse.storyboard in Resources */,
 				81B1DC4124E599D500D755C0 /* MockTweets.json in Resources */,
+				81BA9F0824F08C8100844917 /* MockExtendedTweets.json in Resources */,
 				81F63C8C24E477D90080F089 /* History.storyboard in Resources */,
 				81B7794A24E5DC8A007389BD /* HistoryTableViewCell.xib in Resources */,
 				81BA9EFC24EF430B00844917 /* Onboarding.storyboard in Resources */,
@@ -660,6 +670,7 @@
 				81B7795324E6CAE2007389BD /* AppCoordinator.swift in Sources */,
 				81B7796E24EB5C36007389BD /* ImagePickerWorker.swift in Sources */,
 				81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */,
+				81BA9F0624F0830400844917 /* ModalDismissViewController.swift in Sources */,
 				81B1DC3E24E591A600D755C0 /* APIConstants.swift in Sources */,
 				81B1DC3524E56A3600D755C0 /* FileHelper.swift in Sources */,
 				81F63C8E24E4795D0080F089 /* HistoryListViewController.swift in Sources */,
@@ -676,6 +687,7 @@
 			files = (
 				81F63C6A24E475900080F089 /* IsItRealTests.swift in Sources */,
 				81445B1424EDDEE100ED7F91 /* ImageAnalyseTests.swift in Sources */,
+				81BA9F0424F0275200844917 /* TweetRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

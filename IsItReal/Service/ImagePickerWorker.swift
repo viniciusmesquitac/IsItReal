@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol ImagePickerDelegate: class {
     func present(viewController: UIViewController)
 }

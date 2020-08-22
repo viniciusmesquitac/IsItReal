@@ -27,6 +27,11 @@ class ListTweetViewModel: ConfigurableViewModel {
         }
     }
     
+    convenience init(repository: Repository) {
+        self.init()
+        self.repository = repository
+    }
+    
     public var numberOfRows: Int {
         return tweetsDetailsViewModel.count
     }

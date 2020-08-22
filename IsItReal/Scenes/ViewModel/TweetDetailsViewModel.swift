@@ -38,6 +38,18 @@ extension TweetDetailsViewModel {
         }
         return url
     }
+    
+    var createdDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E MMM d HH:mm:ss Z yyyy"
+        if let createdDate = dateFormatter.date(from: tweet.createdDate) {
+            let dateFormatterR = DateFormatter()
+            dateFormatterR.dateFormat = "h:mm a • E d, yyyy"
+            let createdDateString = dateFormatterR.string(from: createdDate)
+            return createdDateString
+        }
+        return tweet.createdDate
+    }
 }
 
 extension TweetDetailsViewModel: Equatable {

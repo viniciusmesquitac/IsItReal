@@ -27,7 +27,7 @@ final class AnalyseTweetCoordinator: NSObject, Coordinator {
     
     func showDetails(_ tweet: Tweet) {
         let vc = UIStoryboard.instantiateTweetDetailsViewController()
-        vc.tweet = TweetDetailsViewModel(tweet: tweet)
+        vc.viewModel = TweetDetailsViewModel(tweet: tweet)
         navigationController?.present(vc, animated: true, completion: nil)
     }
 }

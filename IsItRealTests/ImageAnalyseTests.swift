@@ -14,24 +14,29 @@ class ImageAnalyseTests: XCTestCase {
     let imageReader = ImageReader()
     
     let textFromImageMock1 =
-    "Jair M. Bolsonaro 1@jairbolsonaroC. Conselho do FGTS aprova distribuicao de R$ 7,5bilhoes para trabalhadores. Recursos serao depositadosaté 31 deagosto nascontas vinculadas. @MinEconomia .Detalhes: bit.ly/3kDaTGzTranslate Tweet7:22 AM • Aug 13, 2020Twitter for iPhone"
+    "C. Conselho do FGTS aprova distribuiGao de R$ 7,5bilhoes para trabalhadores. Recursos serao depositadosaté 31 de agosto nas contas vinculadas. @MinEconomia .Translate Tweet7:22 AM . Aug 13, 2020 Twitter for iPhoneJair M. Bolsonaro•@jairbolsonaroDetalhes: bit.ly/3kDaTGz"
     
     let textFromImageMock2 =
-    "Steve Troughton-Smith o@stroughtonsmith\"But this is just App Review's normal response\"...should it be, though? None of this should be normal.We're numb to it as developers in the ecosystem, butApple completely cutting developers off from tooling &distribution, beyond malware reasons, is insane4:08 PM • Aug 17, 2020Twitter for Mac"
+    "Steve Troughton-smith •\"But this is just App Review's normal response\"should it be, though? None of this should be normal.We're numb to it as developers in the ecosystem, butApple completely cutting developers off from tooling &distribution, beyond malware reasons, is insane4:08 PM . Aug 17, 2020 . Twitter for Mac13\" @stroughtonsmith"
 
     let textFromImageMock3 =
-    "Donald J. Trump@realDonaldTrumpMore Testing, which is a good thing (we have the most inthe world), equals more Cases, which is Fake News Gold.They use Cases to demean the incredible job being doneby the great men & women of the. fighting the ChinaPlague!9:33 AM • Aug 11, 2020Twitter for iPhone2.6K Retweets and comments9.7K Likes"
+    "Donald J. Trump •More Testing, which is a good thing (we have the most inthe world), equals more Cases, which is Fake News Gold.They use Cases to demean the incredible job being doneby the great men & women of the U.S. fighting the ChinaPlague!9:33 AM . Aug 11, 2020 Twitter for iPhone2.6K Retweets and comments 9.7K Likes@realDonaldTrump"
     
     func test_getImageUrl_imageUrl()  {
         let url = imageReader.getUrlFromImage(forImageNamed: "ImageMock1")
         XCTAssertNotNil(url)
     }
     
+    func test_getNotImageUrl_expectNil()  {
+        let url = imageReader.getUrlFromImage(forImageNamed: "")
+        XCTAssertNil(url)
+    }
+    
     func test_imageReader_textFromMockImage1() throws {
         // given
         let imageUrl: URL? = imageReader.getUrlFromImage(forImageNamed: "ImageMock1")
         // when
-        let textFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .accurate)
+        let textFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .fast)
         // then
         XCTAssertEqual(textFromImage, textFromImageMock1)
     }
@@ -40,7 +45,7 @@ class ImageAnalyseTests: XCTestCase {
         // given
         let imageUrl: URL? = imageReader.getUrlFromImage(forImageNamed: "ImageMock2")
         // when
-        let textFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .accurate)
+        let textFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .fast)
         // then
         XCTAssertEqual(textFromImage, textFromImageMock2)
     }
@@ -49,8 +54,29 @@ class ImageAnalyseTests: XCTestCase {
         // given
         let imageUrl: URL? = imageReader.getUrlFromImage(forImageNamed: "ImageMock3")
         // when
-        let textFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .accurate)
+        let textFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .fast)
+        
+        print(textFromImage)
         // then
         XCTAssertEqual(textFromImage, textFromImageMock3)
+    }
+    
+    func test_impossibleToRead_error() throws {
+        // given
+        let imageUrl: URL? = imageReader.getUrlFromImage(forImageNamed: "DarkImageSample")
+        // when
+        let performSearchImage = { try self.imageReader.perform(on: imageUrl, recognitionLevel: .fast) }
+        // then
+        XCTAssertThrowsError(try performSearchImage())
+    }
+    
+    func test_createQuery_queryResultsSequence() throws {
+        // given
+        let sequece: [String.SubSequence] = [
+            "\"But", "this", "is", "just", "App", "Review\'s", "normal", "response\"should", "it", "be,", "though?", "None", "of", "this", "should", "be", "normal.We\'re", "numb", "to", "it", "as", "developers", "in", "the", "ecosystem,", "butApple", "completely", "cutting", "developers", "off", "from", "tooling", "&distribution,", "beyond", "malware", "reasons,", "is", "insane4:08", "PM", ".", "Aug", "17,", "2020", ".", "Twitter", "for", "Mac13\""]
+        // when
+        let queryResul = try imageReader.createQuery(text: textFromImageMock2)
+        // then
+        XCTAssertEqual(sequece, queryResul.keySearch)
     }
 }

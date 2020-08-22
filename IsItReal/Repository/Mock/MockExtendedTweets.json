@@ -1,0 +1,124 @@
+[
+{
+  "favorited" : false,
+  "display_text_range" : [
+    0.0,
+    95.0
+  ],
+  "retweeted" : false,
+  "contributors" : null,
+  "entities" : {
+    "hashtags" : [
+      {
+        "text" : "NovaFotoDoPerfil",
+        "indices" : [
+          0.0,
+          17.0
+        ]
+      }
+    ],
+    "symbols" : [
+
+    ],
+    "urls" : [
+
+    ],
+    "user_mentions" : [
+
+    ]
+  },
+  "geo" : null,
+  "full_text" : "#NovaFotoDoPerfil gostaram? A primeira parte da quinta temporada de Lucifer já está disponível.",
+  "truncated" : false,
+  "is_quote_status" : false,
+  "favorite_count" : 34390.0,
+  "created_at" : "Fri Aug 21 14:01:44 +0000 2020",
+  "coordinates" : null,
+  "lang" : "pt",
+  "metadata" : {
+    "result_type" : "popular",
+    "iso_language_code" : "pt"
+  },
+  "in_reply_to_user_id" : null,
+  "in_reply_to_screen_name" : null,
+  "in_reply_to_user_id_str" : null,
+  "in_reply_to_status_id_str" : null,
+  "source" : "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+  "retweet_count" : 1825.0,
+  "id" : 1.2968097141273846e+18,
+  "in_reply_to_status_id" : null,
+  "id_str" : "1296809714127384578",
+  "place" : null,
+  "user" : {
+    "profile_sidebar_border_color" : "FFFFFF",
+    "id" : 231579149.0,
+    "profile_background_tile" : true,
+    "profile_image_url" : "http://pbs.twimg.com/profile_images/1296939380343529479/jw_j2glc_normal.jpg",
+    "default_profile_image" : false,
+    "default_profile" : false,
+    "name" : "netflixbrasil",
+    "verified" : true,
+    "geo_enabled" : true,
+    "notifications" : false,
+    "profile_text_color" : "333333",
+    "profile_banner_url" : "https://pbs.twimg.com/profile_banners/231579149/1598018409",
+    "following" : false,
+    "time_zone" : null,
+    "translator_type" : "none",
+    "profile_use_background_image" : true,
+    "statuses_count" : 52205.0,
+    "followers_count" : 10166471.0,
+    "description" : "Sou 🔥🌟deckerstar🌟🔥 e também tô no https://t.co/HgGX3Dmrrl",
+    "lang" : null,
+    "url" : "https://t.co/aVJ7JipBCs",
+    "has_extended_profile" : false,
+    "protected" : false,
+    "contributors_enabled" : false,
+    "follow_request_sent" : false,
+    "is_translator" : false,
+    "utc_offset" : null,
+    "location" : "Brasil",
+    "is_translation_enabled" : false,
+    "screen_name" : "NetflixBrasil",
+    "entities" : {
+      "url" : {
+        "urls" : [
+          {
+            "indices" : [
+              0.0,
+              23.0
+            ],
+            "display_url" : "netflix.com/br/",
+            "url" : "https://t.co/aVJ7JipBCs",
+            "expanded_url" : "https://www.netflix.com/br/"
+          }
+        ]
+      },
+      "description" : {
+        "urls" : [
+          {
+            "display_url" : "tiktok.com/@netflixbrasil",
+            "indices" : [
+              34.0,
+              57.0
+            ],
+            "url" : "https://t.co/HgGX3Dmrrl",
+            "expanded_url" : "http://tiktok.com/@netflixbrasil"
+          }
+        ]
+      }
+    },
+    "favourites_count" : 9353.0,
+    "profile_background_image_url_https" : "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "friends_count" : 304.0,
+    "profile_background_color" : "000000",
+    "profile_link_color" : "0084B4",
+    "id_str" : "231579149",
+    "profile_image_url_https" : "https://pbs.twimg.com/profile_images/1296939380343529479/jw_j2glc_normal.jpg",
+    "profile_sidebar_fill_color" : "DDEEF6",
+    "created_at" : "Tue Dec 28 22:43:40 +0000 2010",
+    "listed_count" : 2370.0,
+    "profile_background_image_url" : "http://abs.twimg.com/images/themes/theme1/bg.png"
+  }
+}
+]
