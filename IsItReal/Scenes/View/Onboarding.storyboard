@@ -11,7 +11,7 @@
         <!--Modal Dismiss View Controller-->
         <scene sceneID="dyE-zl-Jyn">
             <objects>
-                <viewController id="d5J-YD-7nS" customClass="ModalDismissViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding" id="d5J-YD-7nS" customClass="ModalDismissViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ri7-al-GTm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwu-Uz-FLK">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1003.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="978"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardStep1" translatesAutoresizingMaskIntoConstraints="NO" id="OE1-7B-l8W">
                                                 <rect key="frame" x="87" y="89" width="240" height="128"/>
@@ -30,30 +30,30 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYv-XH-OxI">
-                                                <rect key="frame" x="64.5" y="225" width="285" height="38"/>
+                                                <rect key="frame" x="59" y="225" width="296" height="37.5"/>
                                                 <string key="text">Select a photo that you want analyse and
 know if the person really post that.</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztn-gD-1WR">
-                                                <rect key="frame" x="96.5" y="451.5" width="221" height="38"/>
+                                                <rect key="frame" x="91.5" y="451" width="231" height="37.5"/>
                                                 <string key="text">We are going to extract the text
 and verify if the user posted that</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardStep2" translatesAutoresizingMaskIntoConstraints="NO" id="03H-D4-wvs">
-                                                <rect key="frame" x="97.5" y="283" width="219" height="117"/>
+                                                <rect key="frame" x="97.5" y="282.5" width="219" height="117"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="117" id="F5b-BK-Vxc"/>
                                                     <constraint firstAttribute="width" constant="219" id="n4z-U1-un0"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardStep3" translatesAutoresizingMaskIntoConstraints="NO" id="Tr2-wc-sEv">
-                                                <rect key="frame" x="139.5" y="539" width="135" height="72"/>
+                                                <rect key="frame" x="139.5" y="538" width="135" height="72"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="135" id="Fp3-wC-0ft"/>
                                                     <constraint firstAttribute="height" constant="72" id="wZa-1D-PaU"/>
@@ -66,40 +66,40 @@ and verify if the user posted that</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbT-ZG-Ud2">
-                                                <rect key="frame" x="66" y="636" width="282.5" height="38"/>
+                                                <rect key="frame" x="59.5" y="635" width="295" height="37.5"/>
                                                 <string key="text">Save and share securely with a direct link
 to the real post</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMc-Pv-YrX">
-                                                <rect key="frame" x="25" y="760.5" width="127" height="24"/>
+                                                <rect key="frame" x="25" y="718.5" width="127" height="24"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwn-Pk-rpm">
-                                                <rect key="frame" x="25" y="799.5" width="277" height="46.5"/>
+                                                <rect key="frame" x="25" y="757.5" width="333" height="53.5"/>
                                                 <string key="text">*The app uses an authentication system with twitter
 so to search a tweet you should authorize
 IsItReal in your twitter account.</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ic-f4q">
-                                                <rect key="frame" x="25" y="854" width="298" height="46.5"/>
+                                                <rect key="frame" x="25" y="819" width="353" height="53.5"/>
                                                 <string key="text">*The free license of this app is able to search 
 tweets in early 7 days, if you need an advanced search
 you should try isItReal Pro</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*The app will not post in your twitter account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtL-ep-aq0">
-                                                <rect key="frame" x="25" y="908.5" width="239" height="15.5"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                                <rect key="frame" x="25" y="880.5" width="288" height="18"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -113,7 +113,7 @@ you should try isItReal Pro</string>
                                             <constraint firstItem="QfP-ic-f4q" firstAttribute="leading" secondItem="Bwn-Pk-rpm" secondAttribute="leading" id="Kot-2e-R5T"/>
                                             <constraint firstItem="WYv-XH-OxI" firstAttribute="centerX" secondItem="OE1-7B-l8W" secondAttribute="centerX" id="Kp7-It-3Mc"/>
                                             <constraint firstItem="JtL-ep-aq0" firstAttribute="top" secondItem="QfP-ic-f4q" secondAttribute="bottom" constant="8" id="Nj5-lf-4I4"/>
-                                            <constraint firstItem="hMc-Pv-YrX" firstAttribute="top" secondItem="nbT-ZG-Ud2" secondAttribute="bottom" constant="86.5" id="Okv-sp-pLt"/>
+                                            <constraint firstItem="hMc-Pv-YrX" firstAttribute="top" secondItem="nbT-ZG-Ud2" secondAttribute="bottom" constant="46" id="Okv-sp-pLt"/>
                                             <constraint firstItem="Bwn-Pk-rpm" firstAttribute="leading" secondItem="hMc-Pv-YrX" secondAttribute="leading" id="QIx-ED-A4F"/>
                                             <constraint firstItem="KiI-uA-I31" firstAttribute="top" secondItem="Iwu-Uz-FLK" secondAttribute="top" constant="36" id="UyT-hg-8I0"/>
                                             <constraint firstAttribute="bottom" secondItem="JtL-ep-aq0" secondAttribute="bottom" constant="79.5" id="VQe-tl-vSa"/>
@@ -147,7 +147,7 @@ you should try isItReal Pro</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="Mmt-xb-fHT">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="kge-9E-zUV">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kge-9E-zUV">
                                             <connections>
                                                 <action selector="dismissModal:" destination="d5J-YD-7nS" id="vmN-1P-dGh"/>
                                             </connections>

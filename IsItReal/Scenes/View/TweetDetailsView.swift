@@ -12,21 +12,16 @@ import Nuke
 class TweetDetailsView: UIView {
     
     @IBOutlet weak var tweetContainerView: TweetContainerView!
-    @IBOutlet weak var linkTweetContainerView: LinkTweetContainerView!
     @IBOutlet weak var ValidTweetContainerView: ValidTweetContainer!
+    @IBOutlet weak var safariButton: UIButton!
     
     func configure(viewModel: TweetDetailsViewModel) {
         self.tweetContainerView.userLabel.text = viewModel.tweet.user.name
         self.tweetContainerView.userScreenName.text = "@"+viewModel.tweet.user.screenName
         self.tweetContainerView.tweetText.text = viewModel.tweet.text
         self.tweetContainerView.createDate.text = viewModel.createdDate
-        self.linkTweetContainerView.link.text = viewModel.link
+        self.safariButton.setTitle(viewModel.link, for: .normal)
         Nuke.loadImage(with: viewModel.userImagePhoto, into: self.tweetContainerView.userPhoto)
-        
-    }
-    
-    func teste() {
-        print("ola!")
     }
 }
 
@@ -36,11 +31,6 @@ class TweetContainerView: UIView {
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var tweetText: UITextView!
     @IBOutlet weak var createDate: UILabel!
-}
-
-class LinkTweetContainerView: UIView {
-    @IBOutlet weak var link: UILabel!
-    @IBOutlet weak var buttonLink: UIButton!
 }
 
 class ValidTweetContainer: UIView {

@@ -29,8 +29,18 @@ class TabBarCoordinator: Coordinator {
         tabBarController.viewControllers = [analyseTweetController, historyListController]
         
         tabBarController.modalPresentationStyle = .fullScreen
-        navigationController.present(tabBarController, animated: true, completion: nil)
         
+        UserDefaultsManager.verifyState { state in
+            switch state {
+            case .firstLaunch:
+                 navigationController.present(tabBarController, animated: false, completion: nil)
+                 let onboardVC = UIStoryboard.instantiateOnboarding()
+                 tabBarController.present(onboardVC, animated: true, completion: nil)
+            case .notFirstLaunch:
+                navigationController.present(tabBarController, animated: false, completion: nil)
+            }
+        }
+       
         coordinate(to: historyListCoordinator)
         coordinate(to: analyseTweetCoordinator)
     }
