@@ -24,10 +24,7 @@ class HistoryList: XCTestCase {
     
     func test_HistoryList_getTweet() {
         let tweet = viewModel.getTweet(for: 3)
-        print(tweet?.tweet.text)
-        
         let text = tweet?.tweet.text
         XCTAssertEqual("Hello World", text)
-
     }
 }

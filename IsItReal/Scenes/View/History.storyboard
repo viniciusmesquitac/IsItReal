@@ -109,24 +109,27 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="History" image="doc.plaintext" catalog="system" selectedImage="doc.plaintext" id="gz9-aS-lzK"/>
-                    <navigationItem key="navigationItem" title="History" id="UDd-BU-c86">
+                    <navigationItem key="navigationItem" title="History" id="UDd-BU-c86" customClass="HistoryListNavigationItem" customModule="IsItReal" customModuleProvider="target">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="TDY-Q6-Khg">
                             <connections>
-                                <action selector="startEditing:" destination="Ok1-IS-pen" id="LNl-Zv-AU5"/>
+                                <action selector="startEditing:" destination="Ok1-IS-pen" id="R0m-fN-C8M"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Delete" id="bzP-5a-M7I">
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="startDeleteTweets:" destination="Ok1-IS-pen" id="2su-bq-pNf"/>
+                                <action selector="startDeleteTweets:" destination="Ok1-IS-pen" id="BRi-5E-r4b"/>
                             </connections>
                         </barButtonItem>
+                        <connections>
+                            <outlet property="deleteButton" destination="bzP-5a-M7I" id="BP3-O8-M2g"/>
+                            <outlet property="editButton" destination="TDY-Q6-Khg" id="PK9-3y-i1g"/>
+                        </connections>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="deleteButton" destination="bzP-5a-M7I" id="snt-eF-Wmp"/>
-                        <outlet property="editButton" destination="TDY-Q6-Khg" id="wom-U6-lFO"/>
                         <outlet property="emptyState" destination="igN-8J-PeF" id="ZeQ-U1-kvH"/>
+                        <outlet property="listNavigationItem" destination="UDd-BU-c86" id="sFs-GM-0Ul"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vH-4u-Cc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

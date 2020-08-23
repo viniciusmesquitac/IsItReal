@@ -46,10 +46,9 @@ class TweetRepository: Repository {
     func delete(object: Tweet) -> Bool {
         helper.removeFile(at: object.idStr)
         
-        for (index, tweet) in tweets.enumerated() {
-            if tweet.idStr == object.idStr {
-                tweets.remove(at: index)
-            }
+        for (index, tweet) in tweets.enumerated()
+            where tweet.idStr == object.idStr {
+            tweets.remove(at: index)
         }
         return true
     }

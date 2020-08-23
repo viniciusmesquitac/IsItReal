@@ -28,7 +28,7 @@
         <scene sceneID="hmZ-Cq-Oj1">
             <objects>
                 <viewController storyboardIdentifier="analyseViewController" id="lsD-sk-Mx0" customClass="AnalyseTweetViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cDv-jw-Kiy">
+                    <view key="view" contentMode="scaleToFill" id="cDv-jw-Kiy" customClass="AnalyseView" customModule="IsItReal" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

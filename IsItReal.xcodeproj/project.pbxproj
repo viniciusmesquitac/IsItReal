@@ -11,6 +11,8 @@
 		3189E2083CDC84AEA738388F /* Pods_IsItReal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF7DEF4CDE9BE57E841993E /* Pods_IsItReal.framework */; };
 		766F38DFA02B9A7E22F95CDE /* Pods_IsItRealTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7602D0C49319B013DD7EA5B /* Pods_IsItRealTests.framework */; };
 		81273DEB24F3098B0040262B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DEA24F3098B0040262B /* UserDefaultsManager.swift */; };
+		81273DED24F31C660040262B /* HistoryListNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DEC24F31C660040262B /* HistoryListNavigationItem.swift */; };
+		81273DEF24F32FCA0040262B /* AnalyseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DEE24F32FCA0040262B /* AnalyseView.swift */; };
 		81445B1224EDD56300ED7F91 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81445B1124EDD56300ED7F91 /* CustomCell.swift */; };
 		81445B1424EDDEE100ED7F91 /* ImageAnalyseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */; };
 		81B1DC2624E4E6D200D755C0 /* TweetDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC2524E4E6D200D755C0 /* TweetDetailsViewModel.swift */; };
@@ -84,6 +86,8 @@
 		2BF7DEF4CDE9BE57E841993E /* Pods_IsItReal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IsItReal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3AADA3022F016124C065E6 /* Pods-IsItRealTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IsItRealTests.release.xcconfig"; path = "Target Support Files/Pods-IsItRealTests/Pods-IsItRealTests.release.xcconfig"; sourceTree = "<group>"; };
 		81273DEA24F3098B0040262B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		81273DEC24F31C660040262B /* HistoryListNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListNavigationItem.swift; sourceTree = "<group>"; };
+		81273DEE24F32FCA0040262B /* AnalyseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseView.swift; sourceTree = "<group>"; };
 		81445B1124EDD56300ED7F91 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyseTests.swift; sourceTree = "<group>"; };
 		81B1DC2524E4E6D200D755C0 /* TweetDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 				81BA9EBD24EEC30700844917 /* Details.storyboard */,
 				81BA9EFB24EF430B00844917 /* Onboarding.storyboard */,
 				81BA9EFD24EFF03400844917 /* ProVersion.storyboard */,
+				81273DEC24F31C660040262B /* HistoryListNavigationItem.swift */,
+				81273DEE24F32FCA0040262B /* AnalyseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 				81B7796124EAE48D007389BD /* TabBarCoordinator.swift in Sources */,
 				81B7795924EACA68007389BD /* QueryResult.swift in Sources */,
 				81B1DC2E24E4F36500D755C0 /* TweetRepository.swift in Sources */,
+				81273DED24F31C660040262B /* HistoryListNavigationItem.swift in Sources */,
 				81B7794C24E6022D007389BD /* TweetDetailsViewController.swift in Sources */,
 				81B7795B24EACFC0007389BD /* Coordinator.swift in Sources */,
 				81B1DC3124E55EF600D755C0 /* SwifterService.swift in Sources */,
@@ -673,6 +680,7 @@
 				81B7795324E6CAE2007389BD /* AppCoordinator.swift in Sources */,
 				81B7796E24EB5C36007389BD /* ImagePickerWorker.swift in Sources */,
 				81F63C5524E4758E0080F089 /* SceneDelegate.swift in Sources */,
+				81273DEF24F32FCA0040262B /* AnalyseView.swift in Sources */,
 				81BA9F0624F0830400844917 /* ModalDismissViewController.swift in Sources */,
 				81B1DC3E24E591A600D755C0 /* APIConstants.swift in Sources */,
 				81B1DC3524E56A3600D755C0 /* FileHelper.swift in Sources */,

@@ -13,14 +13,13 @@ class HistoryListViewController: UITableViewController {
     let viewModel = ListTweetViewModel()
     var coordinator: HistoryListCordinator?
     
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
-    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var listNavigationItem: HistoryListNavigationItem!
     @IBOutlet weak var emptyState: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.setEditing(false, animated: false)
         _ = viewModel.getTweets()
-        handleBarButtonState()
+        listNavigationItem.handleBarButtonState(tableView)
         loadViewIfNeeded()
     }
     
@@ -29,8 +28,8 @@ class HistoryListViewController: UITableViewController {
         updateViewModel()
         coordinator = HistoryListCordinator(navigationController: navigationController!)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 152
-        tableView.register(UINib(nibName: CustomCell.nibName, bundle: nil), forCellReuseIdentifier: CustomCell.cellId)
+        tableView.register(UINib(nibName: CustomCell.nibName, bundle: nil),
+                           forCellReuseIdentifier: CustomCell.cellId)
     }
     
     fileprivate func updateViewModel() {
@@ -53,21 +52,9 @@ class HistoryListViewController: UITableViewController {
     
     @IBAction func startEditing(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing, animated: true)
-        deleteButton.isEnabled = !deleteButton.isEnabled
-        handleBarButtonState()
+        listNavigationItem.switchStateDeleteButton()
+        listNavigationItem.handleBarButtonState(tableView)
         self.loadViewIfNeeded()
-    }
-    
-    fileprivate func handleBarButtonState() {
-        if tableView.isEditing {
-            editButton.title = "Done"
-            deleteButton.isEnabled = true
-            deleteButton.tintColor = nil
-        } else {
-            editButton.title = "Edit"
-            deleteButton.isEnabled = false
-            deleteButton.tintColor = .clear
-        }
     }
     
     @IBAction func startDeleteTweets(_ sender: Any) {
@@ -78,6 +65,7 @@ class HistoryListViewController: UITableViewController {
             tableView.endUpdates()
         }
     }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
