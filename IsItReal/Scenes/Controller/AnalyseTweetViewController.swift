@@ -10,20 +10,15 @@ import UIKit
 import Swifter
 
 class AnalyseTweetViewController: UIViewController {
-    
-    @IBOutlet weak var imageToAnalyse: UIImageView!
-    @IBOutlet weak var analyseButton: UIButton!
-    @IBOutlet weak var selectPhotoButton: UIButton!
-    @IBOutlet weak var analyseProButton: UIButton!
-    
-    var imageUrl: URL?
     let imageReader = ImageReader()
     let imagePickerWorker = ImagePickerWorker()
     let viewModel = AnalysesTweetViewModel()
     var coordinator: AnalyseTweetCoordinator?
     
+    @IBOutlet weak var rootView: AnalyseView!
+    
     override func viewWillAppear(_ animated: Bool) {
-        handleButtonsState()
+        rootView.handleButtonsState()
     }
     
     override func viewDidLoad() {
@@ -37,27 +32,15 @@ class AnalyseTweetViewController: UIViewController {
     fileprivate func setupImagePickerWorker() {
         imagePickerWorker.delegate = self
         imagePickerWorker.didSelectImage = { image, url in
-            self.imageToAnalyse.image = image
-            self.imageUrl = url
-            self.handleButtonsState()
+            self.rootView.setImage(image: image, url: url)
         }
     }
     
     fileprivate func updateViewModel() {
         viewModel.handleSavedTweet = { tweet in
-            self.imageToAnalyse.image = UIImage(named: "LightSampleImage")
-            self.imageUrl = nil
-            self.analyseButton.setLoading(false)
-            self.analyseButton.isEnabled = true
+            self.rootView.removeImage()
+            self.rootView.setLoadingAnalyseButton(false)
             self.coordinator?.showDetails(tweet)
-        }
-    }
-    
-    fileprivate func handleButtonsState() {
-        if imageUrl != nil {
-            selectPhotoButton.setTitle("Change Photo", for: .normal)
-            analyseButton.isHidden = false
-            analyseProButton.isHidden = false
         }
     }
     
@@ -66,23 +49,17 @@ class AnalyseTweetViewController: UIViewController {
     }
     
     @IBAction func didTapSelectAnalyseButton(_ sender: Any) {
-        guard let imageUrl = imageUrl else {
+        guard let imageUrl = rootView.imageUrl else {
             return viewModel.failureHandler(self, error: AnalyseError.notImage)
         }
-        
         do {
-            self.analyseButton.setLoading(true)
-            self.analyseButton.isEnabled = false
+            rootView.setLoadingAnalyseButton(true)
             try startAnalyse(url: imageUrl)
-            
         } catch {
-            analyseButton.setLoading(false)
-            analyseButton.isEnabled = true
+            rootView.setLoadingAnalyseButton(false)
             viewModel.failureHandler(self, error: error)
         }
-        
     }
-    
     
     fileprivate func startAnalyse(url: URL) throws {
         // Get results from image
@@ -95,8 +72,7 @@ class AnalyseTweetViewController: UIViewController {
         SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { tweets in
             if let tweets = tweets {
                 if tweets.count == 0 {
-                    self.analyseButton.setLoading(false)
-                    self.analyseButton.isEnabled = true
+                    self.rootView.setLoadingAnalyseButton(false)
                     self.viewModel.failureHandler(self, error: AnalyseError.notFound)
                 }
                 self.viewModel.saveTweets(tweets: tweets)

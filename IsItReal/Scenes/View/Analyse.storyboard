@@ -210,6 +210,12 @@
                                 <include reference="wWK-Gq-P8D"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outlet property="analyseButton" destination="mBM-fr-9t6" id="fi0-Ox-Rfc"/>
+                            <outlet property="analyseProButton" destination="OKj-RN-ELX" id="TXM-Jb-oY4"/>
+                            <outlet property="image" destination="HcH-Lt-qev" id="hBv-re-vTj"/>
+                            <outlet property="selectPhotoButton" destination="ABd-IS-GXz" id="Mzp-VW-VJ7"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Analyse" image="doc.text.magnifyingglass" catalog="system" selectedImage="doc.text.magnifyingglass" id="aYY-rT-pSq"/>
                     <navigationItem key="navigationItem" title="Analyse" id="Kdu-5s-Ege">
@@ -221,10 +227,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="analyseButton" destination="mBM-fr-9t6" id="uo1-FU-TuN"/>
-                        <outlet property="analyseProButton" destination="OKj-RN-ELX" id="Kjb-zU-s3g"/>
-                        <outlet property="imageToAnalyse" destination="HcH-Lt-qev" id="d4N-PL-8Fc"/>
-                        <outlet property="selectPhotoButton" destination="ABd-IS-GXz" id="Cou-0T-oy4"/>
+                        <outlet property="rootView" destination="cDv-jw-Kiy" id="YYq-SR-r6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3j-05-ufN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
