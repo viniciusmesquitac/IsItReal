@@ -13,11 +13,11 @@ App to validate screenshots of twitter news and store results in the history to 
 # Backlog
 
 - Api
-    Twitter Api Documentation
+    - Twitter Api Documentation
 - Architecture
-    MVVM + Coordinator
-    Storyboard + xib
+    - MVVM + Coordinator
+    - Storyboard + xib
 - Frameworks
-    Vision
-    Swifter
-    Nuke
+    - Vision
+    - Swifter
+    - Nuke
