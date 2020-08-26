@@ -8,7 +8,7 @@
 
 import UIKit
 
-fileprivate var key: UInt8 = 42
+private var key: UInt8 = 42
 
 extension UIButton {
     

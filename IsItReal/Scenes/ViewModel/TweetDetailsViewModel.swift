@@ -14,11 +14,6 @@ struct TweetDetailsViewModel {
     init(tweet: Tweet) {
         self.tweet = tweet
     }
-    
-    func createAnalyseDate() {
-        
-    }
-    
 }
 
 extension TweetDetailsViewModel {

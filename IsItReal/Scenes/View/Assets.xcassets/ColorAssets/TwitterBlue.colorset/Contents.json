@@ -6,9 +6,22 @@
         "components" : {
           "alpha" : "1.000",
           "blue" : "0.949",
-          "green" : "0.625",
-          "red" : "0.140"
+          "green" : "0.624",
+          "red" : "0.141"
         }
+      },
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemBlueColor"
       },
       "idiom" : "universal"
     }

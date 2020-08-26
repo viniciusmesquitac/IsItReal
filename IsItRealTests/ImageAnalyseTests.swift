@@ -63,7 +63,7 @@ class ImageAnalyseTests: XCTestCase {
     
     func test_impossibleToRead_error() throws {
         // given
-        let imageUrl: URL? = imageReader.getUrlFromImage(forImageNamed: "DarkImageSample")
+        let imageUrl: URL? = imageReader.getUrlFromImage(forImageNamed: "LightSampleImage")
         // when
         let performSearchImage = { try self.imageReader.perform(on: imageUrl, recognitionLevel: .fast) }
         // then

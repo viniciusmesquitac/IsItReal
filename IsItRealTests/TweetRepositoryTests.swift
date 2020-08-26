@@ -1,30 +1,39 @@
 //
-//  TweetRepositoryTests.swift
+//  TweetRepositoryTest.swift
 //  IsItRealTests
 //
-//  Created by Vinicius Mesquita on 21/08/20.
+//  Created by Vinicius Mesquita on 23/08/20.
 //  Copyright © 2020 Vinicius Mesquita. All rights reserved.
 //
+
 
 import XCTest
 @testable import IsItReal
 
-class HistoryList: XCTestCase {
+class TweetRepositoryTests: XCTestCase {
     
-    let viewModel = ListTweetViewModel(repository: MockRepository())
+    var repository: TweetRepository!
+    var tweet: Tweet!
     
     override func setUp() {
-        viewModel.tweetsDetailsViewModel = viewModel.getTweets()
+        repository = TweetRepository()
+        tweet = MockRepository().getAll()[0]
     }
     
-    func test_HistoryList_numberOfRows() {
-        let n = viewModel.numberOfRows
-        XCTAssertEqual(n, 5)
+    func testA_addTweet_true() {
+        let result = repository.add(object: tweet)
+        XCTAssert(result)
     }
     
-    func test_HistoryList_getTweet() {
-        let tweet = viewModel.getTweet(for: 3)
-        let text = tweet?.tweet.text
-        XCTAssertEqual("Hello World", text)
+    func testB_removeTweet_true() {
+        let result = repository.delete(object: tweet)
+        XCTAssert(result)
     }
+    
+    func testC_getAll_count2() {
+        let tweets = repository.getAll()
+        let count = tweets.count
+        XCTAssertEqual(count, 0)
+    }
+    
 }

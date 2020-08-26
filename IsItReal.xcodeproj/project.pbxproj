@@ -13,6 +13,8 @@
 		81273DEB24F3098B0040262B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DEA24F3098B0040262B /* UserDefaultsManager.swift */; };
 		81273DED24F31C660040262B /* HistoryListNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DEC24F31C660040262B /* HistoryListNavigationItem.swift */; };
 		81273DEF24F32FCA0040262B /* AnalyseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DEE24F32FCA0040262B /* AnalyseView.swift */; };
+		81273DF424F34A7A0040262B /* TweetRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DF324F34A7A0040262B /* TweetRepositoryTests.swift */; };
+		81273DF624F697610040262B /* SelectImageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81273DF524F697610040262B /* SelectImageUITests.swift */; };
 		81445B1224EDD56300ED7F91 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81445B1124EDD56300ED7F91 /* CustomCell.swift */; };
 		81445B1424EDDEE100ED7F91 /* ImageAnalyseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */; };
 		81B1DC2624E4E6D200D755C0 /* TweetDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC2524E4E6D200D755C0 /* TweetDetailsViewModel.swift */; };
@@ -45,7 +47,7 @@
 		81BA9EFE24EFF03400844917 /* ProVersion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BA9EFD24EFF03400844917 /* ProVersion.storyboard */; };
 		81BA9F0024F00B3900844917 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9EFF24F00B3900844917 /* UIView+Loading.swift */; };
 		81BA9F0224F010AD00844917 /* UIButton+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9F0124F010AD00844917 /* UIButton+Loading.swift */; };
-		81BA9F0424F0275200844917 /* TweetRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9F0324F0275200844917 /* TweetRepositoryTests.swift */; };
+		81BA9F0424F0275200844917 /* HistoryListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9F0324F0275200844917 /* HistoryListTests.swift */; };
 		81BA9F0624F0830400844917 /* ModalDismissViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA9F0524F0830400844917 /* ModalDismissViewController.swift */; };
 		81BA9F0824F08C8100844917 /* MockExtendedTweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 81BA9F0724F08C8100844917 /* MockExtendedTweets.json */; };
 		81F63C5324E4758E0080F089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F63C5224E4758E0080F089 /* AppDelegate.swift */; };
@@ -88,6 +90,8 @@
 		81273DEA24F3098B0040262B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		81273DEC24F31C660040262B /* HistoryListNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListNavigationItem.swift; sourceTree = "<group>"; };
 		81273DEE24F32FCA0040262B /* AnalyseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseView.swift; sourceTree = "<group>"; };
+		81273DF324F34A7A0040262B /* TweetRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepositoryTests.swift; sourceTree = "<group>"; };
+		81273DF524F697610040262B /* SelectImageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageUITests.swift; sourceTree = "<group>"; };
 		81445B1124EDD56300ED7F91 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyseTests.swift; sourceTree = "<group>"; };
 		81B1DC2524E4E6D200D755C0 /* TweetDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -120,7 +124,7 @@
 		81BA9EFD24EFF03400844917 /* ProVersion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProVersion.storyboard; sourceTree = "<group>"; };
 		81BA9EFF24F00B3900844917 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		81BA9F0124F010AD00844917 /* UIButton+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Loading.swift"; sourceTree = "<group>"; };
-		81BA9F0324F0275200844917 /* TweetRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepositoryTests.swift; sourceTree = "<group>"; };
+		81BA9F0324F0275200844917 /* HistoryListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListTests.swift; sourceTree = "<group>"; };
 		81BA9F0524F0830400844917 /* ModalDismissViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismissViewController.swift; sourceTree = "<group>"; };
 		81BA9F0724F08C8100844917 /* MockExtendedTweets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockExtendedTweets.json; sourceTree = "<group>"; };
 		81F63C4F24E4758E0080F089 /* IsItReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsItReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +193,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		81273DF024F346870040262B /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				81B7796D24EB5C36007389BD /* ImagePickerWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		81B1DC2C24E4F35300D755C0 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,11 +215,11 @@
 		81B1DC2F24E55EE300D755C0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				81273DF024F346870040262B /* Worker */,
 				81B7797B24EDB7C1007389BD /* Error.swift */,
 				81B1DC3024E55EF600D755C0 /* SwifterService.swift */,
 				81B1DC3D24E591A600D755C0 /* APIConstants.swift */,
 				81B7795624E6D442007389BD /* ImageReader.swift */,
-				81B7796D24EB5C36007389BD /* ImagePickerWorker.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -301,7 +313,8 @@
 				81F63C6924E475900080F089 /* IsItRealTests.swift */,
 				81F63C6B24E475900080F089 /* Info.plist */,
 				81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */,
-				81BA9F0324F0275200844917 /* TweetRepositoryTests.swift */,
+				81BA9F0324F0275200844917 /* HistoryListTests.swift */,
+				81273DF324F34A7A0040262B /* TweetRepositoryTests.swift */,
 			);
 			path = IsItRealTests;
 			sourceTree = "<group>";
@@ -311,6 +324,7 @@
 			children = (
 				81F63C7424E475900080F089 /* IsItRealUITests.swift */,
 				81F63C7624E475900080F089 /* Info.plist */,
+				81273DF524F697610040262B /* SelectImageUITests.swift */,
 			);
 			path = IsItRealUITests;
 			sourceTree = "<group>";
@@ -465,6 +479,7 @@
 					};
 					81F63C6424E475900080F089 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 						TestTargetID = 81F63C4E24E4758E0080F089;
 					};
 					81F63C6F24E475900080F089 = {
@@ -698,8 +713,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F63C6A24E475900080F089 /* IsItRealTests.swift in Sources */,
+				81273DF424F34A7A0040262B /* TweetRepositoryTests.swift in Sources */,
 				81445B1424EDDEE100ED7F91 /* ImageAnalyseTests.swift in Sources */,
-				81BA9F0424F0275200844917 /* TweetRepositoryTests.swift in Sources */,
+				81BA9F0424F0275200844917 /* HistoryListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +724,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F63C7524E475900080F089 /* IsItRealUITests.swift in Sources */,
+				81273DF624F697610040262B /* SelectImageUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,6 +919,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IsItRealTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
@@ -912,6 +930,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.IsItRealTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IsItReal.app/IsItReal";
@@ -924,6 +943,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IsItRealTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;

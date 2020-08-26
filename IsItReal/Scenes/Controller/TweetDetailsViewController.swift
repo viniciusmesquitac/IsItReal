@@ -27,13 +27,11 @@ class TweetDetailsViewController: UIViewController {
             present(vc, animated: true)
         }
     }
-    
     @IBAction func didSelectCopyButton(_ sender: Any) {
         guard let link = viewModel?.link, let url = URL(string: link) else { return }
         let svc = SFSafariViewController(url: url)
         present(svc, animated: true, completion: nil)
     }
-    
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

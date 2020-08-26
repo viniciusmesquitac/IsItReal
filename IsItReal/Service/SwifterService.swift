@@ -22,12 +22,10 @@ class SwifterService {
     public var failureHandler: (Error) -> Void = { error in
         shared.alert(title: "ERROR", message: "\(error.localizedDescription)")
     }
-    
     public func searchTweet(query: String, presentFrom: UIViewController?, completion: @escaping ([Tweet]?) -> Void) {
-        
         currentPresent = presentFrom
-        swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: presentFrom, success: { (_, _) in
-            
+        swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: presentFrom, success: { (token, _) in
+            UserDefaultsManager.setAuthToken(key: token?.key, secret: token?.secret)
             self.swifter.searchTweet(using: query,  resultType: "popular", count: 100, success: { json, _ in
                 if let jsonString = json.array?.description {
                     let jsonData = Data(jsonString.utf8)
@@ -37,6 +35,17 @@ class SwifterService {
             }, failure: self.failureHandler)
             
         }, failure: self.failureHandler)
+    }
+    
+    public func search(query: String, completion: @escaping ([Tweet]?) -> Void) {
+        self.swifter.searchTweet(using: query,  resultType: "popular", count: 100, success: { json, _ in
+            if let jsonString = json.array?.description {
+                let jsonData = Data(jsonString.utf8)
+                let tweets = self.decodeTweets(from: jsonData)
+                completion(tweets)
+            }
+        }, failure: self.failureHandler)
+        
     }
     
     private func decodeTweets(from data: Data) -> [Tweet]? {

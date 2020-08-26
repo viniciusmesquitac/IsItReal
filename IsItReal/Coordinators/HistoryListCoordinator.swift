@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol HistoryListCoordinatorDelegate: AnyObject {
-    func alert()
-}
-
 final class HistoryListCordinator: Coordinator {
     
     var navigationController: UINavigationController!

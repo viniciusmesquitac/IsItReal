@@ -27,19 +27,11 @@ class TweetRepository: Repository {
         return tweets
     }
     
-    func get(id: Int) -> Tweet? {
-        return nil
-    }
-    
     func add(object: Tweet) -> Bool {
         if let data = try? JSONEncoder().encode(object) {
             helper.createFile(with: data, name: object.idStr)
             return true
         }
-        return false
-    }
-    
-    func update(object: Tweet) -> Bool {
         return false
     }
     
