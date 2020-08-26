@@ -1,6 +1,5 @@
-# IsItReal
-App to validate screenshots of twitter news and share results quickly
-
+# Twitter analyser
+App to validate screenshots of twitter news and store results in the history to share in other social medias and also can be accessed later on.
 
 # Prototype
 
