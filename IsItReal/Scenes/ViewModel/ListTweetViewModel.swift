@@ -42,9 +42,7 @@ class ListTweetViewModel: ConfigurableViewModel {
     }
     
     public func getTweets() -> [TweetDetailsViewModel] {
-        // Recieve all tweets from repository and add to `tweetsDetailsViewModel`
         let tweets = repository.getAll()
-        
         self.tweetsDetailsViewModel = tweets.map({TweetDetailsViewModel(tweet: $0)})
         return tweetsDetailsViewModel
     }

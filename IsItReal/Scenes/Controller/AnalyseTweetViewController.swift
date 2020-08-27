@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Swifter
 
 class AnalyseTweetViewController: UIViewController {
+    
     let imageReader = ImageReader()
     let imagePickerWorker = ImagePickerWorker()
     let viewModel = AnalysesTweetViewModel()
@@ -68,15 +68,30 @@ class AnalyseTweetViewController: UIViewController {
         let query = try imageReader.createQuery(text: results)
         // Handle query in view Model
         let queryText = viewModel.handleQueryResults(query)
+        
         // Search with queryText
-        SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { tweets in
-            if let tweets = tweets {
-                if tweets.count == 0 {
-                    self.rootView.setLoadingAnalyseButton(false)
-                    self.viewModel.failureHandler(self, error: AnalyseError.notFound)
+        if UserDefaultsManager.getAuthToken() != nil {
+            SwifterService.shared.search(query: queryText) { tweets in
+                if let tweets = tweets {
+                    if tweets.isEmpty {
+                        self.rootView.setLoadingAnalyseButton(false)
+                        self.viewModel.failureHandler(self, error: AnalyseError.notFound)
+                    }
+                    self.viewModel.saveTweets(tweets: tweets)
                 }
-                self.viewModel.saveTweets(tweets: tweets)
+            }
+        }
+        else {
+            SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { tweets in
+                if let tweets = tweets {
+                    if tweets.isEmpty {
+                        self.rootView.setLoadingAnalyseButton(false)
+                        self.viewModel.failureHandler(self, error: AnalyseError.notFound)
+                    }
+                    self.viewModel.saveTweets(tweets: tweets)
+                }
             }
         }
     }
+    
 }

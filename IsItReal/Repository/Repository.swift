@@ -16,3 +16,15 @@ protocol Repository {
     func update(object: Object) -> Bool
     func delete(object: Object) -> Bool
 }
+
+extension Repository {
+    
+    func get(id: Int) -> Object? {
+        return nil
+    }
+    
+    func update(object: Object) -> Bool {
+        return false
+    }
+    
+}

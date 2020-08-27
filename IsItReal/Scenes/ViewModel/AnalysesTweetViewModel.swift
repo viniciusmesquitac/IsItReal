@@ -27,7 +27,6 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
             _ = self.repository.add(object: tweet)
             handleSavedTweet?(tweet)
         }
-        
     }
     
     func createAnalyseDate() -> String {

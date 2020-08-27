@@ -29,12 +29,4 @@ final class AppCoordinator: Coordinator {
         coordinate(to: tabBarCordinator)       
     }
     
-    private func coordinateToOnboard() {
-        let tabBarCordinator = TabBarCoordinator(navigationController: navigationController)
-        coordinate(to: tabBarCordinator)
-        
-        let onboardVC = UIStoryboard.instantiateOnboarding()
-        navigationController.present(onboardVC, animated: true, completion: nil)
-    }
-    
 }

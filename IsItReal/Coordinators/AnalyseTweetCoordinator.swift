@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol AnalyseTweetCoordinatorDelegate: class {
-    func alert()
-}
-
 final class AnalyseTweetCoordinator: NSObject, Coordinator {
     
     var navigationController: UINavigationController!
