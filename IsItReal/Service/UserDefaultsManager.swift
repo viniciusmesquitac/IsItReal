@@ -30,7 +30,6 @@ struct UserDefaultsManager {
         guard let key = UserDefaults.standard.string(forKey: "authKey"),
             let secret = UserDefaults.standard.string(forKey: "authSecret") else { return nil }
         let credential = Credential.OAuthAccessToken(key: key, secret: secret)
-        print("key: \(credential.key) \n secret: \(credential.secret)")
         return credential
     }
     

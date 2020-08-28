@@ -21,11 +21,17 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
         return text
     }
     
-    func saveTweets(tweets: [Tweet]?) {
+    func showLatest(tweet: [Tweet]?) {
+        
+    }
+    
+    func saveTweet(tweets: [Tweet]?, username: String) {
         if var tweet = tweets?.first {
-            tweet.dateAnalyses = createAnalyseDate()
-            _ = self.repository.add(object: tweet)
-            handleSavedTweet?(tweet)
+            if tweet.user.name == username {
+                tweet.dateAnalyses = createAnalyseDate()
+                _ = self.repository.add(object: tweet)
+                handleSavedTweet?(tweet)
+            }
         }
     }
     
@@ -39,6 +45,9 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
 
     func failureHandler(_ presentFrom: UIViewController, error: Error) {
         self.alert(presentFrom, title: "ERROR", message: "\(error.localizedDescription)")
+        if let controller = presentFrom as? AnalyseTweetViewController {
+            controller.rootView.setLoadingAnalyseButton(false)
+        }
     }
 
     func alert(_ presentFrom: UIViewController, title: String, message: String) {

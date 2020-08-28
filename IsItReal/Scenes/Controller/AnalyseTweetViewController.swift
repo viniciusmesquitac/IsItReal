@@ -61,6 +61,11 @@ class AnalyseTweetViewController: UIViewController {
         }
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+           super.viewWillTransition(to: size, with: coordinator)
+            rootView.handlePortraidImage()
+       }
+    
     fileprivate func startAnalyse(url: URL) throws {
         // Get results from image
         let results = try imageReader.perform(on: url, recognitionLevel: .fast)
@@ -75,9 +80,16 @@ class AnalyseTweetViewController: UIViewController {
                 if let tweets = tweets {
                     if tweets.isEmpty {
                         self.rootView.setLoadingAnalyseButton(false)
-                        self.viewModel.failureHandler(self, error: AnalyseError.notFound)
+                        SwifterService.shared.getLatest(screenName: query.user!) { (tweets) in
+                            if let latestTweets = tweets {
+                                if latestTweets.isEmpty {
+                                    self.viewModel.failureHandler(self, error: AnalyseError.notFound)
+                                }
+                                self.coordinator?.showLatests(latestTweets)
+                            }
+                        }
                     }
-                    self.viewModel.saveTweets(tweets: tweets)
+                    self.viewModel.saveTweet(tweets: tweets, username: query.user!)
                 }
             }
         }
@@ -88,7 +100,7 @@ class AnalyseTweetViewController: UIViewController {
                         self.rootView.setLoadingAnalyseButton(false)
                         self.viewModel.failureHandler(self, error: AnalyseError.notFound)
                     }
-                    self.viewModel.saveTweets(tweets: tweets)
+                    self.viewModel.saveTweet(tweets: tweets, username: query.user!)
                 }
             }
         }

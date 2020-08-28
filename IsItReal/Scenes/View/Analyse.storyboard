@@ -250,7 +250,7 @@
                         <connections>
                             <outlet property="analyseButton" destination="mBM-fr-9t6" id="fi0-Ox-Rfc"/>
                             <outlet property="analyseProButton" destination="OKj-RN-ELX" id="TXM-Jb-oY4"/>
-                            <outlet property="image" destination="HcH-Lt-qev" id="hBv-re-vTj"/>
+                            <outlet property="imageView" destination="HcH-Lt-qev" id="hBv-re-vTj"/>
                             <outlet property="selectPhotoButton" destination="ABd-IS-GXz" id="Mzp-VW-VJ7"/>
                         </connections>
                     </view>

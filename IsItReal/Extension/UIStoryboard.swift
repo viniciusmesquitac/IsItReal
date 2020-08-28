@@ -31,6 +31,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "Onboarding", bundle: nil)
     }
     
+    private static var results: UIStoryboard {
+        return UIStoryboard(name: "TweetsResults", bundle: nil)
+    }
+    
     static func instantiateTabBarController() -> TabBarViewController {
         if let vc = tabBar.instantiateViewController(withIdentifier: "tabbarController") as? TabBarViewController {
             return vc
@@ -64,5 +68,12 @@ extension UIStoryboard {
             return vc
         }
         return ModalDismissViewController()
+    }
+    
+    static func instantiateLatestResults() -> TweetsResultsListController {
+        if let vc = results.instantiateViewController(identifier: "TweetsResults") as? TweetsResultsListController {
+            return vc
+        }
+        return TweetsResultsListController()
     }
 }

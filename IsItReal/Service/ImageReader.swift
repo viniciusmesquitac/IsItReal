@@ -28,7 +28,7 @@ class ImageReader {
             for currentObservation in observations {
                 let topCandidate = currentObservation.topCandidates(1)
                 if let recognizedText = topCandidate.first {
-                    stringResult.append(recognizedText.string)
+                    stringResult.append(" \(recognizedText.string)")
                 }
             }
         }
@@ -46,25 +46,42 @@ class ImageReader {
         var tweetText: String?
         if let userIndex = text.firstIndex(of: "@") {
             user = String(text[userIndex..<text.endIndex])
+            user = splitGetFirst(user)
             user?.removeFirst()
+            if user?.last == "." {
+                user?.removeLast()
+            }
             
             if let verifyMarkIndex = text.firstIndex(of: "•") {
-                tweetText = String(text[verifyMarkIndex..<userIndex])
-                tweetText?.removeFirst()
+                if verifyMarkIndex < userIndex {
+                    tweetText = String(text[verifyMarkIndex..<userIndex])
+                    tweetText?.removeFirst()
+                }
+            } else {
+                if let allTextindex = text.index(of: "Twitter") {
+                    tweetText = String(text[..<allTextindex])
+                }
+                if let userNameindex = text.index(of: user!) {
+                    tweetText = String(text[..<userNameindex])
+                }
             }
         }
         let keySearch = tweetText?.split(separator: " ")
         var result = QueryResult(textTweet: nil, query: nil, user: nil, keySearch: nil)
         
-        if let user = user, let keySearch = keySearch {
-            if keySearch.count >= 3 {
-                let complete = "\(keySearch[0]) \(keySearch[1]) \(keySearch[2]) \(user)"
-                result = QueryResult(textTweet: tweetText, query: complete, user: user, keySearch: keySearch)
-                return result
-            }
-            throw ImageReaderError.impossibleToRead
+        guard let screenName = user else { throw ImageReaderError.impossibleFindUserScreen }
+        guard var mtweetText = keySearch else { throw ImageReaderError.impossibleToFindTheText }
+        
+        if mtweetText.count == 0 {
+            mtweetText = text.split(separator: " ")
         }
-         throw ImageReaderError.impossibleToRead
+        
+        if mtweetText.count >= 6 {
+            let complete = "\(mtweetText[0]) \(mtweetText[1]) \(mtweetText[2]) \(mtweetText[3]) \(mtweetText[4]) \(mtweetText[5]) \(screenName)"
+            result = QueryResult(textTweet: tweetText, query: complete, user: screenName, keySearch: mtweetText)
+            return result
+        }
+        return result
     }
     
     func getUrlFromImage(forImageNamed name: String) -> URL? {
@@ -82,5 +99,10 @@ class ImageReader {
         }
 
         return url
+    }
+    
+    func splitGetFirst(_ text: String?) -> String {
+        let splited = text?.split(separator: " ")
+        return String(splited!.first!)
     }
 }

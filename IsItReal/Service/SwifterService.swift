@@ -21,12 +21,15 @@ class SwifterService {
     
     public var failureHandler: (Error) -> Void = { error in
         shared.alert(title: "ERROR", message: "\(error.localizedDescription)")
+        if let controller = shared.currentPresent as? AnalyseTweetViewController {
+            controller.rootView.setLoadingAnalyseButton(false)
+        }
     }
     public func searchTweet(query: String, presentFrom: UIViewController?, completion: @escaping ([Tweet]?) -> Void) {
         currentPresent = presentFrom
         swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: presentFrom, success: { (token, _) in
             UserDefaultsManager.setAuthToken(key: token?.key, secret: token?.secret)
-            self.swifter.searchTweet(using: query,  resultType: "popular", count: 100, success: { json, _ in
+            self.swifter.searchTweet(using: query, count: 100, success: { json, _ in
                 if let jsonString = json.array?.description {
                     let jsonData = Data(jsonString.utf8)
                     let tweets = self.decodeTweets(from: jsonData)
@@ -38,14 +41,24 @@ class SwifterService {
     }
     
     public func search(query: String, completion: @escaping ([Tweet]?) -> Void) {
-        self.swifter.searchTweet(using: query,  resultType: "popular", count: 100, success: { json, _ in
+        self.swifter.searchTweet(using: query, count: 100, success: { json, _ in
             if let jsonString = json.array?.description {
                 let jsonData = Data(jsonString.utf8)
                 let tweets = self.decodeTweets(from: jsonData)
                 completion(tweets)
             }
         }, failure: self.failureHandler)
-        
+    }
+    
+    public func getLatest(screenName: String, completion: @escaping ([Tweet]?) -> Void) {
+        let user = UserTag.screenName(screenName)
+        self.swifter.getTimeline(for: user, excludeReplies: true, includeRetweets: false, success: { json in
+            if let jsonString = json.array?.description {
+                let jsonData = Data(jsonString.utf8)
+                let tweets = self.decodeTweets(from: jsonData)
+                completion(tweets)
+            }
+        }, failure: self.failureHandler)
     }
     
     private func decodeTweets(from data: Data) -> [Tweet]? {

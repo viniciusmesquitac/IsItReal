@@ -10,6 +10,8 @@ import Foundation
 
 enum ImageReaderError: Error {
     case impossibleToRead
+    case impossibleFindUserScreen
+    case impossibleToFindTheText
 }
 
 extension ImageReaderError: LocalizedError {
@@ -17,6 +19,10 @@ extension ImageReaderError: LocalizedError {
         switch self {
         case .impossibleToRead:
             return NSLocalizedString("Impossible to read this image", comment: "Impossible to read error")
+        case .impossibleFindUserScreen:
+            return NSLocalizedString("Impossbile to find screename from user, try to find users with verified icon", comment: "Impossible to read error")
+        case .impossibleToFindTheText:
+            return NSLocalizedString("Impossbile to find tweetText!", comment: "Impossible to read error")
         }
     }
 }
