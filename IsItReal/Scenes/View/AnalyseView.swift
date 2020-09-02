@@ -19,7 +19,7 @@ class AnalyseView: UIView {
         if imageUrl != nil {
             selectPhotoButton.setTitle("Change Photo", for: .normal)
             analyseButton.isHidden = false
-            analyseProButton.isHidden = false
+//            analyseProButton.isHidden = false
         }
     }
     
@@ -41,12 +41,10 @@ class AnalyseView: UIView {
     
     func handlePortraidImage() {
         if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
             if let image = imageView.image {
                 self.imageView.image = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .up)
             }
         } else {
-            print("Portrait")
             if let image = imageView.image {
                 self.imageView.image = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .up)
             }

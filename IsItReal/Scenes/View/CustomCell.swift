@@ -31,7 +31,7 @@ class CustomCell: UITableViewCell {
     
     override func setNeedsUpdateConstraints() {
         if isEditing {
-            self.leadingFromCell.constant = leadingFromCell.constant * 3 + 16
+            self.leadingFromCell.constant = 16 * 3.5
         } else {
             self.leadingFromCell.constant = 16
         }

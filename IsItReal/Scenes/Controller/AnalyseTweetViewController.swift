@@ -10,7 +10,7 @@ import UIKit
 
 class AnalyseTweetViewController: UIViewController {
     
-    let imageReader = ImageReader()
+    let imageAnalyser = ImageAnalyser()
     let imagePickerWorker = ImagePickerWorker()
     let viewModel = AnalysesTweetViewModel()
     var coordinator: AnalyseTweetCoordinator?
@@ -26,7 +26,29 @@ class AnalyseTweetViewController: UIViewController {
         
         coordinator = AnalyseTweetCoordinator(navigationController: navigationController!)
         setupImagePickerWorker()
+        handleImageAnalyser()
         updateViewModel()
+    }
+    
+    fileprivate func handleImageAnalyser() {
+        imageAnalyser.handleFromLatestTweets = { tweets in
+            guard let tweets = tweets else { return }
+            if tweets.isEmpty {
+                self.viewModel.failureHandler(self, error: AnalyseError.notFound)
+            }
+            self.coordinator?.showLatests(tweets)
+            self.rootView.setLoadingAnalyseButton(false)
+        }
+        imageAnalyser.notFindImageError = {
+            self.viewModel.failureHandler(self, error: AnalyseError.notFound)
+        }
+        imageAnalyser.stopLoading = {
+            self.rootView.setLoadingAnalyseButton(false)
+        }
+        imageAnalyser.startLoading = {
+            self.rootView.setLoadingAnalyseButton(true)
+        }
+
     }
     
     fileprivate func setupImagePickerWorker() {
@@ -54,7 +76,9 @@ class AnalyseTweetViewController: UIViewController {
         }
         do {
             rootView.setLoadingAnalyseButton(true)
-            try startAnalyse(url: imageUrl)
+            try imageAnalyser.start(imageUrl: imageUrl, completion: { tweet in
+                _ = self.viewModel.saveTweet(tweet, image: self.rootView.imageUrl)
+            })
         } catch {
             rootView.setLoadingAnalyseButton(false)
             viewModel.failureHandler(self, error: error)
@@ -62,48 +86,8 @@ class AnalyseTweetViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-           super.viewWillTransition(to: size, with: coordinator)
-            rootView.handlePortraidImage()
-       }
-    
-    fileprivate func startAnalyse(url: URL) throws {
-        // Get results from image
-        let results = try imageReader.perform(on: url, recognitionLevel: .fast)
-        // Identify results to text, username, screenName.
-        let query = try imageReader.createQuery(text: results)
-        // Handle query in view Model
-        let queryText = viewModel.handleQueryResults(query)
-        
-        // Search with queryText
-        if UserDefaultsManager.getAuthToken() != nil {
-            SwifterService.shared.search(query: queryText) { tweets in
-                if let tweets = tweets {
-                    if tweets.isEmpty {
-                        self.rootView.setLoadingAnalyseButton(false)
-                        SwifterService.shared.getLatest(screenName: query.user!) { (tweets) in
-                            if let latestTweets = tweets {
-                                if latestTweets.isEmpty {
-                                    self.viewModel.failureHandler(self, error: AnalyseError.notFound)
-                                }
-                                self.coordinator?.showLatests(latestTweets)
-                            }
-                        }
-                    }
-                    self.viewModel.saveTweet(tweets: tweets, username: query.user!)
-                }
-            }
-        }
-        else {
-            SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { tweets in
-                if let tweets = tweets {
-                    if tweets.isEmpty {
-                        self.rootView.setLoadingAnalyseButton(false)
-                        self.viewModel.failureHandler(self, error: AnalyseError.notFound)
-                    }
-                    self.viewModel.saveTweet(tweets: tweets, username: query.user!)
-                }
-            }
-        }
+        super.viewWillTransition(to: size, with: coordinator)
+        rootView.handlePortraidImage()
     }
     
 }

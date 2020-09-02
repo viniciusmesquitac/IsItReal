@@ -55,8 +55,6 @@ class ImageAnalyseTests: XCTestCase {
         let imageUrl: URL? = imageReader.getUrlFromImage(forImageNamed: "ImageMock3")
         // when
         let textFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .fast)
-        
-        print(textFromImage)
         // then
         XCTAssertEqual(textFromImage, textFromImageMock3)
     }
@@ -75,8 +73,8 @@ class ImageAnalyseTests: XCTestCase {
         let sequece: [String.SubSequence] = [
             "\"But", "this", "is", "just", "App", "Review\'s", "normal", "response\"should", "it", "be,", "though?", "None", "of", "this", "should", "be", "normal.We\'re", "numb", "to", "it", "as", "developers", "in", "the", "ecosystem,", "butApple", "completely", "cutting", "developers", "off", "from", "tooling", "&distribution,", "beyond", "malware", "reasons,", "is", "insane4:08", "PM", ".", "Aug", "17,", "2020", ".", "Twitter", "for", "Mac13\""]
         // when
-        let queryResul = try imageReader.createQuery(text: textFromImageMock2)
+//        let queryResul = try imageReader.createQuery(text: textFromImageMock2)
         // then
-        XCTAssertEqual(sequece, queryResul.keySearch)
+//        XCTAssertEqual(sequece, queryResul.keySearch)
     }
 }

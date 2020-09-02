@@ -16,23 +16,26 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
     public var handleSavedTweet: ((Tweet) -> Void)?
     var repository = Repository()
     
-    func handleQueryResults(_ query: QueryResult) -> String {
-        guard let text = query.query else { return "" }
-        return text
-    }
-    
-    func showLatest(tweet: [Tweet]?) {
-        
-    }
-    
-    func saveTweet(tweets: [Tweet]?, username: String) {
-        if var tweet = tweets?.first {
-            if tweet.user.name == username {
+    func saveTweet(tweets: [Tweet]?, username: String, image: URL?) -> Bool {
+        if let imageUrl = image { }
+        guard let tweets = tweets else { return false }
+        for tweet in tweets where tweet.user.screenName == username {
+                var tweet = tweet
                 tweet.dateAnalyses = createAnalyseDate()
                 _ = self.repository.add(object: tweet)
                 handleSavedTweet?(tweet)
-            }
+                return true
         }
+        return false
+    }
+    
+    
+    func saveTweet(_ tweet: Tweet?, image: URL?) {
+//        if let imageUrl = image { print("existe uma image")}
+        guard var tweet = tweet else { return } // posso dar throw
+        tweet.dateAnalyses = createAnalyseDate()
+        _ = self.repository.add(object: tweet)
+        handleSavedTweet?(tweet)
     }
     
     func createAnalyseDate() -> String {

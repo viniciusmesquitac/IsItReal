@@ -18,11 +18,11 @@ extension ImageReaderError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .impossibleToRead:
-            return NSLocalizedString("Impossible to read this image", comment: "Impossible to read error")
+            return NSLocalizedString("Impossible to read this image, chose another image.", comment: "Impossible to read error")
         case .impossibleFindUserScreen:
             return NSLocalizedString("Impossbile to find screename from user, try to find users with verified icon", comment: "Impossible to read error")
         case .impossibleToFindTheText:
-            return NSLocalizedString("Impossbile to find tweetText!", comment: "Impossible to read error")
+            return NSLocalizedString("Impossbile to find tweetText, find a better position to read this tweet", comment: "Impossible to read error")
         }
     }
 }
@@ -37,11 +37,11 @@ extension AnalyseError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .notImage:
-            return NSLocalizedString("Select an image to analyse", comment: "Not image")
+            return NSLocalizedString("You dont select any image, Select an image to start analyse!", comment: "Not image")
         case .notFound:
-            return NSLocalizedString("We dont be able to find this in 7 days, try analyse pro", comment: "Not image")
+            return NSLocalizedString("We dont be able to find this in Tweet, try an image with better resolution!", comment: "Not image")
         case .notValid:
-            return NSLocalizedString("Select an image to analyse", comment: "Not image")
+            return NSLocalizedString("This image is not valid, select print from twitter", comment: "Not image")
         }
     }
 }

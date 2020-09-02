@@ -24,6 +24,7 @@ class TweetDetailsViewController: UIViewController {
     @IBAction func didSelecShareButton(_ sender: Any) {
         if let sharetext = viewModel?.tweet.text {
             let vc = UIActivityViewController(activityItems: [sharetext], applicationActivities: [])
+            vc.popoverPresentationController?.sourceView = self.view
             present(vc, animated: true)
         }
     }

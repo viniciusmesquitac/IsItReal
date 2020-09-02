@@ -41,10 +41,13 @@ class ImageReader {
         return stringResult
     }
     
-    func createQuery(text: String) throws -> QueryResult {
+    // Very Complex :/
+    func createQuery(text: String, completion: @escaping (QueryResult) -> Void) throws {
         var user: String?
         var tweetText: String?
-        if let userIndex = text.firstIndex(of: "@") {
+        
+        // get user
+        if let userIndex = text.lastIndex(of: "@") {
             user = String(text[userIndex..<text.endIndex])
             user = splitGetFirst(user)
             user?.removeFirst()
@@ -66,23 +69,85 @@ class ImageReader {
                 }
             }
         }
+        
+        if let text = tweetText {
+            tweetText = removeCommonWords(from: text)
+        }
+        
         let keySearch = tweetText?.split(separator: " ")
-        var result = QueryResult(textTweet: nil, query: nil, user: nil, keySearch: nil)
         
         guard let screenName = user else { throw ImageReaderError.impossibleFindUserScreen }
         guard var mtweetText = keySearch else { throw ImageReaderError.impossibleToFindTheText }
         
+        // if count == 1 return to all text
         if mtweetText.count == 0 {
-            mtweetText = text.split(separator: " ")
+            let newText = self.removeCommonWords(from: text)
+            mtweetText = newText.split(separator: " ")
         }
         
-        if mtweetText.count >= 6 {
-            let complete = "\(mtweetText[0]) \(mtweetText[1]) \(mtweetText[2]) \(mtweetText[3]) \(mtweetText[4]) \(mtweetText[5]) \(screenName)"
-            result = QueryResult(textTweet: tweetText, query: complete, user: screenName, keySearch: mtweetText)
-            return result
+        // async
+        APITwitter.shared.getUser(screenName: screenName) { myUser in
+            mtweetText = self.removeUsername(from: mtweetText, userName: myUser!.name)
+            
+            var completed = ""
+            for index in 0...mtweetText.count - 3 {
+                completed.append("\(mtweetText[index]) ")
+            }
+            
+            completed.append("\(screenName)")
+            completion(QueryResult(textTweet: tweetText, query: completed, user: screenName, keySearch: mtweetText))
+        }
+
+    }
+    
+    func removeUsername(from text: [String.SubSequence], userName: String) -> [String.SubSequence] {
+        var result = text
+        if let index = result.firstIndex(of: String.SubSequence(userName)) {
+            result.remove(at: index)
         }
         return result
     }
+    
+    func removeCommonWords(from text: String) -> String {
+        
+        var result = text
+        
+        if let allTextindex = text.index(of: "Twitter") {
+            result = String(text[..<allTextindex])
+        }
+        
+        if let index = result.index(of: "Translate Tweet") {
+             result = String(text[..<index])
+        }
+        
+        if let index = result.index(of: "Tradução") {
+            result = String(text[..<index])
+        }
+        
+        if let index = result.index(of: "Tweetbot for Mac") {
+            result = String(text[..<index])
+        }
+        
+        if let index = result.index(of: "Twitter for iPad") {
+            result = String(text[..<index])
+        }
+        
+        if let index = result.index(of: "Retweet and comment") {
+            result = String(text[..<index])
+        }
+        
+        if let index = result.index(of: ":") {
+            result = String(text[..<index])
+        }
+        return result
+    }
+    
+    
+    func splitGetFirst(_ text: String?) -> String {
+          let splited = text?.split(separator: " ")
+          return String(splited!.first!)
+      }
+    
     
     func getUrlFromImage(forImageNamed name: String) -> URL? {
         let fileManager = FileManager.default
@@ -99,10 +164,5 @@ class ImageReader {
         }
 
         return url
-    }
-    
-    func splitGetFirst(_ text: String?) -> String {
-        let splited = text?.split(separator: " ")
-        return String(splited!.first!)
     }
 }

@@ -95,7 +95,7 @@ which is Fake News Gold..</string>
     </objects>
     <resources>
         <namedColor name="TwitterBlue">
-            <color red="0.14000000059604645" green="0.625" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.14100000262260437" green="0.62400001287460327" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
