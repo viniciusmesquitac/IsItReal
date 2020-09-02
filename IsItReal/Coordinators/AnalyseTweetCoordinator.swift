@@ -26,4 +26,10 @@ final class AnalyseTweetCoordinator: NSObject, Coordinator {
         vc.viewModel = TweetDetailsViewModel(tweet: tweet)
         navigationController?.present(vc, animated: true, completion: nil)
     }
+    
+    func showLatests(_ tweets: [Tweet]) {
+        let vc = UIStoryboard.instantiateLatestResults()
+        vc.tweets = tweets.map({TweetDetailsViewModel(tweet: $0)})
+        navigationController?.present(vc, animated: true, completion: nil)
+    }
 }

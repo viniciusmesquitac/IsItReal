@@ -54,6 +54,14 @@ class ListTweetViewModel: ConfigurableViewModel {
         return nil
     }
     
+    func createAnalyseDate() -> String {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .long
+        return formatter.string(from: currentDate)
+    }
+    
     public func handleSelectedTweets(at rows: [IndexPath]) {
         var tweets = [TweetDetailsViewModel]()
         
@@ -63,8 +71,7 @@ class ListTweetViewModel: ConfigurableViewModel {
         for tweet in tweets {
             if let index = tweetsDetailsViewModel.firstIndex(of: tweet) {
                 tweetsDetailsViewModel.remove(at: index)
-                let result = repository.delete(object: tweet.tweet)
-                print(result)
+                _ = repository.delete(object: tweet.tweet)
             }
         }
         self.handleUpdate?()

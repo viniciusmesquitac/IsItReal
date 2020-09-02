@@ -16,17 +16,26 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
     public var handleSavedTweet: ((Tweet) -> Void)?
     var repository = Repository()
     
-    func handleQueryResults(_ query: QueryResult) -> String {
-        guard let text = query.query else { return "" }
-        return text
+    func saveTweet(tweets: [Tweet]?, username: String, image: URL?) -> Bool {
+        if let imageUrl = image { }
+        guard let tweets = tweets else { return false }
+        for tweet in tweets where tweet.user.screenName == username {
+                var tweet = tweet
+                tweet.dateAnalyses = createAnalyseDate()
+                _ = self.repository.add(object: tweet)
+                handleSavedTweet?(tweet)
+                return true
+        }
+        return false
     }
     
-    func saveTweets(tweets: [Tweet]?) {
-        if var tweet = tweets?.first {
-            tweet.dateAnalyses = createAnalyseDate()
-            _ = self.repository.add(object: tweet)
-            handleSavedTweet?(tweet)
-        }
+    
+    func saveTweet(_ tweet: Tweet?, image: URL?) {
+//        if let imageUrl = image { print("existe uma image")}
+        guard var tweet = tweet else { return } // posso dar throw
+        tweet.dateAnalyses = createAnalyseDate()
+        _ = self.repository.add(object: tweet)
+        handleSavedTweet?(tweet)
     }
     
     func createAnalyseDate() -> String {
@@ -39,6 +48,9 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
 
     func failureHandler(_ presentFrom: UIViewController, error: Error) {
         self.alert(presentFrom, title: "ERROR", message: "\(error.localizedDescription)")
+        if let controller = presentFrom as? AnalyseTweetViewController {
+            controller.rootView.setLoadingAnalyseButton(false)
+        }
     }
 
     func alert(_ presentFrom: UIViewController, title: String, message: String) {

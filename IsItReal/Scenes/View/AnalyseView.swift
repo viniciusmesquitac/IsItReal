@@ -10,7 +10,7 @@ import UIKit
 
 class AnalyseView: UIView {
     var imageUrl: URL?
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var analyseButton: UIButton!
     @IBOutlet weak var analyseProButton: UIButton!
     @IBOutlet weak var selectPhotoButton: UIButton!
@@ -19,7 +19,7 @@ class AnalyseView: UIView {
         if imageUrl != nil {
             selectPhotoButton.setTitle("Change Photo", for: .normal)
             analyseButton.isHidden = false
-            analyseProButton.isHidden = false
+//            analyseProButton.isHidden = false
         }
     }
     
@@ -29,13 +29,26 @@ class AnalyseView: UIView {
     }
     
     func removeImage() {
-        self.image.image = UIImage(named: "LightSampleImage")
+        self.imageView.image = UIImage(named: "LightSampleImage")
         self.imageUrl = nil
     }
     
     func setImage(image: UIImage, url: URL?) {
-        self.image.image = image
+        self.imageView.image = image
         self.imageUrl = url
         self.handleButtonsState()
+    }
+    
+    func handlePortraidImage() {
+        if UIDevice.current.orientation.isLandscape {
+            if let image = imageView.image {
+                self.imageView.image = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .up)
+            }
+        } else {
+            if let image = imageView.image {
+                self.imageView.image = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .up)
+            }
+        
+        }
     }
 }

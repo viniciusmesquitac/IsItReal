@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tweets Results List Controller-->
+        <scene sceneID="mof-YJ-vbB">
+            <objects>
+                <viewController storyboardIdentifier="TweetsResults" id="eft-a8-qux" customClass="TweetsResultsListController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Syn-XA-Rym">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dVV-RN-qMb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" name="WhiteBackground"/>
+                                <color key="sectionIndexBackgroundColor" name="WhiteBackground"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="5Mj-GN-JOF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not able to read this tweet, but we found some results from same user" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7w4-Sr-nQN">
+                                            <rect key="frame" x="16" y="16" width="382" height="68"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" name="WhiteBackground"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="7w4-Sr-nQN" secondAttribute="bottom" constant="16" id="340-Wo-Uv9"/>
+                                        <constraint firstItem="7w4-Sr-nQN" firstAttribute="leading" secondItem="5Mj-GN-JOF" secondAttribute="leading" constant="16" id="MVF-Au-jhk"/>
+                                        <constraint firstItem="7w4-Sr-nQN" firstAttribute="top" secondItem="5Mj-GN-JOF" secondAttribute="top" constant="16" id="Ww2-Zr-MUb"/>
+                                        <constraint firstAttribute="trailing" secondItem="7w4-Sr-nQN" secondAttribute="trailing" constant="16" id="zj7-jm-kmS"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="M2e-9S-wOD">
+                                        <rect key="frame" x="0.0" y="155.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M2e-9S-wOD" id="7eo-ou-hND">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="eft-a8-qux" id="uPi-4m-ju7"/>
+                                    <outlet property="delegate" destination="eft-a8-qux" id="Gav-mR-gaN"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKB-uC-ZKU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Results" id="fCq-dM-2to">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bz8-6Q-sAs">
+                                            <connections>
+                                                <action selector="didTapCancelButton:" destination="eft-a8-qux" id="xZ8-FV-7ea"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oKB-uC-ZKU" firstAttribute="leading" secondItem="uNh-4Y-6wq" secondAttribute="leading" id="1w6-2d-TMk"/>
+                            <constraint firstItem="dVV-RN-qMb" firstAttribute="trailing" secondItem="uNh-4Y-6wq" secondAttribute="trailing" id="5OY-ut-MI7"/>
+                            <constraint firstItem="dVV-RN-qMb" firstAttribute="top" secondItem="oKB-uC-ZKU" secondAttribute="bottom" id="7hb-eO-07N"/>
+                            <constraint firstItem="dVV-RN-qMb" firstAttribute="bottom" secondItem="uNh-4Y-6wq" secondAttribute="bottom" id="BPu-I0-JCL"/>
+                            <constraint firstItem="dVV-RN-qMb" firstAttribute="leading" secondItem="uNh-4Y-6wq" secondAttribute="leading" id="TLV-D4-G2j"/>
+                            <constraint firstItem="oKB-uC-ZKU" firstAttribute="top" secondItem="uNh-4Y-6wq" secondAttribute="top" id="UWN-Nj-M7g"/>
+                            <constraint firstItem="oKB-uC-ZKU" firstAttribute="trailing" secondItem="uNh-4Y-6wq" secondAttribute="trailing" id="yKF-Rd-UKQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uNh-4Y-6wq"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dVV-RN-qMb" id="nj2-Mr-sXZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qe-6m-ni9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900.00000000000011" y="127.90178571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="WhiteBackground">
+            <color red="0.9100000262260437" green="0.95999997854232788" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

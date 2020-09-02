@@ -10,7 +10,7 @@ import UIKit
 
 class AnalyseTweetViewController: UIViewController {
     
-    let imageReader = ImageReader()
+    let imageAnalyser = ImageAnalyser()
     let imagePickerWorker = ImagePickerWorker()
     let viewModel = AnalysesTweetViewModel()
     var coordinator: AnalyseTweetCoordinator?
@@ -26,7 +26,12 @@ class AnalyseTweetViewController: UIViewController {
         
         coordinator = AnalyseTweetCoordinator(navigationController: navigationController!)
         setupImagePickerWorker()
+        setupImageAnalyser()
         updateViewModel()
+    }
+    
+    fileprivate func setupImageAnalyser() {
+        imageAnalyser.delagate = self
     }
     
     fileprivate func setupImagePickerWorker() {
@@ -54,44 +59,39 @@ class AnalyseTweetViewController: UIViewController {
         }
         do {
             rootView.setLoadingAnalyseButton(true)
-            try startAnalyse(url: imageUrl)
+            try imageAnalyser.start(imageUrl: imageUrl, completion: { tweet in
+                _ = self.viewModel.saveTweet(tweet, image: self.rootView.imageUrl)
+            })
         } catch {
             rootView.setLoadingAnalyseButton(false)
             viewModel.failureHandler(self, error: error)
         }
     }
     
-    fileprivate func startAnalyse(url: URL) throws {
-        // Get results from image
-        let results = try imageReader.perform(on: url, recognitionLevel: .fast)
-        // Identify results to text, username, screenName.
-        let query = try imageReader.createQuery(text: results)
-        // Handle query in view Model
-        let queryText = viewModel.handleQueryResults(query)
-        
-        // Search with queryText
-        if UserDefaultsManager.getAuthToken() != nil {
-            SwifterService.shared.search(query: queryText) { tweets in
-                if let tweets = tweets {
-                    if tweets.isEmpty {
-                        self.rootView.setLoadingAnalyseButton(false)
-                        self.viewModel.failureHandler(self, error: AnalyseError.notFound)
-                    }
-                    self.viewModel.saveTweets(tweets: tweets)
-                }
-            }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        rootView.handlePortraidImage()
+    }
+    
+}
+
+extension AnalyseTweetViewController: ImageAnalyserDelegate {
+    
+    func setLoading(_ state: Bool) {
+        rootView.setLoadingAnalyseButton(state)
+    }
+    
+    func handleError(_ error: Error) {
+        viewModel.failureHandler(self, error: error)
+    }
+    
+    func handleLatestTweets(_ tweets: [Tweet]?) {
+        guard let tweets = tweets else { return }
+        if tweets.isEmpty {
+            viewModel.failureHandler(self, error: AnalyseError.notFound)
         }
-        else {
-            SwifterService.shared.searchTweet(query: queryText, presentFrom: self) { tweets in
-                if let tweets = tweets {
-                    if tweets.isEmpty {
-                        self.rootView.setLoadingAnalyseButton(false)
-                        self.viewModel.failureHandler(self, error: AnalyseError.notFound)
-                    }
-                    self.viewModel.saveTweets(tweets: tweets)
-                }
-            }
-        }
+        coordinator?.showLatests(tweets)
+        rootView.setLoadingAnalyseButton(false)
     }
     
 }

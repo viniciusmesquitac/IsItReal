@@ -19,8 +19,8 @@ class HistoryListViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.setEditing(false, animated: false)
         _ = viewModel.getTweets()
+        self.loadViewIfNeeded()
         listNavigationItem.handleBarButtonState(tableView)
-        loadViewIfNeeded()
     }
     
     override func viewDidLoad() {
@@ -81,6 +81,10 @@ class HistoryListViewController: UITableViewController {
             cell?.configure(viewModel: cellVM)
         }
         return cell ?? UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.setNeedsUpdateConstraints()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
