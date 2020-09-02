@@ -8,14 +8,17 @@
 
 import Foundation
 
+protocol ImageAnalyserDelegate: class {
+    func setLoading(_ state: Bool)
+    func handleError(_ error: Error)
+    func handleLatestTweets(_ tweets: [Tweet]?)
+}
+
 class ImageAnalyser {
     
     let imageReader = ImageReader()
     let service = APITwitter.shared
-    var handleFromLatestTweets: (([Tweet]?) -> Void)?
-    var notFindImageError: (() -> Void)?
-    var stopLoading: (() -> Void)?
-    var startLoading: (() -> Void)?
+    weak var delagate: ImageAnalyserDelegate?
     
     func start(imageUrl: URL, completion: @escaping (Tweet?) -> Void) throws {
         
@@ -29,29 +32,38 @@ class ImageAnalyser {
     }
     
     func searchTweetWithImageQuery(_ query: QueryResult, completion: @escaping (Tweet?) -> Void) {
-        guard let textFromQuery = query.query else {  return print(ImageReaderError.impossibleToFindTheText.errorDescription ?? "") }
+        guard let textFromQuery = query.query else {
+            delagate?.handleError(ImageReaderError.impossibleToFindTheText)
+            return
+        }
         
         if UserDefaultsManager.getAuthToken() != nil { // with auth
             service.searchCompactTweet(query: textFromQuery) { tweets in
-                guard let tweets = tweets else { return }
+                guard let tweets = tweets else {
+                    self.delagate?.handleError(AnalyseError.notFound)
+                    return
+                }
                 if let tweet = self.getTweet(from: tweets, with: query.user) {
                     completion(tweet)
                 } else {
                     self.getLatestsTweets(with: query.user!, completion: { tweets in
-                        self.handleFromLatestTweets?(tweets)
+                        self.delagate?.handleLatestTweets(tweets)
                     })
                 }
             }
         } else {
-            stopLoading?()
+            self.delagate?.setLoading(false)
             service.searchTweet(query: textFromQuery) { tweets in // without auth
-                self.startLoading?()
-                guard let tweets = tweets else { return }
+                self.delagate?.setLoading(true)
+                guard let tweets = tweets else {
+                    self.delagate?.handleError(AnalyseError.notFound)
+                    return
+                }
                 if let tweet = self.getTweet(from: tweets, with: query.user) {
                     completion(tweet)
                 } else {
                     self.getLatestsTweets(with: query.user!, completion: { tweets in
-                        self.handleFromLatestTweets?(tweets)
+                        self.delagate?.handleLatestTweets(tweets)
                     })
                 }
             }

@@ -26,29 +26,12 @@ class AnalyseTweetViewController: UIViewController {
         
         coordinator = AnalyseTweetCoordinator(navigationController: navigationController!)
         setupImagePickerWorker()
-        handleImageAnalyser()
+        setupImageAnalyser()
         updateViewModel()
     }
     
-    fileprivate func handleImageAnalyser() {
-        imageAnalyser.handleFromLatestTweets = { tweets in
-            guard let tweets = tweets else { return }
-            if tweets.isEmpty {
-                self.viewModel.failureHandler(self, error: AnalyseError.notFound)
-            }
-            self.coordinator?.showLatests(tweets)
-            self.rootView.setLoadingAnalyseButton(false)
-        }
-        imageAnalyser.notFindImageError = {
-            self.viewModel.failureHandler(self, error: AnalyseError.notFound)
-        }
-        imageAnalyser.stopLoading = {
-            self.rootView.setLoadingAnalyseButton(false)
-        }
-        imageAnalyser.startLoading = {
-            self.rootView.setLoadingAnalyseButton(true)
-        }
-
+    fileprivate func setupImageAnalyser() {
+        imageAnalyser.delagate = self
     }
     
     fileprivate func setupImagePickerWorker() {
@@ -88,6 +71,27 @@ class AnalyseTweetViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         rootView.handlePortraidImage()
+    }
+    
+}
+
+extension AnalyseTweetViewController: ImageAnalyserDelegate {
+    
+    func setLoading(_ state: Bool) {
+        rootView.setLoadingAnalyseButton(state)
+    }
+    
+    func handleError(_ error: Error) {
+        viewModel.failureHandler(self, error: error)
+    }
+    
+    func handleLatestTweets(_ tweets: [Tweet]?) {
+        guard let tweets = tweets else { return }
+        if tweets.isEmpty {
+            viewModel.failureHandler(self, error: AnalyseError.notFound)
+        }
+        coordinator?.showLatests(tweets)
+        rootView.setLoadingAnalyseButton(false)
     }
     
 }

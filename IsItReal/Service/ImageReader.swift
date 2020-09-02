@@ -142,12 +142,10 @@ class ImageReader {
         return result
     }
     
-    
     func splitGetFirst(_ text: String?) -> String {
           let splited = text?.split(separator: " ")
           return String(splited!.first!)
       }
-    
     
     func getUrlFromImage(forImageNamed name: String) -> URL? {
         let fileManager = FileManager.default
