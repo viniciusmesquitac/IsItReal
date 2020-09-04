@@ -37,35 +37,17 @@ class ImageAnalyser {
             return
         }
         
-        if UserDefaultsManager.getAuthToken() != nil { // with auth
-            service.searchCompactTweet(query: textFromQuery) { tweets in
-                guard let tweets = tweets else {
-                    self.delagate?.handleError(AnalyseError.notFound)
-                    return
-                }
-                if let tweet = self.getTweet(from: tweets, with: query.user) {
-                    completion(tweet)
-                } else {
-                    self.getLatestsTweets(with: query.user!, completion: { tweets in
-                        self.delagate?.handleLatestTweets(tweets)
-                    })
-                }
+        service.searchCompactTweet(query: textFromQuery) { tweets in
+            guard let tweets = tweets else {
+                self.delagate?.handleError(AnalyseError.notFound)
+                return
             }
-        } else {
-            self.delagate?.setLoading(false)
-            service.searchTweet(query: textFromQuery) { tweets in // without auth
-                self.delagate?.setLoading(true)
-                guard let tweets = tweets else {
-                    self.delagate?.handleError(AnalyseError.notFound)
-                    return
-                }
-                if let tweet = self.getTweet(from: tweets, with: query.user) {
-                    completion(tweet)
-                } else {
-                    self.getLatestsTweets(with: query.user!, completion: { tweets in
-                        self.delagate?.handleLatestTweets(tweets)
-                    })
-                }
+            if let tweet = self.getTweet(from: tweets, with: query.user) {
+                completion(tweet)
+            } else {
+                self.getLatestsTweets(with: query.user!, completion: { tweets in
+                    self.delagate?.handleLatestTweets(tweets)
+                })
             }
         }
     }

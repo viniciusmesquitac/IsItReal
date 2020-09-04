@@ -85,12 +85,16 @@ class ImageReader {
             mtweetText = newText.split(separator: " ")
         }
         
+        if mtweetText.count < 3 {
+            throw ImageReaderError.impossibleToRead
+        }
+        
         // async
         APITwitter.shared.getUser(screenName: screenName) { myUser in
             mtweetText = self.removeUsername(from: mtweetText, userName: myUser!.name)
             
             var completed = ""
-            for index in 0...mtweetText.count - 3 {
+            for index in 0..<mtweetText.count - 3 {
                 completed.append("\(mtweetText[index]) ")
             }
             
