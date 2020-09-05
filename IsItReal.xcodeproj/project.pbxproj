@@ -24,6 +24,7 @@
 		81445B1424EDDEE100ED7F91 /* ImageAnalyseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */; };
 		814B657625029B03002B5960 /* ImageAnalyserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B657525029B03002B5960 /* ImageAnalyserError.swift */; };
 		814B65782503D93A002B5960 /* CropImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814B65772503D93A002B5960 /* CropImage.storyboard */; };
+		814B657A2503E264002B5960 /* CropImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B65792503E264002B5960 /* CropImageViewController.swift */; };
 		81B1DC2624E4E6D200D755C0 /* TweetDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC2524E4E6D200D755C0 /* TweetDetailsViewModel.swift */; };
 		81B1DC2B24E4EAFD00D755C0 /* ListTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC2A24E4EAFD00D755C0 /* ListTweetViewModel.swift */; };
 		81B1DC2E24E4F36500D755C0 /* TweetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B1DC2D24E4F36500D755C0 /* TweetRepository.swift */; };
@@ -108,6 +109,7 @@
 		81445B1324EDDEE100ED7F91 /* ImageAnalyseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyseTests.swift; sourceTree = "<group>"; };
 		814B657525029B03002B5960 /* ImageAnalyserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnalyserError.swift; sourceTree = "<group>"; };
 		814B65772503D93A002B5960 /* CropImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CropImage.storyboard; sourceTree = "<group>"; };
+		814B65792503E264002B5960 /* CropImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropImageViewController.swift; sourceTree = "<group>"; };
 		81B1DC2524E4E6D200D755C0 /* TweetDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDetailsViewModel.swift; sourceTree = "<group>"; };
 		81B1DC2A24E4EAFD00D755C0 /* ListTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTweetViewModel.swift; sourceTree = "<group>"; };
 		81B1DC2D24E4F36500D755C0 /* TweetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepository.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				81B7794B24E6022D007389BD /* TweetDetailsViewController.swift */,
 				81BA9F0524F0830400844917 /* ModalDismissViewController.swift */,
 				8100B6EC24F929AE0046124A /* TweetsResultsListController.swift */,
+				814B65792503E264002B5960 /* CropImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				81F63C8E24E4795D0080F089 /* HistoryListViewController.swift in Sources */,
 				81BA9EBC24EEB12800844917 /* TweetDetailsView.swift in Sources */,
 				81273DEB24F3098B0040262B /* UserDefaultsManager.swift in Sources */,
+				814B657A2503E264002B5960 /* CropImageViewController.swift in Sources */,
 				81B1DC3324E56A2300D755C0 /* Repository.swift in Sources */,
 				81B7797C24EDB7C1007389BD /* ImageReaderError.swift in Sources */,
 				81B7794824E5D9CB007389BD /* UIButton+Designable.swift in Sources */,
