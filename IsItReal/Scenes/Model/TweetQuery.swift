@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct QueryResult {
+struct TweetQuery {
     let textTweet: String?
     let query: String?
     let user: String?

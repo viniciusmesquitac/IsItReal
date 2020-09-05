@@ -16,23 +16,8 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
     public var handleSavedTweet: ((Tweet) -> Void)?
     var repository = Repository()
     
-    func saveTweet(tweets: [Tweet]?, username: String, image: URL?) -> Bool {
-        if let imageUrl = image { }
-        guard let tweets = tweets else { return false }
-        for tweet in tweets where tweet.user.screenName == username {
-                var tweet = tweet
-                tweet.dateAnalyses = createAnalyseDate()
-                _ = self.repository.add(object: tweet)
-                handleSavedTweet?(tweet)
-                return true
-        }
-        return false
-    }
-    
-    
     func saveTweet(_ tweet: Tweet?, image: URL?) {
-//        if let imageUrl = image { print("existe uma image")}
-        guard var tweet = tweet else { return } // posso dar throw
+        guard var tweet = tweet else { return }
         tweet.dateAnalyses = createAnalyseDate()
         _ = self.repository.add(object: tweet)
         handleSavedTweet?(tweet)

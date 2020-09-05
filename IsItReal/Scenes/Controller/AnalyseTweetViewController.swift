@@ -55,7 +55,7 @@ class AnalyseTweetViewController: UIViewController {
     
     @IBAction func didTapSelectAnalyseButton(_ sender: Any) {
         guard let imageUrl = rootView.imageUrl else {
-            return viewModel.failureHandler(self, error: AnalyseError.notImage)
+            return viewModel.failureHandler(self, error: ImageAnalyserError.notImage)
         }
         do {
             rootView.setLoadingAnalyseButton(true)
@@ -88,7 +88,7 @@ extension AnalyseTweetViewController: ImageAnalyserDelegate {
     func handleLatestTweets(_ tweets: [Tweet]?) {
         guard let tweets = tweets else { return }
         if tweets.isEmpty {
-            viewModel.failureHandler(self, error: AnalyseError.notFound)
+            viewModel.failureHandler(self, error: ImageAnalyserError.notFound)
         }
         coordinator?.showLatests(tweets)
         rootView.setLoadingAnalyseButton(false)

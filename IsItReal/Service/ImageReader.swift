@@ -11,6 +11,9 @@ import Vision
 class ImageReader {
     
     public var failureHandler: (Error) -> Void = { _ in }
+    private var tweetText: String?
+    private let minNumberOfWords = 3
+    private let maxNumberOfWords = 40
     
     func perform(on url: URL?, recognitionLevel: VNRequestTextRecognitionLevel) throws -> String {
         var stringResult = ""
@@ -41,12 +44,60 @@ class ImageReader {
         return stringResult
     }
     
-    // Very Complex :/
-    func createQuery(text: String, completion: @escaping (QueryResult) -> Void) throws {
-        var user: String?
-        var tweetText: String?
+    func createQuery(text: String, completion: @escaping (TweetQuery) -> Void) throws {
         
-        // get user
+        guard let screenName = extractScreenName(from: text) else { throw ImageReaderError.impossibleFindUserScreen }
+        
+        if let text = tweetText {
+            tweetText = removeCommonWords(from: text)
+        }
+        
+        let keySearch = tweetText?.split(separator: " ")
+        guard var splitedTweetText = keySearch else { throw ImageReaderError.impossibleToFindTheText }
+       
+        if splitedTweetText.count == 0 {
+            let newTweetText = self.removeCommonWords(from: text)
+            splitedTweetText = newTweetText.split(separator: " ")
+        }
+        
+        if splitedTweetText.count < minNumberOfWords || splitedTweetText.count > maxNumberOfWords {
+            throw ImageReaderError.impossibleToRead
+        }
+        
+        APITwitter.shared.getUser(screenName: screenName) { myUser in
+            splitedTweetText = self.removeUsername(from: splitedTweetText, userName: myUser!.name)
+            
+            var textToSearch = ""
+            for index in 0..<splitedTweetText.count - self.minNumberOfWords {
+                textToSearch.append("\(splitedTweetText[index]) ")
+            }
+            
+            textToSearch.append(screenName)
+            completion(TweetQuery(textTweet: self.tweetText, query: textToSearch, user: screenName, keySearch: splitedTweetText))
+        }
+    }
+    
+    private func removeUsername(from text: [String.SubSequence], userName: String) -> [String.SubSequence] {
+        var result = text
+        if let index = result.firstIndex(of: String.SubSequence(userName)) {
+            result.remove(at: index)
+        }
+        return result
+    }
+    
+    private func removeCommonWords(from text: String) -> String {
+        let commomWords = [
+            "Translate Tweet", "Tweetbot for Mac", "Twitter for iPad",
+            "Retweet and comment", ":", "Tweetbot for IOS"
+        ]
+        
+        let result = remove(words: commomWords, from: text)
+        return result
+    }
+    
+    private func extractScreenName(from text: String) -> String? {
+        var user: String?
+        
         if let userIndex = text.lastIndex(of: "@") {
             user = String(text[userIndex..<text.endIndex])
             user = splitGetFirst(user)
@@ -60,7 +111,8 @@ class ImageReader {
                     tweetText = String(text[verifyMarkIndex..<userIndex])
                     tweetText?.removeFirst()
                 }
-            } else {
+            }
+            else {
                 if let allTextindex = text.index(of: "Twitter") {
                     tweetText = String(text[..<allTextindex])
                 }
@@ -69,89 +121,25 @@ class ImageReader {
                 }
             }
         }
-        
-        if let text = tweetText {
-            tweetText = removeCommonWords(from: text)
-        }
-        
-        let keySearch = tweetText?.split(separator: " ")
-        
-        guard let screenName = user else { throw ImageReaderError.impossibleFindUserScreen }
-        guard var mtweetText = keySearch else { throw ImageReaderError.impossibleToFindTheText }
-        
-        // if count == 1 return to all text
-        if mtweetText.count == 0 {
-            let newText = self.removeCommonWords(from: text)
-            mtweetText = newText.split(separator: " ")
-        }
-        
-        if mtweetText.count < 3 {
-            throw ImageReaderError.impossibleToRead
-        }
-        
-        // async
-        APITwitter.shared.getUser(screenName: screenName) { myUser in
-            mtweetText = self.removeUsername(from: mtweetText, userName: myUser!.name)
-            
-            var completed = ""
-            for index in 0..<mtweetText.count - 3 {
-                completed.append("\(mtweetText[index]) ")
+        return user
+    }
+    
+    private func remove(words: [String], from text: String) -> String {
+        var result: String!
+        for word in words {
+            if let index = text.index(of: word) {
+                result = String(text[..<index])
             }
-            
-            completed.append("\(screenName)")
-            completion(QueryResult(textTweet: tweetText, query: completed, user: screenName, keySearch: mtweetText))
-        }
-
-    }
-    
-    func removeUsername(from text: [String.SubSequence], userName: String) -> [String.SubSequence] {
-        var result = text
-        if let index = result.firstIndex(of: String.SubSequence(userName)) {
-            result.remove(at: index)
         }
         return result
     }
     
-    func removeCommonWords(from text: String) -> String {
-        
-        var result = text
-        
-        if let allTextindex = text.index(of: "Twitter") {
-            result = String(text[..<allTextindex])
-        }
-        
-        if let index = result.index(of: "Translate Tweet") {
-             result = String(text[..<index])
-        }
-        
-        if let index = result.index(of: "Tradução") {
-            result = String(text[..<index])
-        }
-        
-        if let index = result.index(of: "Tweetbot for Mac") {
-            result = String(text[..<index])
-        }
-        
-        if let index = result.index(of: "Twitter for iPad") {
-            result = String(text[..<index])
-        }
-        
-        if let index = result.index(of: "Retweet and comment") {
-            result = String(text[..<index])
-        }
-        
-        if let index = result.index(of: ":") {
-            result = String(text[..<index])
-        }
-        return result
+    private func splitGetFirst(_ text: String?) -> String {
+        let splited = text?.split(separator: " ")
+        return String(splited!.first!)
     }
     
-    func splitGetFirst(_ text: String?) -> String {
-          let splited = text?.split(separator: " ")
-          return String(splited!.first!)
-      }
-    
-    func getUrlFromImage(forImageNamed name: String) -> URL? {
+    public func getUrlFromImage(forImageNamed name: String) -> URL? {
         let fileManager = FileManager.default
         let cacheDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
         let url = cacheDirectory.appendingPathComponent("\(name).png")

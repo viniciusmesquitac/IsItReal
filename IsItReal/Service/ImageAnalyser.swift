@@ -20,7 +20,7 @@ class ImageAnalyser {
     let service = APITwitter.shared
     weak var delagate: ImageAnalyserDelegate?
     
-    func start(imageUrl: URL, completion: @escaping (Tweet?) -> Void) throws {
+    public func start(imageUrl: URL, completion: @escaping (Tweet?) -> Void) throws {
         
         let textResultsExtractedFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .fast)
         
@@ -31,7 +31,7 @@ class ImageAnalyser {
         })
     }
     
-    func searchTweetWithImageQuery(_ query: QueryResult, completion: @escaping (Tweet?) -> Void) {
+    private func searchTweetWithImageQuery(_ query: TweetQuery, completion: @escaping (Tweet?) -> Void) {
         guard let textFromQuery = query.query else {
             delagate?.handleError(ImageReaderError.impossibleToFindTheText)
             return
@@ -39,22 +39,16 @@ class ImageAnalyser {
         
         service.searchCompactTweet(query: textFromQuery) { tweets in
             guard let tweets = tweets else {
-                self.delagate?.handleError(AnalyseError.notFound)
+                self.delagate?.handleError(ImageAnalyserError.notFound)
                 return
             }
             if let tweet = self.getTweet(from: tweets, with: query.user) {
                 completion(tweet)
             } else {
-                self.getLatestsTweets(with: query.user!, completion: { tweets in
+                self.service.getLatest(screenName: query.user!, completion: { tweets in
                     self.delagate?.handleLatestTweets(tweets)
                 })
             }
-        }
-    }
-    
-    private func getLatestsTweets(with screenName: String, completion: @escaping ([Tweet]?) -> Void) {
-        service.getLatest(screenName: screenName) { (tweets) in
-            completion(tweets)
         }
     }
     
