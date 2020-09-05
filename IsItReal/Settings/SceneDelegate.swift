@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         coordinator = AppCoordinator(window: window)
         coordinator?.start()
-        
     }
+    
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let context = URLContexts.first else { return }
         if let callbackUrl = URL(string: "TwitterTestingAPI://") {

@@ -37,5 +37,6 @@ struct UserDefaultsManager {
         guard let key = key, let secret = secret else { return }
         UserDefaults.standard.setValue(key, forKey: "authKey")
         UserDefaults.standard.setValue(secret, forKey: "authSecret")
+        print("\(key) \n \(secret)")
     }
 }

@@ -19,7 +19,7 @@ class TabBarCoordinator: Coordinator {
         tabBarController.coordinator = self
         
         let historyListController = UINavigationController()
-        historyListController.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "􀓕"), tag: 1)
+        historyListController.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "􀣔"), tag: 1)
         let historyListCoordinator = HistoryListCordinator(navigationController: historyListController)
         
         let analyseTweetController = UINavigationController()

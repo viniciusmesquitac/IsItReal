@@ -17,7 +17,7 @@ class TweetResultsViewModel: ListTweetViewModel {
     }
     
     func alertSaveConfirm(_ presentFrom: UIViewController, tweet: TweetDetailsViewModel) {
-        let alert = UIAlertController(title: "Save tweet?", message: "Do you want to save this tweet in tweets history?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Save tweet?", message: "Save tweet in history tweets", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
             self.saveTweet(tweet: tweet)

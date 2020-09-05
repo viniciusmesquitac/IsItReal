@@ -18,25 +18,12 @@ class APITwitter {
     
     private init() {}
     
-    private var swifter = Swifter(consumerKey: KEY, consumerSecret: SECRET)
+    private var swifter = Swifter(consumerKey: KEY, consumerSecret: CONSUMER_SECRET,
+                                  oauthToken: TOKEN,
+                                  oauthTokenSecret: SECRET)
     
     public var failureHandler: ((Error) -> Void) = { error in
         print(error)
-    }
-    
-    public func auth() {
-        swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: nil, success: { (token, _) in
-            UserDefaultsManager.setAuthToken(key: token?.key, secret: token?.secret)
-        }, failure: self.failureHandler)
-    }
-    
-    public func searchTweet(query: String, completion: @escaping ([Tweet]?) -> Void) {
-        swifter.authorize(withCallback: AuthSwifter.url, presentingFrom: nil, success: { (token, _) in
-            UserDefaultsManager.setAuthToken(key: token?.key, secret: token?.secret)
-            self.searchCompactTweet(query: query) { (tweets) in
-                completion(tweets)
-            }
-        }, failure: self.failureHandler)
     }
     
     public func searchCompactTweet(query: String, completion: @escaping ([Tweet]?) -> Void) {
