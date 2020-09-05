@@ -25,20 +25,9 @@ class AnalyseTweetViewController: UIViewController {
         super.viewDidLoad()
         
         coordinator = AnalyseTweetCoordinator(navigationController: navigationController!)
-        setupImagePickerWorker()
-        setupImageAnalyser()
-        updateViewModel()
-    }
-    
-    fileprivate func setupImageAnalyser() {
         imageAnalyser.delagate = self
-    }
-    
-    fileprivate func setupImagePickerWorker() {
         imagePickerWorker.delegate = self
-        imagePickerWorker.didSelectImage = { image, url in
-            self.rootView.setImage(image: image, url: url)
-        }
+        updateViewModel()
     }
     
     fileprivate func updateViewModel() {
@@ -54,12 +43,12 @@ class AnalyseTweetViewController: UIViewController {
     }
     
     @IBAction func didTapSelectAnalyseButton(_ sender: Any) {
-        guard let imageUrl = rootView.imageUrl else {
+        guard let imageView = rootView.imageView.image else {
             return viewModel.failureHandler(self, error: ImageAnalyserError.notImage)
         }
         do {
             rootView.setLoadingAnalyseButton(true)
-            try imageAnalyser.start(imageUrl: imageUrl, completion: { tweet in
+            try imageAnalyser.start(image: imageView, completion: { tweet in
                 _ = self.viewModel.saveTweet(tweet, image: self.rootView.imageUrl)
             })
         } catch {
@@ -75,7 +64,15 @@ class AnalyseTweetViewController: UIViewController {
     
 }
 
-extension AnalyseTweetViewController: ImageAnalyserDelegate {
+extension AnalyseTweetViewController: ImageAnalyserDelegate, ImagePickerDelegate {
+    
+    func didSelectImage(image: UIImage, imageUrl: URL?) {
+        self.rootView.setImage(image: image, url: imageUrl)
+    }
+    
+    func present(viewController: UIViewController) {
+        self.present(viewController, animated: true, completion: nil)
+    }
     
     func setLoading(_ state: Bool) {
         rootView.setLoadingAnalyseButton(state)

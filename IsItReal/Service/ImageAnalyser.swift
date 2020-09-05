@@ -6,7 +6,7 @@
 //  Copyright © 2020 Vinicius Mesquita. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ImageAnalyserDelegate: class {
     func setLoading(_ state: Bool)
@@ -20,9 +20,11 @@ class ImageAnalyser {
     let service = APITwitter.shared
     weak var delagate: ImageAnalyserDelegate?
     
-    public func start(imageUrl: URL, completion: @escaping (Tweet?) -> Void) throws {
-        
-        let textResultsExtractedFromImage = try imageReader.perform(on: imageUrl, recognitionLevel: .fast)
+    public func start(image: UIImage, completion: @escaping (Tweet?) -> Void) throws {
+        service.failureHandler = { error in
+            self.delagate?.handleError(error)
+        }
+        let textResultsExtractedFromImage = try imageReader.perform(on: image, recognitionLevel: .fast)
         
         try imageReader.createQuery(text: textResultsExtractedFromImage, completion: { result in
             self.searchTweetWithImageQuery(result, completion: { tweet in

@@ -13,14 +13,12 @@ class ImageReader {
     public var failureHandler: (Error) -> Void = { _ in }
     private var tweetText: String?
     private let minNumberOfWords = 3
-    private let maxNumberOfWords = 40
+    private let maxNumberOfWords = 50
     
-    func perform(on url: URL?, recognitionLevel: VNRequestTextRecognitionLevel) throws -> String {
+    func perform(on image: UIImage, recognitionLevel: VNRequestTextRecognitionLevel) throws -> String {
         var stringResult = ""
-        guard let url = url else { return "" }
         
-        let requestHandler = VNImageRequestHandler(url: url, options: [:])
-        
+        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
         let request = VNRecognizeTextRequest  { (request, error) in
             if let error = error {
                 self.failureHandler(error)
@@ -60,8 +58,12 @@ class ImageReader {
             splitedTweetText = newTweetText.split(separator: " ")
         }
         
-        if splitedTweetText.count < minNumberOfWords || splitedTweetText.count > maxNumberOfWords {
+        if splitedTweetText.count < minNumberOfWords {
             throw ImageReaderError.impossibleToRead
+        }
+        
+        while splitedTweetText.count > maxNumberOfWords {
+            splitedTweetText.removeLast()
         }
         
         APITwitter.shared.getUser(screenName: screenName) { myUser in
@@ -88,7 +90,7 @@ class ImageReader {
     private func removeCommonWords(from text: String) -> String {
         let commomWords = [
             "Translate Tweet", "Tweetbot for Mac", "Twitter for iPad",
-            "Retweet and comment", ":", "Tweetbot for IOS"
+            "Retweet and comment", ":", "Tweetbot for IOS", "@"
         ]
         
         let result = remove(words: commomWords, from: text)
@@ -125,13 +127,13 @@ class ImageReader {
     }
     
     private func remove(words: [String], from text: String) -> String {
-        var result: String!
+        var result: String?
         for word in words {
             if let index = text.index(of: word) {
                 result = String(text[..<index])
             }
         }
-        return result
+        return result ?? text
     }
     
     private func splitGetFirst(_ text: String?) -> String {
