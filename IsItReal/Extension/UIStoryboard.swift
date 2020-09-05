@@ -35,6 +35,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "TweetsResults", bundle: nil)
     }
     
+    private static var crop: UIStoryboard {
+        return UIStoryboard(name: "CropImage", bundle: nil)
+    }
+    
     static func instantiateTabBarController() -> TabBarViewController {
         if let vc = tabBar.instantiateViewController(withIdentifier: "tabbarController") as? TabBarViewController {
             return vc
@@ -75,5 +79,12 @@ extension UIStoryboard {
             return vc
         }
         return TweetsResultsListController()
+    }
+    
+    static func instantiateCropImage() -> CropImageViewController {
+        if let vc = crop.instantiateViewController(identifier: "CropImage") as? CropImageViewController {
+            return vc
+        }
+        return CropImageViewController()
     }
 }

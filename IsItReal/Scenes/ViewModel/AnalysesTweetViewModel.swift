@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swifter
 
 class AnalysesTweetViewModel: ConfigurableViewModel {
     
@@ -32,10 +33,19 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
     }
 
     func failureHandler(_ presentFrom: UIViewController, error: Error) {
-        self.alert(presentFrom, title: "ERROR", message: "\(error.localizedDescription)")
+        
         if let controller = presentFrom as? AnalyseTweetViewController {
             controller.rootView.setLoadingAnalyseButton(false)
         }
+        
+        if let decode = error as? SwifterError {
+            switch decode.kind {
+            default:
+                self.alert(presentFrom, title: "ERROR", message: "User has been suspended. Impossible find tweets from this user")
+            }
+            return
+        }
+        self.alert(presentFrom, title: "ERROR", message: "\(error.localizedDescription.description)")
     }
 
     func alert(_ presentFrom: UIViewController, title: String, message: String) {

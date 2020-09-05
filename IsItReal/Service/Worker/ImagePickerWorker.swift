@@ -10,11 +10,12 @@ import UIKit
 
 protocol ImagePickerDelegate: class {
     func present(viewController: UIViewController)
+    func didSelectImage(image: UIImage, imageUrl: URL?)
 }
 
 class ImagePickerWorker: NSObject {
-    var didSelectImage: ((UIImage, URL?) -> Void)?
-    let picker = UIImagePickerController()
+    
+    private let picker = UIImagePickerController()
     weak var delegate: ImagePickerDelegate?
     
     func start() {
@@ -26,22 +27,20 @@ class ImagePickerWorker: NSObject {
 extension ImagePickerWorker: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func switchUserPhoto() {
-        picker.allowsEditing = true
         picker.delegate = self
+        picker.allowsEditing = true
         delegate?.present(viewController: picker)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let imageUrl = info[.imageURL] as? URL
         guard let image = info[.editedImage] as? UIImage else { return }
-        didSelectImage?(image, imageUrl)
+        delegate?.didSelectImage(image: image, imageUrl: imageUrl)
         picker.dismiss(animated: true, completion: nil)
+//            let cropViewController = UIStoryboard.instantiateCropImage()
+//            cropViewController.image = image
+//            cropViewController.imageUrl = imageUrl
+//            self.delegate?.present(viewController: cropViewController)
     }
     
-}
-
-extension AnalyseTweetViewController: ImagePickerDelegate {
-    func present(viewController: UIViewController) {
-        self.present(viewController, animated: true, completion: nil)
-    }
 }
