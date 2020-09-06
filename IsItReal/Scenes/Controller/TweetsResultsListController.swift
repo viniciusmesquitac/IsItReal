@@ -38,7 +38,9 @@ class TweetsResultsListController: UIViewController {
             self.viewModel.removeTweet(tweet)
             self.tableView.deleteRows(at: [index], with: .right)
             self.tableView.endUpdates()
+            self.viewModel.handleUpdate?()
         }
+
     }
     
     @IBAction func didTapCancelButton(_ sender: Any) {

@@ -35,7 +35,6 @@ class TweetResultsViewModel: ListTweetViewModel {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
             self.saveTweet(tweet: tweet)
             self.removeElementUpdate?(tweet, indexPath)
-            self.handleUpdate?()
         }))
         presentFrom.present(alert, animated: true, completion: nil)
     }

@@ -23,18 +23,6 @@ class TweetDetailsView: UIView {
         self.safariButton.setTitle(viewModel.link, for: .normal)
         Nuke.loadImage(with: viewModel.userImagePhoto, into: self.tweetContainerView.userPhoto)
     }
-    
-//    private func cachingImage(url: URL, userPhoto: UIImageView) {
-//        let request = ImageRequest(url: url)
-//        if let image = userPhoto.image {
-//            ImageCache.shared[request] = ImageContainer(image: image)
-//        }
-//        if userPhoto.image == nil {
-//            if let image = ImageCache.shared[request]?.image {
-//                userPhoto.image = image
-//            }
-//        }
-//    }
 }
 
 class TweetContainerView: UIView {

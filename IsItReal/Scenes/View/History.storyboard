@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -39,7 +39,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyState" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-JW-DQq">
-                                    <rect key="frame" x="147" y="36" width="120" height="120"/>
+                                    <rect key="frame" x="138" y="36" width="138" height="138"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Yo1-JW-DQq" secondAttribute="height" multiplier="1:1" id="owY-p7-NpV"/>
                                     </constraints>
@@ -50,7 +50,7 @@
                                     </variation>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your analyse history will apper here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-qR-PVZ">
-                                    <rect key="frame" x="73" y="172" width="268" height="20"/>
+                                    <rect key="frame" x="73" y="190" width="268" height="20"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                     <color key="textColor" name="TwistedBlue"/>
                                     <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EmptyState" width="120" height="90"/>
+        <image name="EmptyState" width="110" height="138"/>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
         <namedColor name="TwistedBlue">
             <color red="0.035000000149011612" green="0.51399999856948853" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
