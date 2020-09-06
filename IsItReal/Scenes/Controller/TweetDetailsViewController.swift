@@ -21,6 +21,7 @@ class TweetDetailsViewController: UIViewController {
             rootView.configure(viewModel: viewModel)
         }
     }
+    
     @IBAction func didSelecShareButton(_ sender: Any) {
         if let sharetext = viewModel?.tweet.text {
             let vc = UIActivityViewController(activityItems: [sharetext], applicationActivities: [])

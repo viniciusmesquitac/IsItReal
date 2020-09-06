@@ -26,9 +26,18 @@ class TweetsResultsListController: UIViewController {
     
     fileprivate func updateViewModel() {
         viewModel.handleUpdate = {
+            if self.viewModel.numberOfRows == 0 {
+                self.dismiss(animated: true, completion: nil)
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        }
+        viewModel.removeElementUpdate = { tweet, index in
+            self.tableView.beginUpdates()
+            self.viewModel.removeTweet(tweet)
+            self.tableView.deleteRows(at: [index], with: .right)
+            self.tableView.endUpdates()
         }
     }
     
@@ -59,7 +68,7 @@ extension TweetsResultsListController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tweet = viewModel.getTweet(for: indexPath.item)!
-        viewModel.alertSaveConfirm(self, tweet: tweet)
+        viewModel.alertSaveConfirm(self, tweet: tweet, indexPath: indexPath)
     }
     
 }

@@ -51,6 +51,13 @@ class APITwitter {
         }, failure: self.failureHandler)
     }
     
+    public func getTweetWithId(_ idStr: String, completion: @escaping (ExtendedTweet?) -> Void) {
+        swifter.getTweet(for: idStr, tweetMode: .extended, success: { json in
+            let data = self.parseJsonToData(json)
+            completion(self.decodeTweet(from: data))
+        }, failure: self.failureHandler)
+    }
+    
     private func parseArrayJsonToData(_ json: JSON) -> Data? {
         if let jsonString = json.array?.description {
             let jsonData = Data(jsonString.utf8)
@@ -70,6 +77,13 @@ class APITwitter {
             return nil
         }
         return tweets
+    }
+    
+    private func decodeTweet(from data: Data) -> ExtendedTweet? {
+        guard let tweet = try? JSONDecoder().decode(ExtendedTweet.self, from: data) else {
+            return nil
+        }
+        return tweet
     }
     
     private func decodeUser(from data: Data) -> User? {
