@@ -90,7 +90,7 @@ class ImageReader {
     private func removeCommonWords(from text: String) -> String {
         let commomWords = [
             "Translate Tweet", "Tweetbot for Mac", "Twitter for iPad",
-            "Retweet and comment", ":", "Tweetbot for IOS",
+            "Retweet and comment", ":", "Tweetbot for IOS"
         ]
         
         let result = remove(words: commomWords, from: text)

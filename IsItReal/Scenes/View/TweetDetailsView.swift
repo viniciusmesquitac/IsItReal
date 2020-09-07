@@ -15,13 +15,18 @@ class TweetDetailsView: UIView {
     @IBOutlet weak var ValidTweetContainerView: ValidTweetContainer!
     @IBOutlet weak var safariButton: UIButton!
     
+    let options = ImageLoadingOptions(
+        placeholder: UIImage(named: "placeholder"),
+        transition: .fadeIn(duration: 0.33)
+    )
+    
     func configure(viewModel: TweetDetailsViewModel) {
         self.tweetContainerView.userLabel.text = viewModel.tweet.user.name
         self.tweetContainerView.userScreenName.text = "@"+viewModel.tweet.user.screenName
         self.tweetContainerView.tweetText.text = viewModel.tweet.fullText
         self.tweetContainerView.createDate.text = viewModel.createdDate
         self.safariButton.setTitle(viewModel.link, for: .normal)
-        Nuke.loadImage(with: viewModel.userImagePhoto, into: self.tweetContainerView.userPhoto)
+        Nuke.loadImage(with: viewModel.userImagePhoto, options: options, into: self.tweetContainerView.userPhoto)
     }
 }
 
