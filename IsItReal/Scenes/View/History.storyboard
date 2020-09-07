@@ -27,15 +27,14 @@
         <scene sceneID="IU8-DA-lAg">
             <objects>
                 <tableViewController storyboardIdentifier="historyViewController" id="Ok1-IS-pen" customClass="HistoryListViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RkA-4o-GKV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="RkA-4o-GKV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="WhiteBackground"/>
                         <color key="tintColor" name="TwitterBlue"/>
-                        <color key="separatorColor" name="TwistedBlue"/>
-                        <color key="sectionIndexBackgroundColor" name="WhiteBackground"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="igN-8J-PeF">
-                            <rect key="frame" x="0.0" y="117" width="414" height="243"/>
+                        <color key="separatorColor" name="TwitterBlue"/>
+                        <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="igN-8J-PeF">
+                            <rect key="frame" x="0.0" y="116.33333396911621" width="414" height="243"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyState" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-JW-DQq">

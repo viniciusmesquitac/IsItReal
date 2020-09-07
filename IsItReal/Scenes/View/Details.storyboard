@@ -42,7 +42,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSF-1V-8Nt" customClass="TweetContainerView" customModule="IsItReal" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="45" width="414" height="238"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightSampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="Nxx-AF-WQW">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Nxx-AF-WQW">
                                                         <rect key="frame" x="21" y="17" width="62" height="62"/>
                                                         <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -213,7 +213,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LightSampleImage" width="351" height="193"/>
+        <image name="placeholder" width="128" height="128"/>
         <image name="􀈂" width="21" height="26"/>
         <image name="􀎬" width="23" height="24"/>
         <namedColor name="TwitterBlue">
