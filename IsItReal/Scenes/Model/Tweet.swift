@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct Tweet: Decodable & Encodable {
+struct Tweet: Codable {
     let text: String
+    var fullText: String?
     let idStr: String
     let createdDate: String
     let user: User
@@ -18,7 +19,7 @@ struct Tweet: Decodable & Encodable {
 
 extension Tweet {
     enum CodingKeys: String, CodingKey {
-        case text, user, dateAnalyses
+        case text, user, dateAnalyses, fullText
         case idStr       = "id_str"
         case createdDate = "created_at"
     }

@@ -20,6 +20,16 @@ extension TweetDetailsViewModel {
     var tweetScreenName: String {
         return "@\(tweet.user.screenName)"
     }
+    
+    var shortText: String {
+        if let index = self.tweet.text.index(of: "https://") {
+            let shortText = String(self.tweet.text[..<index])
+            return shortText
+        }
+        
+        return self.tweet.text
+    }
+    
     var link: String {
         return "https://twitter.com/\(tweet.user.screenName)/status/\(tweet.idStr)"
     }

@@ -18,7 +18,7 @@ class TweetDetailsView: UIView {
     func configure(viewModel: TweetDetailsViewModel) {
         self.tweetContainerView.userLabel.text = viewModel.tweet.user.name
         self.tweetContainerView.userScreenName.text = "@"+viewModel.tweet.user.screenName
-        self.tweetContainerView.tweetText.text = viewModel.tweet.text
+        self.tweetContainerView.tweetText.text = viewModel.tweet.fullText
         self.tweetContainerView.createDate.text = viewModel.createdDate
         self.safariButton.setTitle(viewModel.link, for: .normal)
         Nuke.loadImage(with: viewModel.userImagePhoto, into: self.tweetContainerView.userPhoto)

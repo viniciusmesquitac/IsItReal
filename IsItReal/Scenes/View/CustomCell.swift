@@ -24,17 +24,23 @@ class CustomCell: UITableViewCell {
         // Update all views
         tweetUserName.text = viewModel.tweet.user.name
         tweetScreenName.text = viewModel.tweetScreenName
-        tweetText.text = viewModel.tweet.text
+        tweetText.text = viewModel.shortText
         tweetValidation.text = "Tweet Validated"
         tweetValidationDate.text = viewModel.tweet.dateAnalyses
     }
     
     override func setNeedsUpdateConstraints() {
         if isEditing {
+            
             self.leadingFromCell.constant = 16 * 3.5
+            UIView.animate(withDuration: 0.3) {
+                    self.layoutIfNeeded()
+            }
         } else {
             self.leadingFromCell.constant = 16
+            UIView.animate(withDuration: 0.3) {
+                    self.layoutIfNeeded()
+            }
         }
-        
     }
 }

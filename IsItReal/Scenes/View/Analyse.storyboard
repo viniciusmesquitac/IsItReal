@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <navigationController id="KH9-4J-pZs" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gMl-92-6fM">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -29,11 +29,11 @@
             <objects>
                 <viewController storyboardIdentifier="analyseViewController" id="lsD-sk-Mx0" customClass="AnalyseTweetViewController" customModule="IsItReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cDv-jw-Kiy" customClass="AnalyseView" customModule="IsItReal" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LightSampleImage" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-Lt-qev">
-                                <rect key="frame" x="100" y="120" width="568" height="312.5"/>
+                                <rect key="frame" x="8" y="120" width="398" height="298.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HcH-Lt-qev" secondAttribute="height" multiplier="4:3" id="EXd-sk-TST"/>
                                     <constraint firstAttribute="width" constant="351" id="fqN-Mk-Tcz"/>
@@ -63,7 +63,7 @@
                                 </variation>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBM-fr-9t6">
-                                <rect key="frame" x="100" y="512.5" width="568" height="40"/>
+                                <rect key="frame" x="24" y="490.5" width="366" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bF1-19-2pQ"/>
                                 </constraints>
@@ -86,7 +86,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKj-RN-ELX">
-                                <rect key="frame" x="100" y="576.5" width="568" height="40"/>
+                                <rect key="frame" x="24" y="550.5" width="366" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IQX-62-yDx"/>
                                 </constraints>
@@ -111,7 +111,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABd-IS-GXz">
-                                <rect key="frame" x="100" y="448.5" width="568" height="40"/>
+                                <rect key="frame" x="24" y="434.5" width="366" height="40"/>
                                 <color key="backgroundColor" name="TwitterBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kUQ-lx-Lgf"/>

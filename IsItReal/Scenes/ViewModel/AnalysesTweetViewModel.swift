@@ -19,9 +19,13 @@ class AnalysesTweetViewModel: ConfigurableViewModel {
     
     func saveTweet(_ tweet: Tweet?, image: URL?) {
         guard var tweet = tweet else { return }
-        tweet.dateAnalyses = createAnalyseDate()
-        _ = self.repository.add(object: tweet)
-        handleSavedTweet?(tweet)
+        let id = tweet.idStr
+        APITwitter.shared.getTweetWithId(id) { extendedTweet in
+            tweet.fullText = extendedTweet?.fullText
+            tweet.dateAnalyses = self.createAnalyseDate()
+            _ = self.repository.add(object: tweet)
+            self.handleSavedTweet?(tweet)
+        }
     }
     
     func createAnalyseDate() -> String {
