@@ -42,8 +42,8 @@ class HistoryListViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search tweets or users"
         listNavigationItem.searchController = searchController
-        listNavigationItem.hidesSearchBarWhenScrolling = true
-        // definesPresentationContext = true
+        listNavigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
     }
     
     fileprivate func updateViewModel() {
@@ -78,6 +78,11 @@ class HistoryListViewController: UITableViewController {
             tableView.deleteRows(at: selectedRows, with: .right)
             tableView.endUpdates()
         }
+        searchController.searchBar.isUserInteractionEnabled = !searchController.searchBar.isUserInteractionEnabled
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        listNavigationItem.switchStateDeleteButton()
+        listNavigationItem.handleBarButtonState(tableView)
+        
     }
     
     // MARK: - Table view data source

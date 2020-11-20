@@ -211,12 +211,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		81273DF024F346870040262B /* Worker */ = {
+		81273DF024F346870040262B /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				81B7795624E6D442007389BD /* ImageReader.swift */,
+				8100B73024F9B7070046124A /* ImageAnalyser.swift */,
 				81B7796D24EB5C36007389BD /* ImagePickerWorker.swift */,
 			);
-			path = Worker;
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		815417CC250674360036295B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				81BA9EFB24EF430B00844917 /* Onboarding.storyboard */,
+				81BA9EBD24EEC30700844917 /* Details.storyboard */,
+				81F63C8B24E477D90080F089 /* History.storyboard */,
+				81BA9EFD24EFF03400844917 /* ProVersion.storyboard */,
+				8100B6EE24F92B290046124A /* TweetsResults.storyboard */,
+				814B65772503D93A002B5960 /* CropImage.storyboard */,
+				81F63C8924E477C70080F089 /* Analyse.storyboard */,
+				81F63C5824E4758E0080F089 /* TabBar.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		815417CD2506743D0036295B /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				81B7794924E5DC8A007389BD /* HistoryTableViewCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		815417CE250674440036295B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				81273DEE24F32FCA0040262B /* AnalyseView.swift */,
+				81445B1124EDD56300ED7F91 /* CustomCell.swift */,
+				81273DEC24F31C660040262B /* HistoryListNavigationItem.swift */,
+				81BA9EBB24EEB12800844917 /* TweetDetailsView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		81B1DC2C24E4F35300D755C0 /* Repository */ = {
@@ -233,12 +269,9 @@
 		81B1DC2F24E55EE300D755C0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				81273DF024F346870040262B /* Worker */,
 				81273DEA24F3098B0040262B /* UserDefaultsManager.swift */,
 				81B1DC3024E55EF600D755C0 /* APITwitter.swift */,
 				81B1DC3D24E591A600D755C0 /* APIConstants.swift */,
-				81B7795624E6D442007389BD /* ImageReader.swift */,
-				8100B73024F9B7070046124A /* ImageAnalyser.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -374,6 +407,7 @@
 		81F63C8424E4773D0080F089 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81273DF024F346870040262B /* Workers */,
 				81F63C9724E47F6E0080F089 /* Tweet.swift */,
 				81F63C9924E47F780080F089 /* User.swift */,
 				81B7797B24EDB7C1007389BD /* ImageReaderError.swift */,
@@ -387,20 +421,10 @@
 		81F63C8524E477410080F089 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				81B7794924E5DC8A007389BD /* HistoryTableViewCell.xib */,
-				81F63C5824E4758E0080F089 /* TabBar.storyboard */,
-				81F63C8924E477C70080F089 /* Analyse.storyboard */,
-				81F63C8B24E477D90080F089 /* History.storyboard */,
+				815417CE250674440036295B /* Components */,
+				815417CD2506743D0036295B /* Xibs */,
+				815417CC250674360036295B /* Storyboards */,
 				81F63C5B24E475900080F089 /* Assets.xcassets */,
-				81445B1124EDD56300ED7F91 /* CustomCell.swift */,
-				81BA9EBB24EEB12800844917 /* TweetDetailsView.swift */,
-				81BA9EBD24EEC30700844917 /* Details.storyboard */,
-				81BA9EFB24EF430B00844917 /* Onboarding.storyboard */,
-				81BA9EFD24EFF03400844917 /* ProVersion.storyboard */,
-				81273DEC24F31C660040262B /* HistoryListNavigationItem.swift */,
-				81273DEE24F32FCA0040262B /* AnalyseView.swift */,
-				8100B6EE24F92B290046124A /* TweetsResults.storyboard */,
-				814B65772503D93A002B5960 /* CropImage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -919,7 +943,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = IsItReal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
@@ -927,7 +951,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.IsItReal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -941,7 +965,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = IsItReal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
@@ -949,7 +973,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.IsItReal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
