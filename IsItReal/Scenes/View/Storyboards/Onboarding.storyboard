@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d5J-YD-7nS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d5J-YD-7nS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2k-Sa-eia">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2k-Sa-eia">
                                 <rect key="frame" x="0.0" y="44" width="414" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwu-Uz-FLK">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="978"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="922.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnboardStep1" translatesAutoresizingMaskIntoConstraints="NO" id="OE1-7B-l8W">
                                                 <rect key="frame" x="87" y="89" width="240" height="128"/>
@@ -88,17 +89,8 @@ IsItReal in your twitter account.</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-ic-f4q">
-                                                <rect key="frame" x="25" y="819" width="353" height="53.5"/>
-                                                <string key="text">*The free license of this app is able to search 
-tweets in early 7 days, if you need an advanced search
-you should try isItReal Pro</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*The app will not post in your twitter account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtL-ep-aq0">
-                                                <rect key="frame" x="25" y="880.5" width="288" height="18"/>
+                                                <rect key="frame" x="25" y="825" width="288" height="18"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -106,24 +98,22 @@ you should try isItReal Pro</string>
                                         </subviews>
                                         <color key="backgroundColor" name="WhiteBackground"/>
                                         <constraints>
+                                            <constraint firstItem="JtL-ep-aq0" firstAttribute="top" secondItem="Bwn-Pk-rpm" secondAttribute="bottom" constant="14" id="1Nb-qY-kik"/>
                                             <constraint firstItem="nbT-ZG-Ud2" firstAttribute="top" secondItem="Tr2-wc-sEv" secondAttribute="bottom" constant="25" id="1qN-3G-W2h"/>
                                             <constraint firstItem="hMc-Pv-YrX" firstAttribute="leading" secondItem="Iwu-Uz-FLK" secondAttribute="leading" constant="25" id="Cil-lx-t4c"/>
                                             <constraint firstItem="Tr2-wc-sEv" firstAttribute="centerX" secondItem="ztn-gD-1WR" secondAttribute="centerX" id="DoG-Ba-rU3"/>
                                             <constraint firstItem="KiI-uA-I31" firstAttribute="centerX" secondItem="Iwu-Uz-FLK" secondAttribute="centerX" id="Jw1-w4-jHh"/>
-                                            <constraint firstItem="QfP-ic-f4q" firstAttribute="leading" secondItem="Bwn-Pk-rpm" secondAttribute="leading" id="Kot-2e-R5T"/>
                                             <constraint firstItem="WYv-XH-OxI" firstAttribute="centerX" secondItem="OE1-7B-l8W" secondAttribute="centerX" id="Kp7-It-3Mc"/>
-                                            <constraint firstItem="JtL-ep-aq0" firstAttribute="top" secondItem="QfP-ic-f4q" secondAttribute="bottom" constant="8" id="Nj5-lf-4I4"/>
                                             <constraint firstItem="hMc-Pv-YrX" firstAttribute="top" secondItem="nbT-ZG-Ud2" secondAttribute="bottom" constant="46" id="Okv-sp-pLt"/>
                                             <constraint firstItem="Bwn-Pk-rpm" firstAttribute="leading" secondItem="hMc-Pv-YrX" secondAttribute="leading" id="QIx-ED-A4F"/>
                                             <constraint firstItem="KiI-uA-I31" firstAttribute="top" secondItem="Iwu-Uz-FLK" secondAttribute="top" constant="36" id="UyT-hg-8I0"/>
                                             <constraint firstAttribute="bottom" secondItem="JtL-ep-aq0" secondAttribute="bottom" constant="79.5" id="VQe-tl-vSa"/>
-                                            <constraint firstItem="QfP-ic-f4q" firstAttribute="top" secondItem="Bwn-Pk-rpm" secondAttribute="bottom" constant="8" id="WDI-X8-8Xr"/>
                                             <constraint firstItem="OE1-7B-l8W" firstAttribute="centerX" secondItem="KiI-uA-I31" secondAttribute="centerX" id="XQg-31-82A"/>
                                             <constraint firstItem="nbT-ZG-Ud2" firstAttribute="centerX" secondItem="Tr2-wc-sEv" secondAttribute="centerX" id="ZBE-lS-Vfy"/>
                                             <constraint firstItem="03H-D4-wvs" firstAttribute="centerX" secondItem="WYv-XH-OxI" secondAttribute="centerX" id="aBf-1U-C5y"/>
                                             <constraint firstItem="OE1-7B-l8W" firstAttribute="top" secondItem="KiI-uA-I31" secondAttribute="bottom" constant="29" id="bqD-SV-MAd"/>
+                                            <constraint firstItem="JtL-ep-aq0" firstAttribute="leading" secondItem="Bwn-Pk-rpm" secondAttribute="leading" id="cS5-xO-9Xe"/>
                                             <constraint firstItem="WYv-XH-OxI" firstAttribute="top" secondItem="OE1-7B-l8W" secondAttribute="bottom" constant="8" id="dK5-EU-6s7"/>
-                                            <constraint firstItem="JtL-ep-aq0" firstAttribute="leading" secondItem="QfP-ic-f4q" secondAttribute="leading" id="hVA-m1-TRO"/>
                                             <constraint firstItem="Tr2-wc-sEv" firstAttribute="top" secondItem="ztn-gD-1WR" secondAttribute="bottom" constant="49.5" id="hha-kV-BFN"/>
                                             <constraint firstItem="ztn-gD-1WR" firstAttribute="centerX" secondItem="03H-D4-wvs" secondAttribute="centerX" id="jZy-ud-eQ5"/>
                                             <constraint firstItem="03H-D4-wvs" firstAttribute="top" secondItem="WYv-XH-OxI" secondAttribute="bottom" constant="20" id="mJS-Kq-FJm"/>
@@ -143,7 +133,7 @@ you should try isItReal Pro</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="AyX-8R-kXP"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="x2Z-b1-eRw"/>
                             </scrollView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMB-Pl-u6n">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMB-Pl-u6n">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="Mmt-xb-fHT">
@@ -156,6 +146,7 @@ you should try isItReal Pro</string>
                                 </items>
                             </navigationBar>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qkl-6P-3w0"/>
                         <color key="backgroundColor" name="WhiteBackground"/>
                         <constraints>
                             <constraint firstItem="y2k-Sa-eia" firstAttribute="bottom" secondItem="Qkl-6P-3w0" secondAttribute="bottom" id="0xS-Xc-9Kc"/>
@@ -166,7 +157,6 @@ you should try isItReal Pro</string>
                             <constraint firstItem="y2k-Sa-eia" firstAttribute="trailing" secondItem="Qkl-6P-3w0" secondAttribute="trailing" id="P6o-qz-4Gm"/>
                             <constraint firstItem="y2k-Sa-eia" firstAttribute="leading" secondItem="Qkl-6P-3w0" secondAttribute="leading" id="fyg-TX-G8N"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Qkl-6P-3w0"/>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
                 </viewController>
