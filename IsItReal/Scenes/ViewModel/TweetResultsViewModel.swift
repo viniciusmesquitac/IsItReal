@@ -10,17 +10,20 @@ import UIKit
 
 class TweetResultsViewModel: ListTweetViewModel {
     
+    var didFinishSaveTweet: ((_ index: IndexPath) -> Void)?
+    
     func saveTweet(tweet: TweetDetailsViewModel) {
         var tweet = tweet.tweet
         tweet.dateAnalyses = createAnalyseDate()
         _ = self.repository.add(object: tweet)
     }
     
-    func alertSaveConfirm(_ presentFrom: UIViewController, tweet: TweetDetailsViewModel) {
+    func alertSaveConfirm(_ presentFrom: UIViewController, tweet: TweetDetailsViewModel, indexPath: IndexPath) {
         let alert = UIAlertController(title: "Save tweet?", message: "Save tweet in history tweets", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
             self.saveTweet(tweet: tweet)
+            self.didFinishSaveTweet?(indexPath)
         }))
         presentFrom.present(alert, animated: true, completion: nil)
     }

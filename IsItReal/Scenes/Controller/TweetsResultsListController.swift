@@ -30,6 +30,15 @@ class TweetsResultsListController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        
+        viewModel.didFinishSaveTweet = { indexPath in
+            DispatchQueue.main.async {
+                self.tableView.beginUpdates()
+                self.viewModel.tweetsDetailsViewModel.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .right)
+                self.tableView.endUpdates()
+            }
+        }
     }
     
     @IBAction func didTapCancelButton(_ sender: Any) {
@@ -59,7 +68,7 @@ extension TweetsResultsListController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tweet = viewModel.getTweet(for: indexPath.item)!
-        viewModel.alertSaveConfirm(self, tweet: tweet)
+        viewModel.alertSaveConfirm(self, tweet: tweet, indexPath: indexPath)
     }
     
 }
