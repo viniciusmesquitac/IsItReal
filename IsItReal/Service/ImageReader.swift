@@ -92,7 +92,7 @@ class ImageReader {
         ]
         
         let result = remove(words: commomWords, from: text)
-        return result
+        return result ?? ""
     }
     
     private func extractScreenName(from text: String) -> String? {
@@ -124,8 +124,8 @@ class ImageReader {
         return user
     }
     
-    private func remove(words: [String], from text: String) -> String {
-        var result: String!
+    private func remove(words: [String], from text: String) -> String? {
+        var result: String?
         for word in words {
             if let index = text.index(of: word) {
                 result = String(text[..<index])

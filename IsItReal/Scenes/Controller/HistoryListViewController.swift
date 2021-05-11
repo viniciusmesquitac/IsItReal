@@ -83,10 +83,6 @@ class HistoryListViewController: UITableViewController {
         return cell ?? UITableViewCell()
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.setNeedsUpdateConstraints()
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard !tableView.isEditing else { return }
         coordinator?.showDetails(tweet: viewModel.getTweet(for: indexPath.item)!)

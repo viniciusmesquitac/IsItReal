@@ -31,10 +31,15 @@ class CustomCell: UITableViewCell {
     
     override func setNeedsUpdateConstraints() {
         if isEditing {
-            self.leadingFromCell.constant = 16 * 3.5
+            UIView.animate(withDuration: 0.3) {
+                self.leadingFromCell.constant *= 3.5
+                self.layoutIfNeeded()
+            }
         } else {
-            self.leadingFromCell.constant = 16
+            UIView.animate(withDuration: 0.3) {
+                self.leadingFromCell.constant = 16
+                self.layoutIfNeeded()
+            }
         }
-        
     }
 }
